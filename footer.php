@@ -1,7 +1,43 @@
  
  
- <footer style="background-color: #343a40; color:white">
-
+ <footer style="background-color: #343a40; color:white; padding:1%">
+   <div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <h6>Movies</h6>
+            <ul class="navbar-nav">
+                <li><a href="#" style="color:blanchedalmond;">Now Showing</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Coming Soon</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Bollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Hollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Kollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">See All</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h6>Movies</h6>
+            <ul class="navbar-nav">
+                <li><a href="#" style="color:blanchedalmond;">Now Showing</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Coming Soon</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Bollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Hollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Kollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">See All</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h6>Movies</h6>
+            <ul class="navbar-nav">
+                <li><a href="#" style="color:blanchedalmond;">Now Showing</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Coming Soon</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Bollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Hollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">Kollywood</a></li>
+                <li><a href="#" style="color:blanchedalmond;">See All</a></li>
+            </ul>
+        </div>
+    </div>
+   </div>
  </footer>
  
  
