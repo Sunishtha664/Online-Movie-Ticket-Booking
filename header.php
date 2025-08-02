@@ -12,7 +12,7 @@
   <body>
       
    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #343a40;">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="index.php">
         <img src="Images\Clapperboard.jpeg" alt="Logo" style="height: 40px;">
     </a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item ">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
             </li>
             
             <li class="nav-item dropdown">
