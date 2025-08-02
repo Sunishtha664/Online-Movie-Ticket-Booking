@@ -1,6 +1,8 @@
  
  
- 
+ <footer style="background-color: #343a40; color:white">
+
+ </footer>
  
  
  <!-- Optional JavaScript -->
