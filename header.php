@@ -43,11 +43,11 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
+            <li class="nav-item">   <!-- Register Button trigger modal -->
+                <a class="nav-link"data-toggle="modal" data-target="#modelId">Register</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+            <li class="nav-item"><!-- Login Button trigger modal -->
+                <a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a>
             </li>
         </ul>
       <!-- <form class="form-inline my-2 my-lg-0">
@@ -56,3 +56,50 @@
         </form> -->
     </div>
    </nav>
+
+   <!-- Register Modal -->
+   <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:darkcyan; color:black">
+                <h5 class="modal-title">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn " style="background-color:darkcyan; color:white">Save</button>
+            </div>
+        </div>
+    </div>
+   </div>
+
+   <!-- Button trigger modal -->
+   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+     Launch
+   </button>
+   
+   <!-- Modal -->
+   <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+   </div>
