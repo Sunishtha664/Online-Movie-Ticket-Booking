@@ -170,7 +170,7 @@
 
 
                         <div class="container signin">
-                            <p>Already have an account? <a href="#" style="color: gray;">Sign In</a>.</p>
+                            <p>Already have an account? <a data-toggle="modal" data-target="#modelId1" data-dismiss="modal" style="color: gray;">Log In</a>.</p>
                         </div>
                     </form>
 
@@ -190,18 +190,43 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background-color:darkcyan; color:black">
-                    <h5 class="modal-title">Login</h5>
+                    <!-- <h5 class="modal-title">Login</h5> -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Body
+                    <form action="">
+                        <div class="container" style="color: #343a40;">
+                            <center>
+                                <h1>LogIn</h1>
+                            </center>
+                            <hr>
+
+                            <label for="email"><b>Email</b></label>
+                            <input type="email" style="border: radius 30px;" placeholder="Enter Email" name="email" id="email" required>
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" style="border: radius 30px;" placeholder="Enter Password" name="psw" id="psw" required>
+
+                            <button type="submit" class="btn" style="background-color:darkcyan; color:white">Login</button>
+                        </div>
+                        <div class="container signin">
+                            <p>Don't have an account? <a data-toggle="modal" data-target="#modelId" data-dismiss="modal" style="color: gray;">Sign Up</a>.</p>
+                        </div>
+                    </form>
+
+
+
+
+
+
+
+
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn" style="background-color:darkcyan; color:white">Login</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
