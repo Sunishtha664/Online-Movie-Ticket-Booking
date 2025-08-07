@@ -88,7 +88,7 @@
                 <input type="password" style="border: radius 30px;" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
                 <label for="number"><b>Number</b></label>
                 <input type="tel" style="border: radius 30px;" placeholder="Enter Number" name="number" id="number" required>
-                
+                 <button type="submit" class="btn " style="background-color:darkcyan; color:white">Register</button>
                 <hr>
                 </div>
 
@@ -102,7 +102,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn " style="background-color:darkcyan; color:white">Register</button>
+    
             </div>
         </div>
     </div>
