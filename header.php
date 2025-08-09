@@ -112,6 +112,9 @@
                     <a class="nav-link" href="#">Offers</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#">Book Ticket</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
