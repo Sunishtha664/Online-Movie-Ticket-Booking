@@ -15,10 +15,13 @@ include("header.php");
                 <p>We'd love to talk about how we can work together. Send us a message below and we'll respond as soon as possible</p>
             </center>
         </div>
-        <div class="row">
-                <div class="col-md-6 mt-5 mb-5" style="border-radius: 30px; background-color:#343a40; color: white; padding: 20px;">
-                    <h2 class="mt-5 pl-5" style="color: white;">Contact Information</h2>
-                    <p class="mt-1 pl-5">Our Team will get back to you within 24 hours</p>
+        <div class="row" style="color: white;">
+                <div class="col-md-6 mt-5 mb-5 pl-5" style="border-radius: 30px; background-color:#343a40;">
+                    <h2 class="mt-5" style="color: white;">Contact Information</h2>
+                    <p class="mt-1">Our Team will get back to you within 24 hours</p>
+
+                    <p class="mt-3"><i class="fa fa-phone fa-2x mt-3"> </i>&nbsp;01-4316254</p>
+                    <p class="mt-3"><i class="fa fa-envelope fa-2x mt-3"> </i>&nbsp;01-4316254</p>
 
                 </div>
             <div class="col-md-6">
