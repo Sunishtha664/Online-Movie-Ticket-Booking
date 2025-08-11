@@ -16,8 +16,9 @@ include("header.php");
             </center>
         </div>
         <div class="row">
-                <div class="col-md-6 mt-5" style="border-radius: 30px; background-color:#343a40;">
-                    <h2 class="mt-5">Contact Information</h2>
+                <div class="col-md-6 mt-5 mb-5" style="border-radius: 30px; background-color:#343a40; color: white; padding: 20px;">
+                    <h2 class="mt-5 pl-5" style="color: white;">Contact Information</h2>
+                    <p class="mt-1 pl-5">Our Team will get back to you within 24 hours</p>
 
                 </div>
             <div class="col-md-6">
