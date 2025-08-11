@@ -25,11 +25,13 @@ include("header.php");
                     <p class="mt-3"><i class="fa fa-map-marker fa-2x mt-3"> </i>&nbsp; movieticket@live.com</p>
 
                     <h2 class="mt-5">Join Us</h2>
-                    <a href="#" class="mt-5 mb-5" style="color: white;"><i class="fa fa-facebook-square fa-2x mt-3"></i></a>
-                    <a href="#" class="mt-5 ml-3 mb-5" style="color: white;"><i class="fa fa-twitter-square fa-2x mt-3"></i></a>
-                    <a href="#" class="mt-5 ml-3 mb-5" style="color: white;"><i class="fa fa-instagram fa-2x mt-3"></i></a>
-                    <a href="#" class="mt-5 ml-3 mb-5" style="color: white;"><i class="fa fa-linkedin-square fa-2x mt-3"></i></a>
+                    <div class="md-5">
+                        <a href="#" class="mt-5 " style="color: white;"><i class="fa fa-facebook-square fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3 " style="color: white;"><i class="fa fa-twitter-square fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3 " style="color: white;"><i class="fa fa-instagram fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3 " style="color: white;"><i class="fa fa-linkedin-square fa-2x mt-3"></i></a>
                 </div>
+                    </div>
             <div class="col-md-6">
                 <form method="post">
                     <div class="container" style="color:#343a40">
