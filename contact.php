@@ -7,8 +7,8 @@ include("header.php");
 
 
 <section style="min-height: 450px;">
-    <div class="container" style="">
-        <div class="row"  style="margin-top: 20px; text-align: center; color: #343a40;">
+    <div class="container">
+        <div class=" col-md-12"  style="margin-top: 20px; text-align: center; color: #343a40;">
             <center>
                 <h1>Contact Us</h1>
                 <h5>GET IN TOUCH</h5>
@@ -16,6 +16,10 @@ include("header.php");
             </center>
         </div>
         <div class="row">
+                <div class="col-md-6 mt-5" style="border-radius: 30px; background-color:#343a40;">
+                    <h2 class="mt-5">Contact Information</h2>
+
+                </div>
             <div class="col-md-6">
                 <form method="post">
                     <div class="container" style="color:#343a40">
@@ -43,7 +47,7 @@ include("header.php");
 
                 </form>
             </div>
-            <div class="col-md-6"></div>
+        
         </div>
     </div>
 </section>
