@@ -17,12 +17,18 @@ include("header.php");
         </div>
         <div class="row" style="color: white;">
                 <div class="col-md-6 mt-5 mb-5 pl-5" style="border-radius: 30px; background-color:#343a40;">
-                    <h2 class="mt-5" style="color: white;">Contact Information</h2>
+                    <h2 class="mt-5" >Contact Information</h2>
                     <p class="mt-1">Our Team will get back to you within 24 hours</p>
 
-                    <p class="mt-3"><i class="fa fa-phone fa-2x mt-3"> </i>&nbsp;01-4316254</p>
-                    <p class="mt-3"><i class="fa fa-envelope fa-2x mt-3"> </i>&nbsp;01-4316254</p>
+                    <p class="mt-5"><i class="fa fa-phone fa-2x mt-3"> </i>&nbsp;01-4316254</p>
+                    <p class="mt-3"><i class="fa fa-envelope fa-2x mt-3"> </i>&nbsp; movieticket@live.com</p>
+                    <p class="mt-3"><i class="fa fa-map-marker fa-2x mt-3"> </i>&nbsp; movieticket@live.com</p>
 
+                    <h2 class="mt-5">Join Us</h2>
+                    <a href="#" class="mt-5 " style="color: white;"><i class="fa fa-facebook-square fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3" style="color: white;"><i class="fa fa-twitter-square fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3" style="color: white;"><i class="fa fa-instagram fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3" style="color: white;"><i class="fa fa-linkedin-square fa-2x mt-3"></i></a>
                 </div>
             <div class="col-md-6">
                 <form method="post">
