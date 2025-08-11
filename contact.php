@@ -15,7 +15,7 @@ include("header.php");
                         <center>
                             <h1>Contact Us</h1>
                             <h5>GET IN TOUCH</h5>
-                            <p>We'd love to talk abouthow we can work together. Send us a message below and</p>
+                            <p>We'd love to talk about how we can work together.<br> Send us a message below and we'll respond as soon as possible</p>
                         </center>
 
                         <hr>
@@ -35,9 +35,7 @@ include("header.php");
                     </div>
 
 
-                    <div class="container signin">
-                        <p>Already have an account? <a data-toggle="modal" data-target="#modelId1" data-dismiss="modal" style="color: gray;">Log In</a>.</p>
-                    </div>
+                
                 </form>
             </div>
             <div class="col-md-6"></div>
