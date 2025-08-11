@@ -25,10 +25,10 @@ include("header.php");
                     <p class="mt-3"><i class="fa fa-map-marker fa-2x mt-3"> </i>&nbsp; movieticket@live.com</p>
 
                     <h2 class="mt-5">Join Us</h2>
-                    <a href="#" class="mt-5 " style="color: white;"><i class="fa fa-facebook-square fa-2x mt-3"></i></a>
-                    <a href="#" class="mt-5 ml-3" style="color: white;"><i class="fa fa-twitter-square fa-2x mt-3"></i></a>
-                    <a href="#" class="mt-5 ml-3" style="color: white;"><i class="fa fa-instagram fa-2x mt-3"></i></a>
-                    <a href="#" class="mt-5 ml-3" style="color: white;"><i class="fa fa-linkedin-square fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 mb-5" style="color: white;"><i class="fa fa-facebook-square fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3 mb-5" style="color: white;"><i class="fa fa-twitter-square fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3 mb-5" style="color: white;"><i class="fa fa-instagram fa-2x mt-3"></i></a>
+                    <a href="#" class="mt-5 ml-3 mb-5" style="color: white;"><i class="fa fa-linkedin-square fa-2x mt-3"></i></a>
                 </div>
             <div class="col-md-6">
                 <form method="post">
@@ -47,7 +47,7 @@ include("header.php");
                         <input type="tel" style="border: radius 30px;" placeholder="Enter Number" name="number" id="number" required>
 
                         <label for="message"><b>Message</b></label>
-                        <textarea name="message" id="message" rows="10" style="resize:none"></textarea>
+                        <textarea name="message" id="message" rows="6" style="resize:none"></textarea>
                         <button type="submit" class="btn " style="background-color:darkcyan; color:white">Send Message</button>
 
                         <hr>
