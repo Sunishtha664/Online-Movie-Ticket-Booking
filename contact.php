@@ -20,17 +20,20 @@ include("header.php");
 
                         <hr>
 
-                        <label for="username"><b>Username</b></label>
-                        <input type="text" style="border: radius 30px;" placeholder="Enter Username" name="username" id="username" required>
+                        <label for="username"><b>Your Name</b></label>
+                        <input type="text" style="border: radius 30px;" placeholder="Enter Name" name="name" id="username" required>
+                       
                         <label for="email"><b>Email</b></label>
                         <input type="email" style="border: radius 30px;" placeholder="Enter Email" name="email" id="email" required>
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" style="border: radius 30px;" placeholder="Enter Password" name="psw" id="psw" required>
-                        <label for="psw-repeat"><b>Repeat Password</b></label>
-                        <input type="password" style="border: radius 30px;" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                        
+                        
                         <label for="number"><b>Number</b></label>
                         <input type="tel" style="border: radius 30px;" placeholder="Enter Number" name="number" id="number" required>
-                        <button type="submit" class="btn " style="background-color:darkcyan; color:white">Register</button>
+                        
+                        <label for="message"><b>Message</b></label>
+                        <textarea name="message" id="message" rows="10" style="resize:none"></textarea>
+                        <button type="submit" class="btn " style="background-color:darkcyan; color:white">Send Message</button>
+                        
                         <hr>
                     </div>
 
