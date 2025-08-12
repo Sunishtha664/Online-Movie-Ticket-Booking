@@ -9,7 +9,14 @@ class connec{
     public $conn;
     function __construct()
     {
-        $this->conn = new mysqli($username, $password, $server_name, $db_name);
+        $this->conn = new mysqli($this->server_name, $this->username, $this->password, $this->db_name);
+        if($this->conn->connect_error){
+            die("Connection failed");
+        }
+        
+    }
+
+    function select_data(){
         
     }
 }
