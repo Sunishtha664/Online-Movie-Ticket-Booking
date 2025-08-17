@@ -1,5 +1,16 @@
 <?php
 include("header.php");
+include("conn.php");
+if(isset($_POST['btn_submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $no = $_POST['number'];
+    $messg = $_POST['message'];
+
+
+
+   
+}
 ?>
 
 
@@ -50,7 +61,7 @@ include("header.php");
 
                         <label for="message"><b>Message</b></label>
                         <textarea name="message" id="message" rows="6" style="resize:none"></textarea>
-                        <button type="submit" class="btn " style="background-color:darkcyan; color:white">Send Message</button>
+                        <button type="submit" name="btn_submit" class="btn " style="background-color:darkcyan; color:white">Send Message</button>
 
                         <hr>
                     </div>
