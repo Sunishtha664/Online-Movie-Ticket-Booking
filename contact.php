@@ -11,7 +11,7 @@ if(isset($_POST['btn_submit'])){
     $sql="insert into contact values(0,'$name','$email','$no','$messg',now())";
     $conn = new connec();
 
-    $conn->insert($sql);
+    $conn->insert($sql,"Contact information submitted successfully!");
 
    
 }
