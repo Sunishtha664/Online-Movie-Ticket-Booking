@@ -8,6 +8,10 @@ if(isset($_POST['btn_submit'])){
     $messg = $_POST['message'];
 
 
+    $sql="insert into contact values(0,'$name','$email','$no','$messg')";
+    $conn = new connec();
+
+    $conn->insert($sql,"Contact information submitted successfully!");
 
    
 }
