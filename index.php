@@ -31,13 +31,8 @@ $data = $conn->select_all('slider');
 
     </ol> -->
         <div class="carousel-inner" role="listbox">
-            <?php
-            if ($data->num_rows > 0) {
-                while ($row = $data->fetch_assoc()) {
-                }
-            }
-            ?>
-            <!-- <div class="carousel-item active">
+            
+             <div class="carousel-item active">
             <img src="Images/banner1.jpeg" alt="First slide" style="width: 100%; height: 500px;">
         </div>
         <div class="carousel-item">
@@ -48,7 +43,8 @@ $data = $conn->select_all('slider');
         </div>
            <div class="carousel-item">
             <img src="Images/banner4.jpeg" alt="Fourth slide" style="width: 100%; height: 500px;">
-        </div> -->
+        </div>
+         
         </div>
         <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
