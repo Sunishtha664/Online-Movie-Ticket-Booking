@@ -1,6 +1,9 @@
 <?php
 include("header.php");
 include("conn.php");
+
+$conn = new connec();
+$data = $conn->select_all('slider');
 ?>
 
 <section style="min-height: 450px;">
