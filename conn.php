@@ -48,7 +48,7 @@ class connec
     { 
         if($this->conn->query($query)===TRUE)
         {
-             echo '<script> alert("'.$msg.'");</script>' ;
+             echo '<script> alert("We Will Contact You Soon on Your Email");</script>' ;
         }
         else
         {
