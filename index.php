@@ -8,14 +8,32 @@ $data = $conn->select_all('slider');
 
 <section style="min-height: 450px;">
 <div id="carouselId" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
+    <?php
+    if($data->num_rows>0){
+        $i=0;
+        echo '<ol class="carousel-indicators">';
+        while($row = $data->fetch_assoc()){
+            if($i==0){
+                echo '<li data-target="#carouselId" data-slide-to="'.$i.'" class="active"></li>';
+            }
+            else{
+                echo '<li data-target="#carouselId" data-slide-to="'.$i.'"></li>';
+            }
+            $i++;
+        }
+        echo '</ol>';
+    }    
+    ?>
+    <!-- <ol class="carousel-indicators">
         <li data-target="#carouselId" data-slide-to="0" class="active"></li>
         <li data-target="#carouselId" data-slide-to="1"></li>
         <li data-target="#carouselId" data-slide-to="2"></li>
                 <li data-target="#carouselId" data-slide-to="3"></li>
 
-    </ol>
+    </ol> -->
     <div class="carousel-inner" role="listbox">
+    <?php
+    ?>
         <div class="carousel-item active">
             <img src="Images/banner1.jpeg" alt="First slide" style="width: 100%; height: 500px;">
         </div>
