@@ -3,8 +3,8 @@ include("header.php");
 include("conn.php");
 ?>
 
-<section class="">
-    <h5>Comming soon</h5>
+<section class="mt-5 ">
+    <h5 class="text-center">Comming soon</h5>
 </section>
 <?php
 include("footer.php");
