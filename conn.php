@@ -93,4 +93,3 @@ class connec
     }
 }
 ?>
-hello
