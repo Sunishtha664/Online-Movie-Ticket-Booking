@@ -22,6 +22,9 @@ $result = $conn->select_all($tbl);
 
                     $lang = $conn->select("language",$row["lang_id"]);
                     $langrow = $lang->fetch_assoc();
+
+                     $gen = $conn->select("genre",$row["genre_id"]);
+                    $genrow = $gen->fetch_assoc();
             ?>
                     <div class="col-md-3">
                         <img src="" alt="" style="width: 100%; height: 250px;"/>
@@ -29,7 +32,7 @@ $result = $conn->select_all($tbl);
                         <p><b>Release Date: </b><?php echo $row["rel_date"];?></p>
                         <p><b>Industry: </b><?php echo $indrow["industry_name"];?></p>
                         <p><b>Language: </b><?php echo $langrow["lang_name"];?></p>
-                        <p><b>Genre:</b><?php echo $row["genre_id"];?></p>
+                        <p><b>Genre: </b><?php echo $genrow["genre_name"];?></p>
                     </div>
             <?php
 
