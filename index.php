@@ -43,26 +43,23 @@ $result1 = $conn->select_all($tbl);
                 while ($row1 = $result1->fetch_assoc()) {
 
                     if ($j == 0) {
-                        ?>
-                            <div class="carousel-item active">
-                                <img src="<?php echo $row1["img_path"]; ?>" alt="<?php echo $row1["alt"]; ?>" style="width: 100%; height: 500px;">
-                            </div>
-                        <?php
-                    } 
-                    else {
-                        ?>
-                            <div class="carousel-item">
-                                <img src="<?php echo $row1["img_path"]; ?>" alt="<?php echo $row1["alt"]; ?>" style="width: 100%; height: 500px;">
-                            </div>
-                        <?php
+            ?>
+                        <div class="carousel-item active">
+                            <img src="<?php echo $row1["img_path"]; ?>" alt="<?php echo $row1["alt"]; ?>" style="width: 100%; height: 500px;">
+                        </div>
+                    <?php
+                    } else {
+                    ?>
+                        <div class="carousel-item">
+                            <img src="<?php echo $row1["img_path"]; ?>" alt="<?php echo $row1["alt"]; ?>" style="width: 100%; height: 500px;">
+                        </div>
+            <?php
                     }
-                       $j++;
+                    $j++;
                 }
-             
-                
             }
-                ?>
-                <!-- 
+            ?>
+            <!-- 
              <div class="carousel-item active">
             <img src="Images/banner1.jpeg" alt="First slide" style="width: 100%; height: 500px;">
         </div>
@@ -76,16 +73,16 @@ $result1 = $conn->select_all($tbl);
             <img src="Images/banner4.jpeg" alt="Fourth slide" style="width: 100%; height: 500px;">
         </div>
          -->
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
         </div>
+        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 
 
 
