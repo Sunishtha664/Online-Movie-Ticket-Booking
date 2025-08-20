@@ -9,7 +9,9 @@ include("conn.php");
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-
+            <img src="" alt="">
+            <h6>Movie Name</h6>
+            <p>Release Date:</p>
             </div>
         </div>
     </div>
