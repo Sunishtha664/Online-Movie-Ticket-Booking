@@ -27,6 +27,14 @@ class connec
         return $result;
     }
 
+     function select_movie($table_name)
+    {      
+        $sql = "SELECT * FROM $table_name where rel_date > now()";
+        $result=$this->conn->query($sql);
+       
+        
+        return $result;
+    }
 
     function select_by_query($query)
     {
