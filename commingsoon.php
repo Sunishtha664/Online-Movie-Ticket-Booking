@@ -4,7 +4,7 @@ include("conn.php");
 
 $conn = new connec();
 $tbl = "movie";
-$result = $conn->select_movie($tbl);
+$result = $conn->select_movie($tbl,"now()");
 
 ?>
 
