@@ -114,7 +114,7 @@
                     <a class="nav-link" href="#">Offers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Book Ticket</a>
+                    <a class="nav-link" href="booking.php">Book Ticket</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
