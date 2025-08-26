@@ -33,7 +33,7 @@ $result = $conn->select_movie($tbl, "now()");
                         <p><b>Industry: </b><?php echo $indrow["industry_name"]; ?></p>
                         <p><b>Language: </b><?php echo $langrow["lang_name"]; ?></p>
                         <p><b>Genre: </b><?php echo $genrow["genre_name"]; ?></p>
-                        <a class="btn" href="#">Book Ticket</a>
+                        <a class="btn" style="background-color:darkcyan; color:white" href="#">Book Ticket</a>
                     </div>
             <?php
 

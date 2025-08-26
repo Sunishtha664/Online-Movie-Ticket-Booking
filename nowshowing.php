@@ -4,7 +4,10 @@ include("conn.php");
 
 $conn = new connec();
 $tbl = "movie";
-$result = $conn->select_movie($tbl, "now()");
+$result = $conn->select_by_query("SELECT * FROM movie 
+    WHERE rel_date <= CURDATE() 
+      AND DATE_ADD(rel_date, INTERVAL 1 MONTH) > CURDATE()
+    ORDER BY rel_date DESC ");
 
 ?>
 
@@ -33,7 +36,7 @@ $result = $conn->select_movie($tbl, "now()");
                         <p><b>Industry: </b><?php echo $indrow["industry_name"]; ?></p>
                         <p><b>Language: </b><?php echo $langrow["lang_name"]; ?></p>
                         <p><b>Genre: </b><?php echo $genrow["genre_name"]; ?></p>
-                        <a class="btn" href="#">Book Ticket</a>
+                        <a class="btn" style="background-color:darkcyan; color:white" href="#">Book Ticket</a>
                     </div>
             <?php
 
