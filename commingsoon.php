@@ -9,7 +9,7 @@ $result = $conn->select_movie($tbl, "now()");
 ?>
 
 <section class="mt-5 ">
-    <h5 class="text-center">Comming soon</h5>
+    <h3 class="text-center" style="color:darkcyan;">Comming soon</h3>
 
     <div class="container">
         <div class="row">
@@ -27,13 +27,13 @@ $result = $conn->select_movie($tbl, "now()");
                     $genrow = $gen->fetch_assoc();
             ?>
                     <div class="col-md-3">
-                        <img src="<?php echo $row["movie_banner"];?>" style="width: 100%; height: 250px;" />
+                        <img src="<?php echo $row["movie_banner"];?>" style="width: 100%; height: 300px;" />
                         <h6 class="text-center mt-2" style="height: 40px;"><?php echo $row["name"]; ?></h6>
                         <p><b>Release Date: </b><?php echo $row["rel_date"]; ?></p>
                         <p><b>Industry: </b><?php echo $indrow["industry_name"]; ?></p>
                         <p><b>Language: </b><?php echo $langrow["lang_name"]; ?></p>
                         <p><b>Genre: </b><?php echo $genrow["genre_name"]; ?></p>
-                        <a class="btn" style="background-color:darkcyan; color:white" href="#">Book Ticket</a>
+                        <a class="btn" style="background-color:darkcyan; color:white; width:100%" href="#">Book Ticket</a>
                     </div>
             <?php
 
