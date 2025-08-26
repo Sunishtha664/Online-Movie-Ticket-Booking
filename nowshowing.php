@@ -30,7 +30,7 @@ $result = $conn->select_by_query("SELECT * FROM movie
                     $genrow = $gen->fetch_assoc();
             ?>
                     <div class="col-md-3">
-                        <img src="<?php echo $row["movie_banner"];?>" style="width: 100%; height: 300px;" />
+                        <img src="<?php echo $row["movie_banner"]; ?>" style="width: 100%; height: 300px;" />
                         <h6 class="text-center mt-2" style="height: 40px;"><?php echo $row["name"]; ?></h6>
                         <p><b>Release Date: </b><?php echo $row["rel_date"]; ?></p>
                         <p><b>Industry: </b><?php echo $indrow["industry_name"]; ?></p>
