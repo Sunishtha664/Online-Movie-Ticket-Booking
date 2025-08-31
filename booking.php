@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-heellokefwe
+
 ?>
 
 <section class="mt-5 ">
