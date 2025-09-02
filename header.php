@@ -111,13 +111,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Offers</a>
+                    <a class="nav-link" href="offer.php">Offers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="booking.php">Book Ticket</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="about.php">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
