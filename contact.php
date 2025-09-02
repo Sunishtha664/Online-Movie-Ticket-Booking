@@ -78,7 +78,6 @@ if (isset($_POST['btn_submit'])) {
 </section>
 
 
-
 <?php
 include("footer.php");
 ?>
