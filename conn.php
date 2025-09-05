@@ -28,8 +28,15 @@ class connec
 
     function select_movie($table_name, $date)
     {
-        $sql = "SELECT * FROM $table_name where rel_date > $date";
+        if($date=="comingsoon"){
+         $sql = "SELECT * FROM $table_name where rel_date > row";
         $result = $this->conn->query($sql);
+        return $result;
+        }
+       else{
+        $sql = "SELECT * FROM $table_name where rel_date <= CURDATE() AND DATE_ADD(rel_date, INTERVAL 1 MONTH) > CURDATE() ORDER BY rel_date DESC";
+        $result = $this->conn->query($sql);
+       }
 
 
         return $result;

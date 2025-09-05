@@ -9,7 +9,7 @@ $result = $conn->select_movie($tbl, "now()");
 ?>
 
 <section class="mt-5 ">
-    <h3 class="text-center" style="color:darkcyan;">Comming soon</h3>
+    <h3 class="text-center" style="color:darkcyan;">Coming soon</h3>
 
     <div class="container">
         <div class="row">
