@@ -1,9 +1,8 @@
 <?php
-session_start();
-if(isset($_POST["btn_login"])){
-    $_SESSION["username"]=$_POST["email"];
 
-
+if (isset($_POST["btn_login"])) {
+    session_start();
+    $_SESSION["username"] = $_POST["email"];
 }
 ?>
 
@@ -17,7 +16,7 @@ if(isset($_POST["btn_login"])){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="icon" href="Images\Clapperboard.jpeg">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -177,16 +176,16 @@ if(isset($_POST["btn_login"])){
                             <hr>
 
                             <label for="username"><b>Username</b></label>
-                            <input type="text" style="border: radius 30px;" placeholder="Enter Username" name="username" id="username" required>
+                            <input type="text" style="border-radius: 30px;" placeholder="Enter Username" name="username" id="username" required>
                             <label for="email"><b>Email</b></label>
-                            <input type="email" style="border: radius 30px;" placeholder="Enter Email" name="reg_email" id="email" required>
+                            <input type="email" style="border-radius: 30px;" placeholder="Enter Email" name="reg_email" id="email" required>
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" style="border: radius 30px;" placeholder="Enter Password" name="psw" id="psw" required>
+                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="re_psw" id="psw" required>
                             <label for="psw-repeat"><b>Repeat Password</b></label>
-                            <input type="password" style="border: radius 30px;" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                            <input type="password" style="border-radius: 30px;" placeholder="Repeat Password" name="psw_repeat" id="psw-repeat" required>
                             <label for="number"><b>Number</b></label>
-                            <input type="tel" style="border: radius 30px;" placeholder="Enter Number" name="number" id="number" required>
-                            <button type="submit" class="btn " style="background-color:darkcyan; color:white">Register</button>
+                            <input type="tel" style="border-radius: 30px;" placeholder="Enter Number" name="number_txt" id="number" required>
+                            <button type="submit" class="btn " name="btn_reg" style="background-color:darkcyan; color:white">Register</button>
                             <hr>
                         </div>
 
@@ -218,7 +217,7 @@ if(isset($_POST["btn_login"])){
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" method="post">
                         <div class="container" style="color: #343a40;">
                             <center>
                                 <h1>LogIn</h1>
@@ -226,11 +225,11 @@ if(isset($_POST["btn_login"])){
                             <hr>
 
                             <label for="email"><b>Email</b></label>
-                            <input type="email" style="border: radius 30px;" placeholder="Enter Email" name="email" id="email" required>
+                            <input type="email" style="border-radius: 30px;" placeholder="Enter Email" name="email" id="email" required>
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" style="border: radius 30px;" placeholder="Enter Password" name="psw" id="psw" required>
+                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="psw" id="psw" required>
 
-                            <button type="submit" name="btn_login"class="btn" style="background-color:darkcyan; color:white">Login</button>
+                            <button type="submit" name="btn_login" class="btn" style="background-color:darkcyan; color:white">Login</button>
                         </div>
                         <div class="container signin">
                             <p>Don't have an account? <a data-toggle="modal" data-target="#modelId" data-dismiss="modal" style="color: gray;">Sign Up</a>.</p>
