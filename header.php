@@ -1,8 +1,17 @@
 <?php
-
+$ul = '<li class="nav-item"> <a class="nav-link" data-toggle="modal" data-target="#modelId">Register</a></li>
+    <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a> </li>';
 if (isset($_POST["btn_login"])) {
     session_start();
     $_SESSION["username"] = $_POST["email"];
+
+    $ul = '<li class="nav-item"><a class="nav-link" href="index.php?action=logout">Logout</a></li>';
+}
+
+if (isset($_GET["action"])) {
+    if ($_GET["action"] == "logout") {
+        $_SESSION["username"] = null;
+    }
 }
 ?>
 
@@ -140,13 +149,17 @@ if (isset($_POST["btn_login"])) {
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item"> <!-- Register Button trigger modal -->
+                <?php echo $ul; ?>
+                <!-- <li class="nav-item">  Register Button trigger modal 
                     <a class="nav-link" data-toggle="modal" data-target="#modelId">Register</a>
                 </li>
-                <li class="nav-item"><!-- Login Button trigger modal -->
+                <li class="nav-item">Login Button trigger modal 
                     <a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a>
-                </li>
+                </li> -->
             </ul>
+
+
+
             <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
