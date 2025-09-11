@@ -7,10 +7,11 @@ include("header.php");
     <h3 class="text-center" style="color:darkcyan;">Book Your Ticket Now</h3>
 
     <form action="" method="post" class="mt-5">
-        <div class="container" style="color:darkcyan;" >
+        <div class="container" style="color:darkcyan;">
             <center>
                 <p style="color: black;">Please fill this form to book your ticket</p>
-            </center><hr>
+            </center>
+            <hr>
             <label for="username"><b>Username</b></label>
             <input type="text" style="border: radius 30px;" placeholder="Enter Username" name="username" id="username" required>
 
@@ -26,7 +27,11 @@ include("header.php");
             <label for="number"><b>Number</b></label>
             <input type="text" style="border: radius 30px;" placeholder="Enter Number" name="number" id="number" required>
 
-            <button type="submit" class="btn" style="background-color:darkcyan; color: white;"></button>
+            <button type="submit" class="btn" style="background-color:darkcyan; color: white;">Register</button>
+
+            <div class="container signin">
+                <p>Already have an account? <a data-toggle="modal" data-target="#modelId1" data-dismiss="modal" style="color: gray;">Log In</a>.</p>
+            </div>
         </div>
     </form>
 
