@@ -9,6 +9,12 @@ $result1 = $conn->select_all($tbl);
 
 ?>
 
+  <script>
+        $(document).ready(function(){
+            $("#modelId1").modal('show');
+        });
+    </script>
+
 <section style="min-height: 450px;">
     <div id="carouselId" class="carousel slide" data-ride="carousel">
         <?php

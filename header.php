@@ -86,9 +86,11 @@
             text-align: center;
         }
     </style>
-    <script>
-        $(document).ready();
-    </script>
+    <!-- <script>
+         $(document).ready(function(){
+            $("#modelId1").modal('show');
+        });
+    </script> -->
 
 </head>
 
