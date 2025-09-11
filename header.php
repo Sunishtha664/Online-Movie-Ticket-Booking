@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_POST["btn_login"])){
+    $_SESSION["username"]=$_POST["email"];
+
+
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -169,7 +179,7 @@
                             <label for="username"><b>Username</b></label>
                             <input type="text" style="border: radius 30px;" placeholder="Enter Username" name="username" id="username" required>
                             <label for="email"><b>Email</b></label>
-                            <input type="email" style="border: radius 30px;" placeholder="Enter Email" name="email" id="email" required>
+                            <input type="email" style="border: radius 30px;" placeholder="Enter Email" name="reg_email" id="email" required>
                             <label for="psw"><b>Password</b></label>
                             <input type="password" style="border: radius 30px;" placeholder="Enter Password" name="psw" id="psw" required>
                             <label for="psw-repeat"><b>Repeat Password</b></label>
@@ -220,7 +230,7 @@
                             <label for="psw"><b>Password</b></label>
                             <input type="password" style="border: radius 30px;" placeholder="Enter Password" name="psw" id="psw" required>
 
-                            <button type="submit" class="btn" style="background-color:darkcyan; color:white">Login</button>
+                            <button type="submit" name="btn_login"class="btn" style="background-color:darkcyan; color:white">Login</button>
                         </div>
                         <div class="container signin">
                             <p>Don't have an account? <a data-toggle="modal" data-target="#modelId" data-dismiss="modal" style="color: gray;">Sign Up</a>.</p>
