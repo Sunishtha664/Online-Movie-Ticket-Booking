@@ -4,11 +4,9 @@ session_start();
 if(empty($_SESSION["username"]))
 {
     header("Location: index.php");
+    exit();
 }
-else{
 include("header.php");
-}
-
 ?>
 
 <section class="mt-5 ">
@@ -21,19 +19,19 @@ include("header.php");
             </center>
             <hr>
             <label for="username"><b>Username</b></label>
-            <input type="text" style="border: radius 30px;" placeholder="Enter Username" name="username" id="username" required>
+            <input type="text" style="border-radius: 30px;" placeholder="Enter Username" name="username" id="username" required>
 
             <label for="email"><b>Email</b></label>
-            <input type="text" style="border: radius 30px;" placeholder="Enter Email" name="email" id="email" required>
+            <input type="text" style="border-radius: 30px;" placeholder="Enter Email" name="email" id="email" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="text" style="border: radius 30px;" placeholder="Enter Password" name="psw" id="psw" required>
+            <input type="text" style="border-radius: 30px;" placeholder="Enter Password" name="psw" id="psw" required>
 
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="text" style="border: radius 30px;" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+            <input type="text" style="border-radius: 30px;" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
 
             <label for="number"><b>Number</b></label>
-            <input type="text" style="border: radius 30px;" placeholder="Enter Number" name="number" id="number" required>
+            <input type="text" style="border-radius: 30px;" placeholder="Enter Number" name="number" id="number" required>
 
             <button type="submit" name="btn_booking" class="btn" style="background-color:darkcyan; color: white;">Confirm Booking</button>
 
