@@ -1,5 +1,13 @@
 <?php
+session_start();
+
+if(empty($_SESSION["username"]))
+{
+    header("Location: index.php");
+}
+else{
 include("header.php");
+}
 
 ?>
 
@@ -27,11 +35,8 @@ include("header.php");
             <label for="number"><b>Number</b></label>
             <input type="text" style="border: radius 30px;" placeholder="Enter Number" name="number" id="number" required>
 
-            <button type="submit" class="btn" style="background-color:darkcyan; color: white;">Register</button>
+            <button type="submit" name="btn_booking" class="btn" style="background-color:darkcyan; color: white;">Confirm Booking</button>
 
-            <div class="container signin">
-                <p>Already have an account? <a data-toggle="modal" data-target="#modelId1" data-dismiss="modal" style="color: gray;">Log In</a>.</p>
-            </div>
         </div>
     </form>
 
