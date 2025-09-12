@@ -125,19 +125,32 @@ if (isset($_POST["btn_login"])) {
                             <hr>
                             <label for="username"><b>Full Name</b></label>
                             <input type="text" style="border-radius: 30px;" placeholder="Enter Your Name" name="reg_full_name" id="username" required>
+
                             <label for="email"><b>Email</b></label>
                             <input type="email" style="border-radius: 30px;" placeholder="Enter Email" name="reg_email" id="email" required>
+
+                            <label for="number"><b>Cell Number</b></label>
+                            <input type="tel" style="border-radius: 30px;" placeholder="Enter Number" name="reg_number_txt" id="number" required>
+
+                            <label for="number"><b>Select Gender</b></label><br>
+                            <input type="radio" style="border-radius: 30px; margin-right: 2%;" value="male" name="reg_gender_txt" id="gender" required>Male
+                            <input type="radio" style="border-radius: 30px; margin-left: 5%; margin-right: 2%;" value="female" name="reg_gender_txt" id="gender" required>Female
+                         <input type="radio" style="border-radius: 30px; margin-left: 5%; margin-right: 2%;" value="others" name="reg_gender_txt" id="gender" required>Others
+
+                            <br><br>
+
+
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="re_psw" id="psw" required>
+                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="reg_psw" id="psw" required>
+
                             <label for="psw-repeat"><b>Repeat Password</b></label>
                             <input type="password" style="border-radius: 30px;" placeholder="Repeat Password" name="psw_repeat" id="psw-repeat" required>
-                            <label for="number"><b>Number</b></label>
-                            <input type="tel" style="border-radius: 30px;" placeholder="Enter Number" name="number_txt" id="number" required>
+                            
                             <button type="submit" class="btn " name="btn_reg" style="background-color:darkcyan; color:white">Register</button>
                             <hr>
                         </div>
-                        <div class="container signin">
-                            <p>Already have an account? <a data-toggle="modal" data-target="#modelId1" data-dismiss="modal" style="color: gray;">Log In</a>.</p>
+                        <div class="container">
+                            <p>Already have an account? <a data-toggle="modal" data-target="#modelId1" data-dismiss="modal" style="color:gray; cursor:pointer;">Log In</a>.</p>
                         </div>
                     </form>
                 </div>
@@ -167,9 +180,9 @@ if (isset($_POST["btn_login"])) {
                             <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="psw" id="psw" required>
                             <button type="submit" name="btn_login" class="btn" style="background-color:darkcyan; color:white">Login</button>
                         </div>
-                        <div class="container signin">
+                        <!-- <div class="container signin">
                             <p>Don't have an account? <a data-toggle="modal" data-target="#modelId" data-dismiss="modal" style="color: gray;">Sign Up</a>.</p>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>
