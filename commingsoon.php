@@ -1,10 +1,10 @@
 <?php
 include("header.php");
-include("conn.php");
+require_once("conn.php");
 
 $conn = new connec();
 $tbl = "movie";
-$result = $conn->select_movie($tbl, "now()");
+$result = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE() ORDER BY rel_date ASC");
 
 ?>
 

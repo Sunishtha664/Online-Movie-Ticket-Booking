@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+require_once("conn.php");
   $conn = new connec();
 
 // Handle logout
