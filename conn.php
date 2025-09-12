@@ -58,7 +58,7 @@ class connec
 
 function select_login($table_name, $email)
     {
-        $sql = "SELECT * FROM $table_name where email=$email";
+        $sql = "SELECT * FROM $table_name where email='$email'";
         $result = $this->conn->query($sql);
         return  $result;
     }

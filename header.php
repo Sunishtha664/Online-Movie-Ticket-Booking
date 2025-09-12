@@ -20,8 +20,9 @@ if (isset($_POST["btn_login"])) {
     if($result->num_rows > 0){
         $row=$result->fetch_assoc();
 
-        if($row["email"]==$email && $row["password"]==$paswrd_log){
-        $_SESSION["username"] = $email_id;
+        if($row["email"]==$email_id && $row["password"]==$paswrd_log){
+        $_SESSION["username"] = $row["fullname"];
+        $_SERVER["ul"]= '<li class="nav-item"><a class="nav-link">Hello'.$_SESSION["username"].'</a></li> <li class="nav-item"><a class="nav-link" href="index.php?action=logout">LogOut</a></li>';
         }
         else{
             echo '<script> alert("Invalid Password");</script>';
