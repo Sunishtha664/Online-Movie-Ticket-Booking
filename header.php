@@ -1,6 +1,6 @@
 <?php
 include("conn.php");
-
+  $conn = new connec();
 
 // Handle logout
 if (isset($_GET["action"]) && $_GET["action"] == "logout") {
@@ -12,8 +12,27 @@ if (isset($_GET["action"]) && $_GET["action"] == "logout") {
 // Handle login (replace with your own authentication logic)
 if (isset($_POST["btn_login"])) {
 
-    // Example: Accept any email/password for demo
-    $_SESSION["username"] = $_POST["email"];
+    $email_id=$_POST["log_email"];
+    $paswrd_log=$_POST["log_psw"];
+
+    $result = $conn->select_login("customer", $email_id);
+
+    if($result->num_rows > 0){
+        $row=$result->fetch_assoc();
+
+        if($row["email"]==$email && $row["password"]==$paswrd_log){
+        $_SESSION["username"] = $email_id;
+        }
+        else{
+            echo '<script> alert("Invalid Password");</script>';
+        }
+    }
+    else{
+            echo '<script> alert("Invalid Email Id");</script>';
+        }
+
+    
+    
 }
 
 
@@ -29,7 +48,7 @@ if (isset($_POST["btn_reg"])) {
     if ($paswrd == $cnfrm_paswrd) {
 
         $sql = "insert into customer values(0,'$name','$email','$cellno','$gender','$cnfrm_paswrd')";
-        $conn = new connec();
+      
 
         $conn->insert($sql, "Customer Registered! Now You can Login");
     } else {
@@ -231,9 +250,9 @@ if (isset($_POST["btn_reg"])) {
                             </center>
                             <hr>
                             <label for="email"><b>Email</b></label>
-                            <input type="email" style="border-radius: 30px;" placeholder="Enter Email" name="email" id="email" required>
+                            <input type="email" style="border-radius: 30px;" placeholder="Enter Email" name="log_email" id="email" required>
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="psw" id="psw" required>
+                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="log_psw" id="psw" required>
                             <button type="submit" name="btn_login" class="btn" style="background-color:darkcyan; color:white">Login</button>
                         </div>
                         <!-- <div class="container signin">
