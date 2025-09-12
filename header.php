@@ -167,17 +167,20 @@ if (isset($_POST["btn_reg"])) {
             </ul>
             <ul class="navbar-nav">
                 <?php if (empty($_SESSION["username"])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#modelId">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=logout">Logout</a>
-                    </li>
-                <?php endif; ?>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#modelId">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a>
+        </li>
+    <?php else: ?>
+        <li class="nav-item">
+            <a class="nav-link">Hello <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.php?action=logout">Logout</a>
+        </li>
+    <?php endif; ?>
             </ul>
         </div>
     </nav>
