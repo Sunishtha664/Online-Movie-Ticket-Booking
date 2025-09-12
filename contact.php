@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-include("conn.php");
+
 if (isset($_POST['btn_submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];

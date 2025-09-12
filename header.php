@@ -1,5 +1,6 @@
 <?php
-session_start();
+include("conn.php");
+
 
 // Handle logout
 if (isset($_GET["action"]) && $_GET["action"] == "logout") {
@@ -16,23 +17,28 @@ if (isset($_POST["btn_login"])) {
 }
 
 
-if(isset($_POST["btn_reg"])){
-    
-    $name=$_POST["reg_full_name"];
-    $email=$_POST["reg_email"];
-    $cellno=$_POST["reg_number_txt"];
-    $gender=$_POST["reg_gender_txt"];
-    $paswrd=$_POST["reg_psw"];
-    $cnfrm_paswrd=$_POST["psw_repeat"];
+if (isset($_POST["btn_reg"])) {
 
-    if($paswrd==$cnfrm_paswrd){
+    $name = $_POST["reg_full_name"];
+    $email = $_POST["reg_email"];
+    $cellno = $_POST["reg_number_txt"];
+    $gender = $_POST["reg_gender_txt"];
+    $paswrd = $_POST["reg_psw"];
+    $cnfrm_paswrd = $_POST["psw_repeat"];
 
-    }
-    else{
-        ?>
-        <script>alert("Confirm Password not match");</script>
-        <?php
-        
+    if ($paswrd == $cnfrm_paswrd) {
+
+        $sql = "insert into customer values(0,'$name','$email','$cellno','$gender','$cnfrm_paswrd')";
+        $conn = new connec();
+
+        $conn->insert($sql, "Customer Registered! Now You can Login");
+    } else {
+?>
+        <script>
+            alert("Confirm Password not match");
+        </script>
+<?php
+
     }
 }
 ?>
@@ -51,39 +57,67 @@ if(isset($_POST["btn_reg"])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        *
-         { 
+        * {
             box-sizing: border-box
-         }
+        }
 
-        .container
-         { 
+        .container {
             padding: 16px;
-         }
-
-        textarea, input[type=text], input[type=password], input[type=tel], input[type=email] {
-            width: 100%; padding: 15px; margin: 5px 0 22px 0; display: inline-block;
-            border: none; background: #f1f1f1; border-radius: 30px; transition: box-shadow 0.2s;
         }
 
-        textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus, input[type=email]:focus {
-            background-color: #ddd; outline: none; box-shadow: 0 0 0 2px #17a2b8;
+        textarea,
+        input[type=text],
+        input[type=password],
+        input[type=tel],
+        input[type=email] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 30px;
+            transition: box-shadow 0.2s;
         }
+
+        textarea:focus,
+        input[type=text]:focus,
+        input[type=password]:focus,
+        input[type=tel]:focus,
+        input[type=email]:focus {
+            background-color: #ddd;
+            outline: none;
+            box-shadow: 0 0 0 2px #17a2b8;
+        }
+
         hr {
-             border: 1px solid #f1f1f1; margin-bottom: 25px;
-             }
-        .registerbtn { 
-            background-color: maroon; color: white; padding: 16px 20px; margin: 8px 0; border: none; cursor: pointer; width: 50%; opacity: 0.9; 
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
         }
+
+        .registerbtn {
+            background-color: maroon;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            opacity: 0.9;
+        }
+
         .registerbtn:hover {
-             opacity: 1; 
-            }
-        a { 
-            color: dodgerblue; 
+            opacity: 1;
         }
-        .signin { 
-            background-color: #f1f1f1; text-align: center;
-         }
+
+        a {
+            color: dodgerblue;
+        }
+
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -157,7 +191,7 @@ if(isset($_POST["btn_reg"])){
                             <label for="number"><b>Select Gender</b></label><br>
                             <input type="radio" style="border-radius: 30px; margin-right: 2%;" value="male" name="reg_gender_txt" id="gender" required>Male
                             <input type="radio" style="border-radius: 30px; margin-left: 5%; margin-right: 2%;" value="female" name="reg_gender_txt" id="gender" required>Female
-                         <input type="radio" style="border-radius: 30px; margin-left: 5%; margin-right: 2%;" value="others" name="reg_gender_txt" id="gender" required>Others
+                            <input type="radio" style="border-radius: 30px; margin-left: 5%; margin-right: 2%;" value="others" name="reg_gender_txt" id="gender" required>Others
 
                             <br><br>
 
@@ -167,7 +201,7 @@ if(isset($_POST["btn_reg"])){
 
                             <label for="psw-repeat"><b>Repeat Password</b></label>
                             <input type="password" style="border-radius: 30px;" placeholder="Repeat Password" name="psw_repeat" id="psw-repeat" required>
-                            
+
                             <button type="submit" class="btn " name="btn_reg" style="background-color:darkcyan; color:white">Register</button>
                             <hr>
                         </div>
@@ -211,4 +245,5 @@ if(isset($_POST["btn_reg"])){
         </div>
     </div>
 </body>
+
 </html>
