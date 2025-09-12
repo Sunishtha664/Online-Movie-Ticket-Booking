@@ -10,8 +10,30 @@ if (isset($_GET["action"]) && $_GET["action"] == "logout") {
 
 // Handle login (replace with your own authentication logic)
 if (isset($_POST["btn_login"])) {
+
     // Example: Accept any email/password for demo
     $_SESSION["username"] = $_POST["email"];
+}
+
+
+if(isset($_POST["btn_reg"])){
+    
+    $name=$_POST["reg_full_name"];
+    $email=$_POST["reg_email"];
+    $cellno=$_POST["reg_number_txt"];
+    $gender=$_POST["reg_gender_txt"];
+    $paswrd=$_POST["reg_psw"];
+    $cnfrm_paswrd=$_POST["psw_repeat"];
+
+    if($paswrd==$cnfrm_paswrd){
+
+    }
+    else{
+        ?>
+        <script>alert("Confirm Password not match");</script>
+        <?php
+        
+    }
 }
 ?>
 <!doctype html>
@@ -119,7 +141,7 @@ if (isset($_POST["btn_login"])) {
                     <form method="post">
                         <div class="container" style="color:#343a40">
                             <center>
-                                <h1>Register</h1>
+                                <h1>Customer Register</h1>
                                 <p>Please fill in this form to create an account</p>
                             </center>
                             <hr>

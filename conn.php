@@ -61,7 +61,7 @@ class connec
     function insert($query, $msg)
     {
         if ($this->conn->query($query) === TRUE) {
-            echo '<script> alert("We Will Contact You Soon on Your Email");</script>';
+            echo '<script> alert("'.$msg.'");</script>';
         } else {
             echo '<script> alert("' . $this->conn->error . '");</script>';
         }
