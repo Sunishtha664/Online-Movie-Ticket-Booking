@@ -18,8 +18,8 @@ include("header.php");
                 <p style="color: black;">Please fill this form to book your ticket</p>
             </center>
             <hr>
-            <label for="username"><b>Username</b></label>
-            <input type="text" style="border-radius: 30px;" placeholder="Enter Username" name="username" id="username" required>
+            <label for="cust_id"><b>Customer ID</b></label>
+            <input type="text" style="border-radius: 30px;" name="cust_id" id="cust_id" required value="<?php echo $_SESSION["cust_id"]; ?>">
 
             <label for="email"><b>Email</b></label>
             <input type="text" style="border-radius: 30px;" placeholder="Enter Email" name="email" id="email" required>
