@@ -93,7 +93,9 @@ if (isset($_POST["btn_reg"])) {
         input[type=text],
         input[type=password],
         input[type=tel],
-        input[type=email] {
+        input[type=email],
+        input[type=date],
+        input[type=number] {
             width: 100%;
             padding: 15px;
             margin: 5px 0 22px 0;

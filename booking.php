@@ -19,19 +19,19 @@ include("header.php");
             </center>
             <hr>
             <label for="username"><b>Customer ID</b></label>
-            <input type="text" style="border-radius: 30px;" name="cust_id" required value="<?php echo $_SESSION["cust_id"]; ?>">
+            <input type="number" style="border-radius: 30px;" name="cust_id" required value="<?php echo $_SESSION["cust_id"]; ?>"><br>
 
             <label for="email"><b>Show</b></label>
-            <input type="text" style="border-radius: 30px;"  name="show_id" required>
+            <input type="text" style="border-radius: 30px;"  name="show_id" required><br>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="text" style="border-radius: 30px;" placeholder="Enter Password" name="psw" id="psw" required>
+            <label for="psw"><b>Number of Tickets</b></label>
+            <input type="number" style="border-radius: 30px;" name="no_ticket"required><br>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="text" style="border-radius: 30px;" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+            <label for="psw-repeat"><b>Seat Details</b></label>
+            <input type="text" style="border-radius: 30px;"  name="psw-repeat" required><br>
 
-            <label for="number"><b>Number</b></label>
-            <input type="text" style="border-radius: 30px;" placeholder="Enter Number" name="number" id="number" required>
+            <label for="number"><b>Booking Date</b></label>
+            <input type="date" style="border-radius: 30px;"  name="booking_date" required>
 
             <button type="submit" name="btn_booking" class="btn" style="background-color:darkcyan; color: white;">Confirm Booking</button>
 
