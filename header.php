@@ -5,6 +5,8 @@ require_once("conn.php");
 // Handle logout
 if (isset($_GET["action"]) && $_GET["action"] == "logout") {
     session_destroy();
+    $_SESSION["cust_id"] = null;
+    $_SESSION["username"] = null;
     header("Location: index.php");
     exit();
 }
