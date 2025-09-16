@@ -28,15 +28,14 @@ class connec
 
     function select_movie($table_name, $date)
     {
-        if($date=="comingsoon"){
-         $sql = "SELECT * FROM $table_name where rel_date > row";
-        $result = $this->conn->query($sql);
-        return $result;
+        if ($date == "comingsoon") {
+            $sql = "SELECT * FROM $table_name where rel_date > row";
+            $result = $this->conn->query($sql);
+            return $result;
+        } else {
+            $sql = "SELECT * FROM $table_name where rel_date <= CURDATE() AND DATE_ADD(rel_date, INTERVAL 1 MONTH) > CURDATE() ORDER BY rel_date DESC";
+            $result = $this->conn->query($sql);
         }
-       else{
-        $sql = "SELECT * FROM $table_name where rel_date <= CURDATE() AND DATE_ADD(rel_date, INTERVAL 1 MONTH) > CURDATE() ORDER BY rel_date DESC";
-        $result = $this->conn->query($sql);
-       }
 
 
         return $result;
@@ -56,7 +55,7 @@ class connec
         return  $result;
     }
 
-function select_login($table_name, $email)
+    function select_login($table_name, $email)
     {
         $sql = "SELECT * FROM $table_name where email='$email'";
         $result = $this->conn->query($sql);
@@ -66,7 +65,7 @@ function select_login($table_name, $email)
     function insert($query, $msg)
     {
         if ($this->conn->query($query) === TRUE) {
-            echo '<script> alert("'.$msg.'");</script>';
+            echo '<script> alert("' . $msg . '");</script>';
         } else {
             echo '<script> alert("' . $this->conn->error . '");</script>';
         }

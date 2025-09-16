@@ -1,6 +1,6 @@
 <?php
 require_once("conn.php");
-  $conn = new connec();
+$conn = new connec();
 
 // Handle logout
 if (isset($_GET["action"]) && $_GET["action"] == "logout") {
@@ -14,30 +14,24 @@ if (isset($_GET["action"]) && $_GET["action"] == "logout") {
 // Handle login (replace with your own authentication logic)
 if (isset($_POST["btn_login"])) {
 
-    $email_id=$_POST["log_email"];
-    $paswrd_log=$_POST["log_psw"];
+    $email_id = $_POST["log_email"];
+    $paswrd_log = $_POST["log_psw"];
 
     $result = $conn->select_login("customer", $email_id);
 
-    if($result->num_rows > 0){
-        $row=$result->fetch_assoc();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
 
-        if($row["email"]==$email_id && $row["password"]==$paswrd_log)
-        {
+        if ($row["email"] == $email_id && $row["password"] == $paswrd_log) {
             $_SESSION["username"] = $row["fullname"];
             $_SESSION["cust_id"] = $row["id"];
-            $_SERVER["ul"]= '<li class="nav-item"><a class="nav-link">Hello'.$_SESSION["username"].'</a></li> <li class="nav-item"><a class="nav-link" href="index.php?action=logout">LogOut</a></li>';
-        }
-        else{
+            $_SERVER["ul"] = '<li class="nav-item"><a class="nav-link">Hello' . $_SESSION["username"] . '</a></li> <li class="nav-item"><a class="nav-link" href="index.php?action=logout">LogOut</a></li>';
+        } else {
             echo '<script> alert("Invalid Password");</script>';
         }
+    } else {
+        echo '<script> alert("Invalid Email Id");</script>';
     }
-    else{
-            echo '<script> alert("Invalid Email Id");</script>';
-        }
-
-    
-    
 }
 
 
@@ -53,7 +47,7 @@ if (isset($_POST["btn_reg"])) {
     if ($paswrd == $cnfrm_paswrd) {
 
         $sql = "insert into customer values(0,'$name','$email','$cellno','$gender','$cnfrm_paswrd')";
-      
+
 
         $conn->insert($sql, "Customer Registered! Now You can Login");
     } else {
@@ -173,20 +167,20 @@ if (isset($_POST["btn_reg"])) {
             </ul>
             <ul class="navbar-nav">
                 <?php if (empty($_SESSION["username"])): ?>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#modelId">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a>
-        </li>
-    <?php else: ?>
-        <li class="nav-item">
-            <a class="nav-link">Hello <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index.php?action=logout">Logout</a>
-        </li>
-    <?php endif; ?>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#modelId">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link">Hello <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?action=logout">Logout</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>

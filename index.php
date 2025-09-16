@@ -9,18 +9,18 @@ $result = $conn->select_all($tbl);
 $result1 = $conn->select_all($tbl);
 
 
-if(empty($_SESSION["username"])){
-    ?>
-     <script>
-        $(document).ready(function(){
+if (empty($_SESSION["username"])) {
+?>
+    <script>
+        $(document).ready(function() {
             $("#modelId1").modal('show');
         });
     </script>
-    <?php
+<?php
 }
 ?>
 
- 
+
 
 <section style="min-height: 450px;">
     <div id="carouselId" class="carousel slide" data-ride="carousel">
