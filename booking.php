@@ -18,10 +18,11 @@ if (empty($_SESSION["username"])) {
     }
 
     });
-
+    var ch=0;
 
     function checkboxtotal(){
-        alert();
+      ch++;
+      document.getElementById("no_ticket").value=ch;
     }
 
 
@@ -59,7 +60,7 @@ if (empty($_SESSION["username"])) {
                         <input type="text" style="border-radius: 30px;" name="show_id" required><br>
 
                         <label for="psw"><b>Number of Tickets</b></label>
-                        <input type="number" style="border-radius: 30px;" name="no_ticket" required><br>
+                        <input type="number" style="border-radius: 30px;" id="no_ticket" name="no_ticket" required><br>
 
                         <label for="psw-repeat"><b>Seat Details</b></label>
                         <input type="text" style="border-radius: 30px;" name="seat_dt" required><br>
