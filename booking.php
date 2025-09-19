@@ -12,11 +12,12 @@ if (empty($_SESSION["username"])) {
     $(document).ready(function(){
         for(i=1;i<=4;i++){
             $('seat_chart').append('<tr>')
-            for(j=1;j<10;j++){
-                $('seat_chart').append('div class')
-            }
+            for(j=1;j<=10;j++){
+                $('#seat_chart').append('<div class="col-md-2 mt-2 mb-2 ml-2 mr-2 text-center" style="background-color:grey;color:white"><input type="checkbox" id="seat" value="R'+(i+'S'+j)+'" name="seat_chart[]" class="mr-2  col-md-2 mb-2" onclick="checkboxtotal();" >R'+(i+'S'+j)+'</div>')
         }
-    })
+    }
+
+    });
 </script>
 
 <section class="mt-5 ">
@@ -24,7 +25,7 @@ if (empty($_SESSION["username"])) {
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div id="seat-map" id=""seatCharts>
                     <h3 class="text-center mt-5" style="color: darkcyan">Select Seats</h3><hr>
                     <label for="" class="text-center" style="width:100%; background-color:darkcyan; color:white; padding:2%">
@@ -37,7 +38,7 @@ if (empty($_SESSION["username"])) {
             </div>
 
 
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <form action="" method="post" class="mt-5">
                     <div class="container" style="color:darkcyan;">
                         <center>
