@@ -18,6 +18,13 @@ if (empty($_SESSION["username"])) {
     }
 
     });
+
+
+    function checkboxtotal(){
+        alert();
+    }
+
+
 </script>
 
 <section class="mt-5 ">
