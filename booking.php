@@ -8,12 +8,35 @@ if (empty($_SESSION["username"])) {
 
 ?>
 
+<script>
+    $(document).ready(function(){
+        for(i=1;i<=4;i++){
+            $('seat_chart').append('<tr>')
+            for(j=1;j<10;j++){
+                $('seat_chart').append('div class')
+            }
+        }
+    })
+</script>
+
 <section class="mt-5 ">
     <h3 class="text-center" style="color:darkcyan;">Book Your Ticket Now</h3>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div id="seat-map" id=""seatCharts>
+                    <h3 class="text-center mt-5" style="color: darkcyan">Select Seats</h3><hr>
+                    <label for="" class="text-center" style="width:100%; background-color:darkcyan; color:white; padding:2%">
+                        SCREEN
+                    </label>
+                    <div class="row" id="seat_chart">
+
+                    </div>
+                </div>
+            </div>
+
+
             <div class="col-md-6">
                 <form action="" method="post" class="mt-5">
                     <div class="container" style="color:darkcyan;">
