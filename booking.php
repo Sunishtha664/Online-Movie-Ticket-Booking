@@ -6,8 +6,7 @@ if (empty($_SESSION["username"])) {
     exit();
 }
 
-?>cba\la blarfseg
-
+?>
 <script>
     $(document).ready(function(){
         for(i=1;i<=4;i++){
