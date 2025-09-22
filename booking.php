@@ -18,11 +18,15 @@ if (empty($_SESSION["username"])) {
     }
 
     });
-    var ch=0;
 
     function checkboxtotal(){
-      ch++;
-      document.getElementById("no_ticket").value=ch;
+        var seat = [];
+        $('input[name="seat_chart[]"]:checked').each(function(){
+            seat.push($(this).val());
+        });
+        var st=seat.length;
+        document.getElementById('no_ticket').value=st;
+        $('seat_details').text(seat.join(","));
     }
 
 
