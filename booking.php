@@ -11,7 +11,14 @@ if(isset($_POST["btn_booking"]))
     $bkng_date = $_POST["booking_date"];
    $total_amnt=250*$no_tikt;
   
+    $seat_number=$_POST["seat_dt"];
+    $seat_arr=explode(", ",$seat_number);
 
+    foreach($seat_arr as $item)
+    {
+        $sql="insert into seat_reserved values(0,$show_id,$cust_id,'$item','true')";
+       $abc= $conn->insert_lastid($sql);
+    }
 
    $sql="insert into seat_detail values(0,$cust_id,$show_id,$no_tikt)";
     $seat_dt_id =$conn->insert_lastid($sql);
