@@ -111,4 +111,4 @@ if (isset($_POST["btn_booking"])) {
 </section>
 <?php
 include("footer.php");
-?>cla bla bla bla
+?>
