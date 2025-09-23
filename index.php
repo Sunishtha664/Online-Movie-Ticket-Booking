@@ -9,15 +9,25 @@ $result = $conn->select_all($tbl);
 $result1 = $conn->select_all($tbl);
 
 
-if (empty($_SESSION["username"])) {
-?>
+if (!empty($_SESSION['show_login'])) {
+    ?>
     <script>
         $(document).ready(function() {
             $("#modelId1").modal('show');
         });
     </script>
-<?php
+    <?php
+    unset($_SESSION['show_login']);
+} elseif (empty($_SESSION["username"])) {
+    ?>
+    <script>
+        $(document).ready(function() {
+            $("#modelId1").modal('show');
+        });
+    </script>
+    <?php
 }
+
 ?>
 
 
