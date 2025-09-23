@@ -3,13 +3,23 @@ include("header.php");
 
 if(isset($_POST["btn_booking"]))
 {
+     $conn = new connec();
+
     $cust_id = $_POST["cust_id"];
     $show_id = $_POST["show_id"];
     $no_tikt = $_POST["no_ticket"];
     $bkng_date = $_POST["booking_date"];
-   $total_amnt;
+   $total_amnt=250*$no_tikt;
+  
 
-   $conn = new connec();
+
+   $sql="insert into seat_detail values(0,$cust_id,$show_id,$no_tikt)";
+    $seat_dt_id =$conn->insert_lastid($sql);
+
+   $sql="insert into booking values(0,$cust_id,$show_id,$no_tikt,$seat_dt_id,'$bkng_date',$total_amnt)";
+    $conn->insert($sql,"Your Ticket is Booked");
+
+  
 }
 ?>
 
@@ -82,7 +92,7 @@ if(isset($_POST["btn_booking"]))
                             <input type="number" style="border-radius: 30px;" id="no_ticket" name="no_ticket" required readonly><br>
 
                             <label for="seat_dt"><b>Seat Details</b></label>
-                            <input type="text" style="border-radius: 30px;" name="seat_dt" readonly required><br>
+                            <input type="text" style="border-radius: 30px;" name="seat_dt" id="seat_dt" readonly required><br>
 
                             <label for="booking_date"><b>Booking Date</b></label>
                             <input type="date" style="border-radius: 30px;" name="booking_date" required>

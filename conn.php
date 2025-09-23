@@ -91,4 +91,15 @@ class connec
             echo '<script> alert("' . $this->conn->error . '");</script>';
         }
     }
+
+
+    function insert_lastid($query){
+        $last_id = 0;
+        if($this->conn->query($query) === TRUE){
+            $last_id = $this->conn->insert_id;
+        } else {
+            echo '<script> alert("' . $this->conn->error . '");</script>';
+        }
+        return $last_id;
+    }
 }
