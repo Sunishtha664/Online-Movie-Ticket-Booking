@@ -1,47 +1,43 @@
 <?php
 include("header.php");
 
-if(isset($_POST["btn_booking"]))
-{
-     $conn = new connec();
+if (isset($_POST["btn_booking"])) {
+    $conn = new connec();
 
     $cust_id = $_POST["cust_id"];
     $show_id = $_POST["show_id"];
     $no_tikt = $_POST["no_ticket"];
     $bkng_date = $_POST["booking_date"];
-   $total_amnt=250*$no_tikt;
-  
-    $seat_number=$_POST["seat_dt"];
-    $seat_arr=explode(", ",$seat_number);
+    $total_amnt = 250 * $no_tikt;
 
-    foreach($seat_arr as $item)
-    {
-        $sql="insert into seat_reserved values(0,$show_id,$cust_id,'$item','true')";
-       $abc= $conn->insert_lastid($sql);
+    $seat_number = $_POST["seat_dt"];
+    $seat_arr = explode(", ", $seat_number);
+
+    foreach ($seat_arr as $item) {
+        $sql = "insert into seat_reserved values(0,$show_id,$cust_id,'$item','true')";
+        $abc = $conn->insert_lastid($sql);
     }
 
-   $sql="insert into seat_detail values(0,$cust_id,$show_id,$no_tikt)";
-    $seat_dt_id =$conn->insert_lastid($sql);
+    $sql = "insert into seat_detail values(0,$cust_id,$show_id,$no_tikt)";
+    $seat_dt_id = $conn->insert_lastid($sql);
 
-   $sql="insert into booking values(0,$cust_id,$show_id,$no_tikt,$seat_dt_id,'$bkng_date',$total_amnt)";
-    $conn->insert($sql,"Your Ticket is Booked");
-
-  
+    $sql = "insert into booking values(0,$cust_id,$show_id,$no_tikt,$seat_dt_id,'$bkng_date',$total_amnt)";
+    $conn->insert($sql, "Your Ticket is Booked");
 }
 ?>
 
 <script>
-    $(document).ready(function(){
-        for(i=1;i<=4;i++){
-            for(j=1;j<=10;j++){
-                $('#seat_chart').append('<div class="col-md-2 mt-2 mb-2 ml-2 mr-2 text-center" style="background-color:grey;color:white"><input type="checkbox" value="R'+(i+'S'+j)+'" name="seat_chart[]" class="mr-2  col-md-2 mb-2" onclick="checkboxtotal();" >R'+(i+'S'+j)+'</div>');
+    $(document).ready(function() {
+        for (i = 1; i <= 4; i++) {
+            for (j = 1; j <= 10; j++) {
+                $('#seat_chart').append('<div class="col-md-2 mt-2 mb-2 ml-2 mr-2 text-center" style="background-color:grey;color:white"><input type="checkbox" value="R' + (i + 'S' + j) + '" name="seat_chart[]" class="mr-2  col-md-2 mb-2" onclick="checkboxtotal();" >R' + (i + 'S' + j) + '</div>');
             }
         }
     });
 
-    function checkboxtotal(){
+    function checkboxtotal() {
         var seat = [];
-        $('input[name="seat_chart[]"]:checked').each(function(){
+        $('input[name="seat_chart[]"]:checked').each(function() {
             seat.push($(this).val());
         });
         var st = seat.length;
@@ -72,7 +68,8 @@ if(isset($_POST["btn_booking"]))
             <div class="row">
                 <div class="col-md-7">
                     <div id="seat-map" id="seatCharts">
-                        <h3 class="text-center mt-5" style="color: darkcyan">Select Seats</h3><hr>
+                        <h3 class="text-center mt-5" style="color: darkcyan">Select Seats</h3>
+                        <hr>
                         <label class="text-center" style="width:100%; background-color:darkcyan; color:white; padding:2%">
                             SCREEN
                         </label>
