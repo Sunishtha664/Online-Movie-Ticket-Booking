@@ -1,6 +1,29 @@
 <?php
 include("header.php");
 
+$conn=new connec();
+$tbl="movie_ticket_booking.show";
+$result= $conn->select_all($tbl);
+
+$sql_query = "SELECT
+    movie_ticket_booking.show.id,
+    movie_ticket_booking.show.show_date,
+    movie_ticket_booking.show.ticket_price,
+    movie_ticket_booking.show.no_seat,
+    movie.name,
+    show_time.time,
+    cinema.name
+FROM
+    movie_ticket_booking.show,
+    movie,
+    show_time,
+    cinema
+WHERE
+    movie_ticket_booking.show.movie_id = movie.id
+    AND movie_ticket_booking.show.show_time_id = show_time.id
+    AND movie_ticket_booking.show.cinema_id = cinema.id
+    AND  movie_ticket_booking.show.id =1;";
+
 if (isset($_POST["btn_booking"])) {
     $conn = new connec();
 
