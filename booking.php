@@ -2,8 +2,8 @@
 include("header.php");
 
 $conn=new connec();
-$tbl="movie_ticket_booking.show";
-$result= $conn->select_all($tbl);
+
+$result= $conn->select_show_dt();
 
 
 

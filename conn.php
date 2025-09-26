@@ -26,14 +26,15 @@ class connec
         return $result;
     }
 
-    function select_show_dt($table_name)
+
+    function select_show_dt()
     {
         $sql = "SELECT
     movie_ticket_booking.show.id,
     movie_ticket_booking.show.show_date,
     movie_ticket_booking.show.ticket_price,
     movie_ticket_booking.show.no_seat,
-    movie.name,
+    movie.name AS 'movie_name',
     show_time.time,
     cinema.name
 FROM
