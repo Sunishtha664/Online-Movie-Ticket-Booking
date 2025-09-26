@@ -5,24 +5,7 @@ $conn=new connec();
 $tbl="movie_ticket_booking.show";
 $result= $conn->select_all($tbl);
 
-$sql_query = "SELECT
-    movie_ticket_booking.show.id,
-    movie_ticket_booking.show.show_date,
-    movie_ticket_booking.show.ticket_price,
-    movie_ticket_booking.show.no_seat,
-    movie.name,
-    show_time.time,
-    cinema.name
-FROM
-    movie_ticket_booking.show,
-    movie,
-    show_time,
-    cinema
-WHERE
-    movie_ticket_booking.show.movie_id = movie.id
-    AND movie_ticket_booking.show.show_time_id = show_time.id
-    AND movie_ticket_booking.show.cinema_id = cinema.id
-    AND  movie_ticket_booking.show.id =1;";
+
 
 if (isset($_POST["btn_booking"])) {
     $conn = new connec();
@@ -119,8 +102,24 @@ if (isset($_POST["btn_booking"])) {
                             <label for="cust_id"><b>Customer ID</b></label>
                             <input type="number" style="border-radius: 30px;" name="cust_id" required value="<?php echo isset($_SESSION["cust_id"]) ? $_SESSION["cust_id"] : ''; ?>"><br>
 
-                            <label for="show_id"><b>Show</b></label>
-                            <input type="text" style="border-radius: 30px;" name="show_id" required><br>
+                            <label for="show_id"><b>Show ID</b></label>
+                            <!-- <input type="text" style="border-radius: 30px;" name="show_id" required><br> -->
+                            <div class="form-group">
+                              <label for=""></label>
+                              <select class="form-control" name="show_id" style="border-radius: 30px;" >
+                                <option>Select Show</option>
+                                <?php
+
+                                if($result->num_rows>0){
+                                    while($row=$result->fetch_assoc()){
+                                        ?>
+                                        echo '<option value=""> </option>';
+                                        <?php
+                                    }
+                                }
+                                ?>
+                              </select>
+                            </div>
 
                             <label for="no_ticket"><b>Number of Tickets</b></label>
                             <input type="number" style="border-radius: 30px;" id="no_ticket" name="no_ticket" required readonly><br>
