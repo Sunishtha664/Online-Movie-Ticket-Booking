@@ -78,6 +78,9 @@ if (isset($_POST["btn_booking"])) {
                             <b>Selected Seats:</b> <span id="seat_details"></span>
                         </div>
                     </div>
+
+                    <h5 class="mt-5" style="color: darkcyan">Total Ticket Price</h5>
+
                 </div>
                 <div class="col-md-5">
                     <form action="" method="post" class="mt-5">
