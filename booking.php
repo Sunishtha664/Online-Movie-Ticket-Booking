@@ -42,6 +42,9 @@ if (isset($_POST["btn_booking"])) {
         });
         var st = seat.length;
         document.getElementById('no_ticket').value = st;
+
+        var total = "Rs. "+(st * 250);
+        $('#price_details').text(total);
         $('#seat_details').text(seat.join(", "));
         $('input[name="seat_dt"]').val(seat.join(", "));
     }
@@ -80,6 +83,7 @@ if (isset($_POST["btn_booking"])) {
                     </div>
 
                     <h5 class="mt-5" style="color: darkcyan">Total Ticket Price</h5>
+                    <p class="mt-1" id="price_details"></p>
 
                 </div>
                 <div class="col-md-5">
