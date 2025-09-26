@@ -112,9 +112,9 @@ if (isset($_POST["btn_booking"])) {
 
                                 if($result->num_rows>0){
                                     while($row=$result->fetch_assoc()){
-                                        ?>
-                                        echo '<option value=""> </option>';
-                                        <?php
+                                    
+                                        echo '<option value="'.$row["id"].'">'.$row["movie_name"].' </option>';
+                                        
                                     }
                                 }
                                 ?>
