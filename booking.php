@@ -2,20 +2,14 @@
 include("header.php");
 
 $conn = new connec();
-
 $result = $conn->select_show_dt();
 
-
-
 if (isset($_POST["btn_booking"])) {
-    $conn = new connec();
-
     $cust_id = $_POST["cust_id"];
     $show_id = $_POST["show_id"];
     $no_tikt = $_POST["no_ticket"];
     $bkng_date = $_POST["booking_date"];
     $total_amnt = 250 * $no_tikt;
-
     $seat_number = $_POST["seat_dt"];
     $seat_arr = explode(", ", $seat_number);
 
@@ -33,13 +27,47 @@ if (isset($_POST["btn_booking"])) {
 ?>
 
 <script>
+    // Store show info for dynamic display
+    var showInfo = {};
+    <?php
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            // Use show_id as key
+            echo "showInfo['{$row['id']}'] = {
+                cinema: '".addslashes($row['name'])."',
+                movie: '".addslashes($row['movie_name'])."',
+                date: '".addslashes($row['show_date'])."',
+                time: '".addslashes($row['time'])."',
+                price: '{$row['ticket_price']}'
+            };\n";
+        }
+        // Reset result pointer for dropdown
+        $result->data_seek(0);
+    }
+    ?>
+
     $(document).ready(function() {
+        // Generate seat chart
         for (i = 1; i <= 4; i++) {
             for (j = 1; j <= 10; j++) {
                 $('#seat_chart').append('<div class="col-md-2 mt-2 mb-2 ml-2 mr-2 text-center" style="background-color:grey;color:white"><input type="checkbox" value="R' + (i + 'S' + j) + '" name="seat_chart[]" class="mr-2  col-md-2 mb-2" onclick="checkboxtotal();" >R' + (i + 'S' + j) + '</div>');
             }
         }
 
+        // Show info when show is selected
+        $('#show_id').on('change', function() {
+            var showId = $(this).val();
+            if (showInfo[showId]) {
+                $('#cinema_name').text(showInfo[showId].cinema);
+                $('#show_date_time').text(showInfo[showId].movie + " | " + showInfo[showId].date + " | " + showInfo[showId].time);
+                $('#price').text("Rs. " + showInfo[showId].price);
+            } else {
+                $('#cinema_name').text('');
+                $('#show_date_time').text('');
+                $('#price').text('');
+            }
+            checkboxtotal();
+        });
     });
 
     function checkboxtotal() {
@@ -48,12 +76,16 @@ if (isset($_POST["btn_booking"])) {
             seat.push($(this).val());
         });
         var st = seat.length;
-        document.getElementById('no_ticket').value = st;
+        $('#no_ticket').val(st);
 
-        var total = "Rs. " + (st * 250);
+        // Get price per ticket from selected show
+        var showId = $('#show_id').val();
+        var price = showInfo[showId] ? parseInt(showInfo[showId].price) : 250;
+        var total = "Rs. " + (st * price);
+
         $('#price_details').text(total);
         $('#seat_details').text(seat.join(", "));
-        $('input[name="seat_dt"]').val(seat.join(", "));
+        $('#seat_dt').val(seat.join(", "));
     }
 </script>
 
@@ -112,19 +144,16 @@ if (isset($_POST["btn_booking"])) {
                             <label for="cust_id"><b>Customer ID</b></label>
                             <input type="number" style="border-radius: 30px;" name="cust_id" required value="<?php echo isset($_SESSION["cust_id"]) ? $_SESSION["cust_id"] : ''; ?>"><br>
 
-                            <label for="show_id"><b>Show ID</b></label>
-                            <!-- <input type="text" style="border-radius: 30px;" name="show_id" required><br> -->
+                            <label for="show_id"><b>Show</b></label>
                             <div class="form-group">
-                                <label for=""></label>
-                                <select class="form-control" name="show_id" style="border-radius: 30px;">
-                                    <option>Select Show</option>
+                                <select class="form-control" name="show_id" id="show_id" style="border-radius: 30px;">
+                                    <option value="">Select Show</option>
                                     <?php
-
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
-
-                                            echo '<option value="' . $row["movie_id"] . '">' . $row["movie_name"] . ' </option>';
+                                            echo '<option value="' . $row["id"] . '">' . $row["movie_name"] . ' | ' . $row["show_date"] . ' | ' . $row["time"] . ' | ' . $row["name"] . '</option>';
                                         }
+                                        $result->data_seek(0); // Reset pointer for JS
                                     }
                                     ?>
                                 </select>
