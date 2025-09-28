@@ -34,10 +34,10 @@ if (isset($_POST["btn_booking"])) {
         while ($row = $result->fetch_assoc()) {
             // Use show_id as key
             echo "showInfo['{$row['id']}'] = {
-                cinema: '".addslashes($row['name'])."',
-                movie: '".addslashes($row['movie_name'])."',
-                date: '".addslashes($row['show_date'])."',
-                time: '".addslashes($row['time'])."',
+                cinema: '" . addslashes($row['name']) . "',
+                movie: '" . addslashes($row['movie_name']) . "',
+                date: '" . addslashes($row['show_date']) . "',
+                time: '" . addslashes($row['time']) . "',
                 price: '{$row['ticket_price']}'
             };\n";
         }
