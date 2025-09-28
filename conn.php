@@ -34,6 +34,7 @@ class connec
     movie_ticket_booking.show.show_date,
     movie_ticket_booking.show.ticket_price,
     movie_ticket_booking.show.no_seat,
+    movie_ticket_booking.show.movie_id,
     movie.name AS 'movie_name',
     show_time.time,
     cinema.name

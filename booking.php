@@ -39,6 +39,7 @@ if (isset($_POST["btn_booking"])) {
                 $('#seat_chart').append('<div class="col-md-2 mt-2 mb-2 ml-2 mr-2 text-center" style="background-color:grey;color:white"><input type="checkbox" value="R' + (i + 'S' + j) + '" name="seat_chart[]" class="mr-2  col-md-2 mb-2" onclick="checkboxtotal();" >R' + (i + 'S' + j) + '</div>');
             }
         }
+
     });
 
     function checkboxtotal() {
@@ -122,7 +123,7 @@ if (isset($_POST["btn_booking"])) {
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
 
-                                            echo '<option value="' . $row["id"] . '">' . $row["movie_name"] . ' </option>';
+                                            echo '<option value="' . $row["movie_id"] . '">' . $row["movie_name"] . ' </option>';
                                         }
                                     }
                                     ?>
