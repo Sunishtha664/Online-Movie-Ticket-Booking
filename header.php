@@ -139,6 +139,27 @@ if (isset($_POST["btn_reg"])) {
             text-align: center;
         }
     </style>
+
+    <script>
+        
+$(document).ready(function(){
+    // When Register link is clicked from Login modal
+    $('[data-target="#modelId"]').on('click', function(e){
+        $('#modelId1').modal('hide');
+        setTimeout(function(){
+            $('#modelId').modal('show');
+        }, 500); // Wait for the first modal to fully hide
+    });
+
+    // When Login link is clicked from Register modal
+    $('[data-target="#modelId1"]').on('click', function(e){
+        $('#modelId').modal('hide');
+        setTimeout(function(){
+            $('#modelId1').modal('show');
+        }, 500);
+    });
+});
+</script>
 </head>
 
 <body>
@@ -259,9 +280,13 @@ if (isset($_POST["btn_reg"])) {
                             <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="log_psw" id="psw" required>
                             <button type="submit" name="btn_login" class="btn" style="background-color:darkcyan; color:white">Login</button>
                         </div>
-                        <!-- <div class="container signin">
-                            <p>Don't have an account? <a data-toggle="modal" data-target="#modelId" data-dismiss="modal" style="color: gray;">Sign Up</a>.</p>
-                        </div> -->
+                        <div class="container signin">
+                            <p>Don't have an account?
+                                <a data-toggle="modal" data-target="#modelId" data-dismiss="modal" style="color: gray; cursor:pointer;">
+                                    Register
+                                </a>.
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>
