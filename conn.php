@@ -49,12 +49,11 @@ WHERE
     AND movie_ticket_booking.show.cinema_id = cinema.id";
 
 
-$result = $this->conn->query($sql);
+        $result = $this->conn->query($sql);
         return $result;
-
     }
 
-    
+
     function select_movie($table_name, $date)
     {
         if ($date == "comingsoon") {

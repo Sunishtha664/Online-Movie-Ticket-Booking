@@ -138,9 +138,11 @@ if (isset($_POST["btn_reg"])) {
             background-color: #f1f1f1;
             text-align: center;
         }
+
         .modal-body {
-           
-            overflow-y: auto;   /* scroll inside modal */
+
+            overflow-y: auto;
+            /* scroll inside modal */
         }
     </style>
 
@@ -234,7 +236,7 @@ if (isset($_POST["btn_reg"])) {
                             <hr>
                         </div>
                         <div class="container">
-                            <p>Already have an account? 
+                            <p>Already have an account?
                                 <a data-toggle="modal" data-target="#modelId1" style="color:gray; cursor:pointer;">Log In</a>
                             </p>
                         </div>
@@ -245,7 +247,7 @@ if (isset($_POST["btn_reg"])) {
     </div>
 
     <!-- Login Modal -->
-   <!-- Login Modal -->
+    <!-- Login Modal -->
     <div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document"> <!-- 👈 scrollable added -->
             <div class="modal-content">
@@ -278,30 +280,30 @@ if (isset($_POST["btn_reg"])) {
         </div>
     </div>
 
- <script>
-$(document).ready(function(){
-    // Switch from Login to Register
-    $('[data-target="#modelId"]').on('click', function(e){
-        $('#modelId1').modal('hide');
-        setTimeout(function(){
-            $('#modelId').modal('show');
-        }, 400);
-    });
+    <script>
+        $(document).ready(function() {
+            // Switch from Login to Register
+            $('[data-target="#modelId"]').on('click', function(e) {
+                $('#modelId1').modal('hide');
+                setTimeout(function() {
+                    $('#modelId').modal('show');
+                }, 400);
+            });
 
-    // Switch from Register to Login
-    $('[data-target="#modelId1"]').on('click', function(e){
-        $('#modelId').modal('hide');
-        setTimeout(function(){
-            $('#modelId1').modal('show');
-        }, 400);
-    });
+            // Switch from Register to Login
+            $('[data-target="#modelId1"]').on('click', function(e) {
+                $('#modelId').modal('hide');
+                setTimeout(function() {
+                    $('#modelId1').modal('show');
+                }, 400);
+            });
 
-    // Auto focus first input when modal is opened
-    $('#modelId, #modelId1').on('shown.bs.modal', function () {
-        $(this).find('input:first').trigger('focus');
-    });
-});
-</script>
+            // Auto focus first input when modal is opened
+            $('#modelId, #modelId1').on('shown.bs.modal', function() {
+                $(this).find('input:first').trigger('focus');
+            });
+        });
+    </script>
 
 </body>
 
