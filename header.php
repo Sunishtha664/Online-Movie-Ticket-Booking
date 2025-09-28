@@ -138,28 +138,12 @@ if (isset($_POST["btn_reg"])) {
             background-color: #f1f1f1;
             text-align: center;
         }
+        .modal-body {
+           
+            overflow-y: auto;   /* scroll inside modal */
+        }
     </style>
 
-    <script>
-        
-$(document).ready(function(){
-    // When Register link is clicked from Login modal
-    $('[data-target="#modelId"]').on('click', function(e){
-        $('#modelId1').modal('hide');
-        setTimeout(function(){
-            $('#modelId').modal('show');
-        }, 500); // Wait for the first modal to fully hide
-    });
-
-    // When Login link is clicked from Register modal
-    $('[data-target="#modelId1"]').on('click', function(e){
-        $('#modelId').modal('hide');
-        setTimeout(function(){
-            $('#modelId1').modal('show');
-        }, 500);
-    });
-});
-</script>
 </head>
 
 <body>
@@ -207,8 +191,9 @@ $(document).ready(function(){
     </nav>
 
     <!-- Register Modal -->
+    <!-- Register Modal -->
     <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document"> <!-- 👈 scrollable added -->
             <div class="modal-content">
                 <div class="modal-header" style="background-color:darkcyan; color:black">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -232,13 +217,12 @@ $(document).ready(function(){
                             <label for="number"><b>Cell Number</b></label>
                             <input type="tel" style="border-radius: 30px;" placeholder="Enter Number" name="reg_number_txt" id="number" required>
 
-                            <label for="number"><b>Select Gender</b></label><br>
-                            <input type="radio" style="border-radius: 30px; margin-right: 2%;" value="male" name="reg_gender_txt" id="gender" required>Male
-                            <input type="radio" style="border-radius: 30px; margin-left: 5%; margin-right: 2%;" value="female" name="reg_gender_txt" id="gender" required>Female
-                            <input type="radio" style="border-radius: 30px; margin-left: 5%; margin-right: 2%;" value="others" name="reg_gender_txt" id="gender" required>Others
+                            <label><b>Select Gender</b></label><br>
+                            <input type="radio" value="male" name="reg_gender_txt" required> Male
+                            <input type="radio" value="female" name="reg_gender_txt" style="margin-left:5%;" required> Female
+                            <input type="radio" value="others" name="reg_gender_txt" style="margin-left:5%;" required> Others
 
                             <br><br>
-
 
                             <label for="psw"><b>Password</b></label>
                             <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="reg_psw" id="psw" required>
@@ -246,11 +230,13 @@ $(document).ready(function(){
                             <label for="psw-repeat"><b>Repeat Password</b></label>
                             <input type="password" style="border-radius: 30px;" placeholder="Repeat Password" name="psw_repeat" id="psw-repeat" required>
 
-                            <button type="submit" class="btn " name="btn_reg" style="background-color:darkcyan; color:white">Register</button>
+                            <button type="submit" class="btn" name="btn_reg" style="background-color:darkcyan; color:white">Register</button>
                             <hr>
                         </div>
                         <div class="container">
-                            <p>Already have an account? <a data-toggle="modal" data-target="#modelId1" data-dismiss="modal" style="color:gray; cursor:pointer;">Log In</a>.</p>
+                            <p>Already have an account? 
+                                <a data-toggle="modal" data-target="#modelId1" style="color:gray; cursor:pointer;">Log In</a>
+                            </p>
                         </div>
                     </form>
                 </div>
@@ -259,8 +245,9 @@ $(document).ready(function(){
     </div>
 
     <!-- Login Modal -->
+   <!-- Login Modal -->
     <div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document"> <!-- 👈 scrollable added -->
             <div class="modal-content">
                 <div class="modal-header" style="background-color:darkcyan; color:black">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -282,9 +269,7 @@ $(document).ready(function(){
                         </div>
                         <div class="container signin">
                             <p>Don't have an account?
-                                <a data-toggle="modal" data-target="#modelId" data-dismiss="modal" style="color: gray; cursor:pointer;">
-                                    Register
-                                </a>.
+                                <a data-toggle="modal" data-target="#modelId" style="color: gray; cursor:pointer;">Register</a>
                             </p>
                         </div>
                     </form>
@@ -292,6 +277,26 @@ $(document).ready(function(){
             </div>
         </div>
     </div>
+
+    <script>
+$(document).ready(function(){
+    // Switch from Login to Register
+    $('[data-target="#modelId"]').on('click', function(e){
+        $('#modelId1').modal('hide');
+        setTimeout(function(){
+            $('#modelId').modal('show');
+        }, 400);
+    });
+
+    // Switch from Register to Login
+    $('[data-target="#modelId1"]').on('click', function(e){
+        $('#modelId').modal('hide');
+        setTimeout(function(){
+            $('#modelId1').modal('show');
+        }, 400);
+    });
+});
+</script>
 </body>
 
 </html>
