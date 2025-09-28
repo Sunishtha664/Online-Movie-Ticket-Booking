@@ -278,7 +278,7 @@ if (isset($_POST["btn_reg"])) {
         </div>
     </div>
 
-    <script>
+ <script>
 $(document).ready(function(){
     // Switch from Login to Register
     $('[data-target="#modelId"]').on('click', function(e){
@@ -295,8 +295,14 @@ $(document).ready(function(){
             $('#modelId1').modal('show');
         }, 400);
     });
+
+    // Auto focus first input when modal is opened
+    $('#modelId, #modelId1').on('shown.bs.modal', function () {
+        $(this).find('input:first').trigger('focus');
+    });
 });
 </script>
+
 </body>
 
 </html>

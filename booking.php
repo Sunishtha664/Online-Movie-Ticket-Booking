@@ -1,9 +1,9 @@
 <?php
 include("header.php");
 
-$conn=new connec();
+$conn = new connec();
 
-$result= $conn->select_show_dt();
+$result = $conn->select_show_dt();
 
 
 
@@ -49,7 +49,7 @@ if (isset($_POST["btn_booking"])) {
         var st = seat.length;
         document.getElementById('no_ticket').value = st;
 
-        var total = "Rs. "+(st * 250);
+        var total = "Rs. " + (st * 250);
         $('#price_details').text(total);
         $('#seat_details').text(seat.join(", "));
         $('input[name="seat_dt"]').val(seat.join(", "));
@@ -88,6 +88,13 @@ if (isset($_POST["btn_booking"])) {
                         </div>
                     </div>
 
+
+                    <h5 class="mt-5" style="color: darkcyan">Movie Show Date and Timing</h5>
+                    <p class="mt-1" id="price_details"></p>
+
+                    <h5 class="mt-5" style="color: darkcyan">Ticket Price</h5>
+                    <p class="mt-1" id="price"></p>
+
                     <h5 class="mt-5" style="color: darkcyan">Total Ticket Price</h5>
                     <p class="mt-1" id="price_details"></p>
 
@@ -105,20 +112,19 @@ if (isset($_POST["btn_booking"])) {
                             <label for="show_id"><b>Show ID</b></label>
                             <!-- <input type="text" style="border-radius: 30px;" name="show_id" required><br> -->
                             <div class="form-group">
-                              <label for=""></label>
-                              <select class="form-control" name="show_id" style="border-radius: 30px;" >
-                                <option>Select Show</option>
-                                <?php
+                                <label for=""></label>
+                                <select class="form-control" name="show_id" style="border-radius: 30px;">
+                                    <option>Select Show</option>
+                                    <?php
 
-                                if($result->num_rows>0){
-                                    while($row=$result->fetch_assoc()){
-                                    
-                                        echo '<option value="'.$row["id"].'">'.$row["movie_name"].' </option>';
-                                        
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+
+                                            echo '<option value="' . $row["id"] . '">' . $row["movie_name"] . ' </option>';
+                                        }
                                     }
-                                }
-                                ?>
-                              </select>
+                                    ?>
+                                </select>
                             </div>
 
                             <label for="no_ticket"><b>Number of Tickets</b></label>
