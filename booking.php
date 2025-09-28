@@ -88,14 +88,16 @@ if (isset($_POST["btn_booking"])) {
                         </div>
                     </div>
 
+                    <h6 class="mt-5" style="color: darkcyan">Cinema Name</h6>
+                    <p class="mt-1" id="cinema_name"></p>
 
-                    <h5 class="mt-5" style="color: darkcyan">Movie Show Date and Timing</h5>
-                    <p class="mt-1" id="price_details"></p>
+                    <h6 class="mt-3" style="color: darkcyan">Movie Show (Date and Timing)</h6>
+                    <p class="mt-1" id="show_date_time"></p>
 
-                    <h5 class="mt-5" style="color: darkcyan">Ticket Price</h5>
+                    <h6 class="mt-3" style="color: darkcyan">Ticket Price</h6>
                     <p class="mt-1" id="price"></p>
 
-                    <h5 class="mt-5" style="color: darkcyan">Total Ticket Price</h5>
+                    <h6 class="mt-3" style="color: darkcyan">Total Ticket Price</h6>
                     <p class="mt-1" id="price_details"></p>
 
                 </div>
