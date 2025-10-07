@@ -49,8 +49,9 @@ $result = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE()
                             </button>
                           </div>
                           <div class="modal-body">
-                            <img src="<?php echo $row["movie_banner"]; ?>" style="width: 100%; height: 300px; object-fit:cover;" class="mb-3"/>
-                            <p><b>Description:</b> <?php echo $row["description"]; ?></p>
+                    <img src="<?php echo $row["landscape_img"]; ?>" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;" />
+     
+                            <p><b>Description:</b> <?php echo $row["movie_desc"]; ?></p>
                             <p><b>Director:</b> <?php echo $row["director"]; ?></p>
                             <p><b>Cast:</b> <?php echo $row["cast"]; ?></p>
                             <p><b>Duration:</b> <?php echo $row["duration"]; ?></p>
