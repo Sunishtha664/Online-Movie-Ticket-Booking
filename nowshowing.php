@@ -31,11 +31,11 @@ $result = $conn->select_by_query("SELECT * FROM movie
             ?>
                     <div class="col-md-3">
                         <img src="<?php echo $row["movie_banner"]; ?>" style="width: 100%; height: 350px;" />
-                        <h6 class="text-center mt-2" style="height: 40px;"><?php echo $row["name"]; ?></h6>
-                        <p><b>Release Date: </b><?php echo $row["rel_date"]; ?></p>
-                        <p><b>Industry: </b><?php echo $indrow["industry_name"]; ?></p>
-                        <p><b>Language: </b><?php echo $langrow["lang_name"]; ?></p>
-                        <p><b>Genre: </b><?php echo $genrow["genre_name"]; ?></p>
+                        <h6 class="text-center mt-2" style="height: 40px; color:azure "><?php echo $row["name"]; ?></h6>
+                        <p style="height: 30px; color:azure"><b>Release Date: </b><?php echo $row["rel_date"]; ?></p>
+                        <p style="height: 30px; color:azure"><b>Industry: </b><?php echo $indrow["industry_name"]; ?></p>
+                        <p style="height: 30px; color:azure"><b>Language: </b><?php echo $langrow["lang_name"]; ?></p>
+                        <p style="height: 30px; color:azure"><b>Genre: </b><?php echo $genrow["genre_name"]; ?></p>
                         <a class="btn" style="background-color:darkcyan; color:white;width:100%" href="booking.php">Book Ticket</a>
                     </div>
             <?php
