@@ -146,7 +146,7 @@ if (isset($_POST["btn_reg"])) {
         }
 
         section {
-            background-image: url('Images/theatrepic.jpeg');
+            background-image: url('Images/theatre pic.jpeg');
             /* your background image */
             background-size: cover;
             background-position: center;
