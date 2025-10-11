@@ -144,6 +144,35 @@ if (isset($_POST["btn_reg"])) {
             overflow-y: auto;
             /* scroll inside modal */
         }
+
+        section {
+    background-image: url('Images/theatrepic2.png');  /* your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 60px 0;
+    color: #000; /* text color */
+}
+
+/* Make background slightly lighter but still visible */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 28, 28, 0.3); /* 0.3 = lighter overlay */
+    z-index: 1;
+}
+
+/* Keep content above overlay */
+section > * {
+    position: relative;
+    z-index: 2;
+}
+
     </style>
 
 </head>
