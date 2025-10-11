@@ -118,7 +118,7 @@ if (!empty($_SESSION['show_login'])) {
                 ?>
                         <div class="col-md-3 mb-4">
                             <div class="card h-100 shadow-sm">
-                                <img src="<?php echo $row["movie_banner"]; ?>" class="card-img-top" style="height: 300px; object-fit:cover;" />
+                                <img src="<?php echo $row["movie_banner"]; ?>" class="card-img-top" style="height: 300px; " />
                                 <div class="card-body">
                                     <h6 class="card-title text-center"><?php echo $row["name"]; ?></h6>
                                     <p class="card-text"><b>Release Date:</b> <?php echo $row["rel_date"]; ?></p>
