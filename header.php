@@ -146,55 +146,58 @@ if (isset($_POST["btn_reg"])) {
         }
 
         section {
-    background-image: url('Images/theatrepic2.png');  /* your background image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    padding: 60px 0;
-    color: #000; /* text color */
-}
+            background-image: url('Images/theatrepic2.png');
+            /* your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 60px 0;
+            color: #000;
+            /* text color */
+        }
 
-/* Make background slightly lighter but still visible */
-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* 0.3 = lighter overlay */
-    z-index: 1;
-}
+        /* Make background slightly lighter but still visible */
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* 0.3 = lighter overlay */
+            z-index: 1;
+        }
 
-/* Keep content above overlay */
-section > * {
-    position: relative;
-    z-index: 2;
-}
-/* Remove default body margin */
-body {
-    margin: 0;
-    padding: 0;
-}
+        /* Keep content above overlay */
+        section>* {
+            position: relative;
+            z-index: 2;
+        }
 
-/* Fix space below or above navbar */
-.navbar {
-    margin-bottom: 0;
-}
+        /* Remove default body margin */
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-/* Ensure carousel starts right after navbar */
-#carouselId {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
+        /* Fix space below or above navbar */
+        .navbar {
+            margin-bottom: 0;
+        }
 
-/* Optional: remove extra top padding from section */
-section:first-of-type {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
+        /* Ensure carousel starts right after navbar */
+        #carouselId {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
 
+        /* Optional: remove extra top padding from section */
+        section:first-of-type {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
     </style>
 
 </head>
