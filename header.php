@@ -184,7 +184,31 @@ if (isset($_POST["btn_reg"])) {
 
         /* Fix space below or above navbar */
         .navbar {
-            margin-bottom: 0;
+           background: rgba(0, 0, 0, 0.7); /* semi-transparent dark background */
+            backdrop-filter: blur(8px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .content-wrapper {
+            padding-top: 70px; /* adjust this based on navbar height */
+        }
+         .navbar-brand {
+            color: #fff !important;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
         }
 
         /* Ensure carousel starts right after navbar */
@@ -203,7 +227,7 @@ if (isset($_POST["btn_reg"])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #343a40;">
+    <nav class="navbar navbar-expand-md navbar-dark" >
         <a class="navbar-brand" href="index.php">
             <img src="Images/Clapperboard.jpeg" alt="Logo" style="height: 40px;">
         </a>
