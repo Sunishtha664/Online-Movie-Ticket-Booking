@@ -192,9 +192,9 @@ if (isset($_POST["btn_reg"])) {
             width: 100%;
             z-index: 1000;
         }
-        .content-wrapper {
+        /* .content-wrapper {
             padding-top: 70px; /* adjust this based on navbar height */
-        }
+         */
          .navbar-brand {
             color: #fff !important;
             font-weight: 600;
