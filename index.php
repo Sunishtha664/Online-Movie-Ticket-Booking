@@ -8,7 +8,6 @@ $tbl = "slider";
 $result = $conn->select_all($tbl);
 $result1 = $conn->select_all($tbl);
 
-
 if (!empty($_SESSION['show_login'])) {
 ?>
     <script>
@@ -32,7 +31,7 @@ if (!empty($_SESSION['show_login'])) {
 
 
 
-<section style="min-height: 450px;">
+<section style="min-height: 450px;" >
     <div id="carouselId" class="carousel slide" data-ride="carousel">
         <?php
         if ($result->num_rows > 0) {
@@ -108,7 +107,7 @@ if (!empty($_SESSION['show_login'])) {
     </div>
 
 <!-- Now Showing Section -->
-<section class="py-5" style="background-color: #f8f9fa;">
+<section class="py-5" id="nowshowing" >
     <div class="container">
         <h2 class="text-center mb-4" style="color:darkcyan;">Now Showing</h2>
         <div class="row">
@@ -142,7 +141,7 @@ if (!empty($_SESSION['show_login'])) {
 </section>
 
 <!-- Coming Soon Section -->
-<section class="py-5" style="background-color: #fff;">
+<section class="py-5" id="comingsoon" >
     <div class="container">
         <h2 class="text-center mb-4" style="color:darkcyan;">Coming Soon</h2>
         <div class="row">
