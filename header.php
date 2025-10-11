@@ -163,7 +163,7 @@ section::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(30, 28, 28, 0.3); /* 0.3 = lighter overlay */
+    background-color: rgba(0, 0, 0, 0.3); /* 0.3 = lighter overlay */
     z-index: 1;
 }
 
@@ -171,6 +171,28 @@ section::before {
 section > * {
     position: relative;
     z-index: 2;
+}
+/* Remove default body margin */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix space below or above navbar */
+.navbar {
+    margin-bottom: 0;
+}
+
+/* Ensure carousel starts right after navbar */
+#carouselId {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Optional: remove extra top padding from section */
+section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
     </style>
