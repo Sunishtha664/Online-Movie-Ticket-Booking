@@ -21,7 +21,7 @@ if (isset($_POST['btn_submit'])) {
 
 <section style="min-height: 450px;">
     <div class="container">
-        <div class=" col-md-12" style="margin-top: 20px; text-align: center; color: #343a40;">
+        <div class=" col-md-12" style="margin-top: 20px; text-align: center; color:beige;">
             <center>
                 <h1>Contact Us</h1>
                 <h5>GET IN TOUCH</h5>
@@ -47,7 +47,7 @@ if (isset($_POST['btn_submit'])) {
             </div>
             <div class="col-md-6">
                 <form method="post">
-                    <div class="container" style="color:#343a40">
+                    <div class="container" style="color:azure;">
 
 
 
