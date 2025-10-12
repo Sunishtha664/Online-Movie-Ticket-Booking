@@ -215,6 +215,7 @@ if (isset($_POST["btn_reg"])) {
             margin-top: 0 !important;
             padding-top: 0 !important;
         }
+        
     </style>
 
 </head>

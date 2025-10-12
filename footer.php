@@ -1,41 +1,51 @@
  <footer style="background-color: #343a40; color:white; padding:1%">
      <div class="container">
          <div class="row mt-5">
-             <div class="col-md-4">
-                 <h6>Movies</h6>
-                 <ul class="navbar-nav">
-                     <li><a href="#" style="color:blanchedalmond;">Now Showing</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Coming Soon</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Bollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Hollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Kollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">See All</a></li>
-                 </ul>
-             </div>
-             <div class="col-md-4">
-                 <h6>Movies</h6>
-                 <ul class="navbar-nav">
-                     <li><a href="#" style="color:blanchedalmond;">Now Showing</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Coming Soon</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Bollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Hollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Kollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">See All</a></li>
-                 </ul>
-             </div>
-             <div class="col-md-4">
-                 <h6>Movies</h6>
-                 <ul class="navbar-nav">
-                     <li><a href="#" style="color:blanchedalmond;">Now Showing</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Coming Soon</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Bollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Hollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">Kollywood</a></li>
-                     <li><a href="#" style="color:blanchedalmond;">See All</a></li>
-                 </ul>
-             </div>
-         </div>
-     </div>
+             <div class="row">
+      <!-- Left side: Logo -->
+      <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+        <h3 style="font-weight: 700; color: #ff4c4c;">MyCine<span style="color: #00bcd4;">Zone</span></h3>
+        <p style="margin-top: 10px; font-size: 15px; color: #dcdcdc;">
+          Your ultimate movie experience starts here — book, watch, and enjoy the latest blockbusters with ease.
+        </p>
+      </div>
+
+
+           
+         <!-- Middle: Quick Links -->
+      <div class="col-md-4 mb-4 mb-md-0 text-center">
+        <h5 style="font-weight: 600; margin-bottom: 20px;">Quick Links</h5>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li><a href="index.php" style="color: #dcdcdc; text-decoration: none;">Home</a></li>
+          <li><a href="nowshowing.php" style="color: #dcdcdc; text-decoration: none;">Now Showing</a></li>
+          <li><a href="commingsoon.php" style="color: #dcdcdc; text-decoration: none;">Coming Soon</a></li>
+          <li><a href="booking.php" style="color: #dcdcdc; text-decoration: none;">Book Ticket</a></li>
+          <li><a href="about.php" style="color: #dcdcdc; text-decoration: none;">About</a></li>
+          <li><a href="contact.php" style="color: #dcdcdc; text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Right side: Contact Info -->
+      <div class="col-md-4 text-center text-md-start">
+        <h5 style="font-weight: 600; margin-bottom: 20px;">For Booking</h5>
+        <p style="margin: 0; font-size: 15px;">For Marketing & Enquiries:<br>
+          <span style="color: #00bcd4;">mycinezone@gmail.com</span>
+        </p>
+        <p style="margin: 10px 0 0 0; font-size: 15px;">For Complaints & Support:<br>
+          <span style="color: #00bcd4;">support@mycinezone.com</span>
+        </p>
+        <p style="margin: 10px 0 0 0; font-size: 15px;">Phone: <span style="color: #00bcd4;">01-5556789</span></p>
+      </div>
+    
+
+      <hr style="border-color: rgba(255,255,255,0.2); margin: 40px 0;">
+
+    <div class="text-center" style="font-size: 14px; color: #aaa;">
+      © 2025 MyCineZone | Kathmandu, Nepal | 
+      <a href="#" style="color: #ff4c4c; text-decoration: none;">Terms & Conditions</a>
+    </div>
+         
+     
  </footer>
 
 
