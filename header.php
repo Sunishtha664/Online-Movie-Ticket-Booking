@@ -182,28 +182,32 @@ if (isset($_POST["btn_reg"])) {
             padding: 0;
         }
 
-       .navbar{
-        background-color: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
-        top: 0;
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-       
-       }
-       .navbar-brand {
+
+        }
+
+        .navbar-brand {
             color: #fff !important;
             font-weight: 600;
             letter-spacing: 1px;
         }
-       .navbar-nav .nav-link {
+
+        .navbar-nav .nav-link {
             color: #fff !important;
             margin-right: 15px;
             transition: color 0.3s;
         }
+
         .navbar-nav .nav-link:hover {
             color: #ffc107 !important;
         }
+
         /* Ensure carousel starts right after navbar */
         #carouselId {
             margin-top: 0 !important;
@@ -215,7 +219,6 @@ if (isset($_POST["btn_reg"])) {
             margin-top: 0 !important;
             padding-top: 0 !important;
         }
-        
     </style>
 
 </head>
