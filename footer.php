@@ -42,7 +42,7 @@
 
     <div class="text-center" style="font-size: 14px; color: #aaa;">
       © 2025 MyCineZone | Kathmandu, Nepal | 
-      <a href="#" style="color: #ff4c4c; text-decoration: none;">Terms & Conditions</a>
+      <a href="terms.php" style="color: #ff4c4c; text-decoration: none;">Terms & Conditions</a>
     </div>
          
      
@@ -63,7 +63,7 @@
 
   .footer-links a {
     color: #dcdcdc;
-    text-decoration: none;
+
     font-size: 15px;
     position: relative;
     transition: all 0.3s ease;
