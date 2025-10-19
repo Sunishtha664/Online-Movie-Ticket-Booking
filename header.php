@@ -219,6 +219,48 @@ if (isset($_POST["btn_reg"])) {
             margin-top: 0 !important;
             padding-top: 0 !important;
         }
+        /* 🎬 Dropdown menu styling only */
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid darkcyan;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    min-width: 180px;
+    padding: 0.5rem 0;
+    animation: fadeInDown 0.25s ease-in-out;
+}
+
+/* Menu items */
+.dropdown-item {
+    color: azure !important;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: darkcyan !important;
+    color: white !important;
+    border-radius: 6px;
+    transform: translateX(4px);
+}
+
+/* Dropdown arrow color fix */
+.nav-link.dropdown-toggle::after {
+    color: cyan !important;
+}
+
+/* Soft dropdown animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
     </style>
 
 </head>
@@ -242,7 +284,7 @@ if (isset($_POST["btn_reg"])) {
                         <a class="dropdown-item" href="nowshowing.php">Now showing</a>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="offer.php">Offers</a></li>
+                
                 <li class="nav-item"><a class="nav-link" href="booking.php">Book Ticket</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
