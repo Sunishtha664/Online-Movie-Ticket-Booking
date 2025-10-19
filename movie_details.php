@@ -45,7 +45,9 @@ $industry    = htmlspecialchars($row['industry_name'] ?? '—');
 ?>
 <section class="py-5">
     <div class="container">
+        <!-- Back button -->
         <a href="commingsoon.php" class="btn btn-link mb-3">&larr; Back</a>
+
         <div class="card shadow-sm">
             <div class="card-header" style="background-color:darkcyan; color:#fff;">
                 <h4 class="mb-0"><?php echo $name; ?></h4>
@@ -73,12 +75,9 @@ $industry    = htmlspecialchars($row['industry_name'] ?? '—');
                             <li class="mt-2"><strong>Industry:</strong> <?php echo $industry; ?></li>
                         </ul>
 
+                        <!-- replace booking/login area with a simple back button -->
                         <div class="mt-4">
-                            <?php if (!empty($_SESSION['username'])): ?>
-                                <a href="booking.php?movie_id=<?php echo $movie_id; ?>" class="btn btn-block" style="background-color:darkcyan;color:#fff;">Book Ticket</a>
-                            <?php else: ?>
-                                <button class="btn btn-block" style="background-color:darkcyan;color:#fff;" data-toggle="modal" data-target="#modelId1">Login to Book</button>
-                            <?php endif; ?>
+                            <a href="commingsoon.php" class="btn btn-outline-secondary btn-block">Back to Coming Soon</a>
                         </div>
                     </div>
                 </div>
