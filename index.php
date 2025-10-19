@@ -141,67 +141,45 @@ if (!empty($_SESSION['show_login'])) {
     </section>
 
     <!-- Coming Soon Section -->
-    <section class="py-5" id="comingsoon">
-        <div class="container">
-            <h2 class="text-center mb-4" style="color:darkcyan;">Coming Soon</h2>
-            <div class="row">
-                <?php
-                $comingsoon = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE() ORDER BY rel_date ASC");
-                if ($comingsoon->num_rows > 0) {
-                    while ($row = $comingsoon->fetch_assoc()) {
-                ?>
-                        <div class="col-md-3 mb-4">
-                            <div class="card h-100 shadow-sm">
-                                <img src="<?php echo $row["movie_banner"]; ?>" class="card-img-top" style="height: 300px; object-fit:cover;" />
-                                <div class="card-body">
-                                    <h6 class="card-title text-center"><?php echo $row["name"]; ?></h6>
-                                    <p class="card-text"><b>Release Date:</b> <?php echo $row["rel_date"]; ?></p>
-                                </div>
-                                <div class="card-footer bg-white border-0">
-                                    <a class="btn btn-block" style="background-color:darkcyan; color:white;"
-                                        data-toggle="modal" data-target="#movieModal<?php echo $row['id']; ?>">
-                                        View Details
-                                    </a>
-                                </div>
+   <section class="py-5" id="comingsoon">
+    <div class="container">
+        <h2 class="text-center mb-4" style="color:darkcyan;">Coming Soon</h2>
+        <div class="row">
+            <?php
+            $comingsoon = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE() ORDER BY rel_date ASC");
+            if ($comingsoon && $comingsoon->num_rows > 0) {
+                while ($row = $comingsoon->fetch_assoc()) {
+                    $id       = (int)($row['id'] ?? 0);
+                    $name     = htmlspecialchars($row['name'] ?? 'Untitled');
+                    $banner   = htmlspecialchars($row['movie_banner'] ?? 'Images/default_poster.jpg');
+                    $rel_date = htmlspecialchars($row['rel_date'] ?? '');
+            ?>
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="<?php echo $banner; ?>" class="card-img-top" style="height: 300px; object-fit:cover;" alt="<?php echo $name; ?>" />
+                            <div class="card-body">
+                                <h6 class="card-title text-center"><?php echo $name; ?></h6>
+                                <p class="card-text"><b>Release Date:</b> <?php echo $rel_date; ?></p>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <!-- open separate details page (no modal) -->
+                                <a class="btn btn-block" style="background-color:darkcyan; color:white;"
+                                   href="movie_details.php?movie_id=<?php echo $id; ?>">
+                                    View Details
+                                </a>
                             </div>
                         </div>
-
-                        <!-- Movie Details Modal -->
-                        <div class="modal fade" id="movieModal<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header" style="background-color:darkcyan; color:white;">
-                                        <h5 class="modal-title" id="movieModalLabel<?php echo $row['id']; ?>"><?php echo $row["name"]; ?></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true" style="color:white;">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                                        <img src="<?php echo $row["landscape_img"]; ?>"
-                                            style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
-                                        <hr style="margin: 16px 0;">
-                                        <div style="font-size: 1.05rem;">
-                                            <p><b>Description:</b> <?php echo $row["description"]; ?></p>
-                                            <ul style="list-style:none; padding-left:0;">
-                                                <li><b>Director:</b> <?php echo $row["director"]; ?></li>
-                                                <li><b>Cast:</b> <?php echo $row["cast"]; ?></li>
-                                                <li><b>Duration:</b> <?php echo $row["duration"]; ?></li>
-                                                <li><b>Genre:</b> <?php echo $row["genre"]; ?></li>
-                                                <li><b>Release Date:</b> <?php echo $row["rel_date"]; ?></li>
-                                                <li><b>Age Rating:</b> <?php echo $row["age_rating"]; ?></li>
-                                                <li><b>Language:</b> <?php echo $row["language"]; ?></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                <?php
-                    }
+                    </div>
+            <?php
                 }
-                ?>
-            </div>
+            } else {
+                echo '<div class="col-12"><p class="text-center">No upcoming movies found.</p></div>';
+            }
+            ?>
         </div>
+    </div>
+</section>
+               
     </section>
 
 
