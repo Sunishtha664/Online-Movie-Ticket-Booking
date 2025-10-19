@@ -1,5 +1,4 @@
 <?php
-
 include("header.php");
 require_once("conn.php");
 
@@ -43,48 +42,86 @@ $age_rating  = htmlspecialchars($row['age_rating'] ?? '—');
 $language    = htmlspecialchars($row['lang_name'] ?? ($row['language'] ?? '—'));
 $industry    = htmlspecialchars($row['industry_name'] ?? '—');
 ?>
-<section class="py-5">
+
+<style>
+.movie-details {
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('<?php echo $banner; ?>');
+    background-size: cover;
+    background-position: center;
+    color: #f1f1f1;
+    padding: 80px 0;
+}
+.movie-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+.movie-title {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #00bcd4;
+    margin-bottom: 15px;
+}
+.movie-info li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.movie-info li strong {
+    color: #00bcd4;
+}
+.description {
+    margin-top: 15px;
+    line-height: 1.6;
+}
+.btn-back {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-back:hover {
+    background-color: #0097a7;
+    color: #fff;
+}
+</style>
+
+<section class="movie-details">
     <div class="container">
-        <!-- Back button -->
-        <a href="commingsoon.php" class="btn btn-link mb-3">&larr; Back</a>
-
-        <div class="card shadow-sm">
-            <div class="card-header" style="background-color:darkcyan; color:#fff;">
-                <h4 class="mb-0"><?php echo $name; ?></h4>
-            </div>
-            <div class="card-body" style="padding:1.5rem;">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <img src="<?php echo htmlspecialchars($banner); ?>"
-                             alt="<?php echo $name; ?>"
-                             style="width:100%; max-height:320px; object-fit:cover; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.12); margin-bottom:18px;">
-                        <div style="font-size:1rem; color:#333;">
-                            <p><strong>Description:</strong><br><?php echo $description; ?></p>
-                        </div>
+        <div class="movie-card">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="<?php echo htmlspecialchars($banner); ?>" 
+                         alt="<?php echo $name; ?>" 
+                         style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.4);">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="movie-title"><?php echo $name; ?></h2>
+                    <ul class="list-unstyled movie-info">
+                        <li><strong>Director:</strong> <?php echo $director; ?></li>
+                        <li><strong>Cast:</strong> <?php echo $cast; ?></li>
+                        <li><strong>Duration:</strong> <?php echo $duration; ?></li>
+                        <li><strong>Genre:</strong> <?php echo $genre; ?></li>
+                        <li><strong>Release Date:</strong> <?php echo $rel_date; ?></li>
+                        <li><strong>Age Rating:</strong> <?php echo $age_rating; ?></li>
+                        <li><strong>Language:</strong> <?php echo $language; ?></li>
+                        <li><strong>Industry:</strong> <?php echo $industry; ?></li>
+                    </ul>
+                    <div class="description">
+                        <strong>Description:</strong><br>
+                        <?php echo $description; ?>
                     </div>
 
-                    <div class="col-lg-5">
-                        <ul class="list-unstyled" style="font-size:1rem; color:#222;">
-                            <li><strong>Director:</strong> <?php echo $director; ?></li>
-                            <li class="mt-2"><strong>Cast:</strong> <?php echo $cast; ?></li>
-                            <li class="mt-2"><strong>Duration:</strong> <?php echo $duration; ?></li>
-                            <li class="mt-2"><strong>Genre:</strong> <?php echo $genre; ?></li>
-                            <li class="mt-2"><strong>Release Date:</strong> <?php echo $rel_date; ?></li>
-                            <li class="mt-2"><strong>Age Rating:</strong> <?php echo $age_rating; ?></li>
-                            <li class="mt-2"><strong>Language:</strong> <?php echo $language; ?></li>
-                            <li class="mt-2"><strong>Industry:</strong> <?php echo $industry; ?></li>
-                        </ul>
-
-                        <!-- replace booking/login area with a simple back button -->
-                        <div class="mt-4">
-                            <a href="commingsoon.php" class="btn btn-outline-secondary btn-block">Back to Coming Soon</a>
-                        </div>
-                    </div>
+                    <a href="commingsoon.php" class="btn-back">← Back to Coming Soon</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<?php
-include("footer.php");
-?>
+
+<?php include("footer.php"); ?>

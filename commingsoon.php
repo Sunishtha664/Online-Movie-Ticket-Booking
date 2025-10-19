@@ -6,8 +6,46 @@ $conn = new connec();
 $result = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE() ORDER BY rel_date ASC");
 ?>
 
-<section class="mt-5 ">
-    <h3 class="text-center" style="color:darkcyan;">Coming soon</h3>
+<style>
+/* Match the dark theme of Now Showing */
+body {
+    background-color: #0d0d0d;
+    color: azure;
+}
+.card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.card img {
+    height: 350px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.card h6, .card p {
+    color: azure;
+}
+.btn-view {
+    background-color: darkcyan;
+    color: white;
+    width: 100%;
+    border: none;
+    transition: 0.3s;
+}
+.btn-view:hover {
+    background-color: #0097a7;
+    color: #fff;
+}
+</style>
+
+<section class="mt-5">
+    <h3 class="text-center mb-4" style="color:darkcyan;">Coming Soon</h3>
 
     <div class="container">
         <div class="row">
@@ -42,18 +80,16 @@ $result = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE()
                     $genreName    = htmlspecialchars($genrow['genre_name'] ?? '');
             ?>
                     <div class="col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <img src="<?php echo $movieBanner; ?>" class="card-img-top" style="height: 260px; object-fit:cover;" alt="<?php echo $movieName; ?>" />
+                        <div class="card h-100">
+                            <img src="<?php echo $movieBanner; ?>" alt="<?php echo $movieName; ?>" />
                             <div class="card-body">
-                                <h6 class="card-title text-center" style="min-height:48px;"><?php echo $movieName; ?></h6>
-                                <p class="card-text"><small><b>Release Date:</b> <?php echo $rel_date; ?></small></p>
-                                <p class="card-text"><small><b>Language:</b> <?php echo $langName; ?></small></p>
-                                <p class="card-text"><small><b>Genre:</b> <?php echo $genreName; ?></small></p>
+                                <h6 class="text-center" style="min-height:40px;"><?php echo $movieName; ?></h6>
+                                <p><b>Release Date:</b> <?php echo $rel_date; ?></p>
+                                <p><b>Language:</b> <?php echo $langName; ?></p>
+                                <p><b>Genre:</b> <?php echo $genreName; ?></p>
                             </div>
-                            <div class="card-footer bg-white border-0">
-                                <!-- open details page (no modal) -->
-                                <a class="btn btn-block" style="background-color:darkcyan; color:white;"
-                                   href="movie_details.php?movie_id=<?php echo $movieId; ?>">
+                            <div class="card-footer bg-transparent border-0">
+                                <a class="btn btn-view" href="movie_details.php?movie_id=<?php echo $movieId; ?>">
                                     View Details
                                 </a>
                             </div>
@@ -62,7 +98,7 @@ $result = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE()
             <?php
                 }
             } else {
-                echo '<div class="col-12"><p class="text-center">No upcoming movies found.</p></div>';
+                echo '<div class="col-12 text-center text-light mt-4">No upcoming movies found.</div>';
             }
             ?>
         </div>
