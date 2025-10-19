@@ -29,8 +29,6 @@ if (!empty($_SESSION['show_login'])) {
 
 ?>
 
-
-
 <section style="min-height: 450px;">
     <div id="carouselId" class="carousel slide" data-ride="carousel">
         <?php
