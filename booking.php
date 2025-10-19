@@ -108,7 +108,7 @@ if (isset($_POST["btn_booking"])) {
         <h3 class="text-center" style="color:darkcyan;">Book Your Ticket Now</h3>
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-7" style="color:azure;">
                     <div id="seat-map" id="seatCharts">
                         <h3 class="text-center mt-5" style="color: darkcyan">Select Seats</h3>
                         <hr>
