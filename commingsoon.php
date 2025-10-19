@@ -3,7 +3,6 @@ include("header.php");
 require_once("conn.php");
 
 $conn = new connec();
-$tbl = "movie";
 $result = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE() ORDER BY rel_date ASC");
 ?>
 
@@ -13,63 +12,63 @@ $result = $conn->select_by_query("SELECT * FROM movie WHERE rel_date > CURDATE()
     <div class="container">
         <div class="row">
             <?php
-            if ($result->num_rows > 0) {
+            if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
 
-                    $ind = $conn->select("industry", $row["industry_id"]);
-                    $indrow = $ind->fetch_assoc();
+                    // safe related lookups
+                    $indrow = [];
+                    $langrow = [];
+                    $genrow = [];
 
-                    $lang = $conn->select("language", $row["lang_id"]);
-                    $langrow = $lang->fetch_assoc();
+                    if (!empty($row["industry_id"])) {
+                        $ind = $conn->select("industry", $row["industry_id"]);
+                        if ($ind) $indrow = $ind->fetch_assoc() ?: [];
+                    }
+                    if (!empty($row["lang_id"])) {
+                        $lang = $conn->select("language", $row["lang_id"]);
+                        if ($lang) $langrow = $lang->fetch_assoc() ?: [];
+                    }
+                    if (!empty($row["genre_id"])) {
+                        $gen = $conn->select("genre", $row["genre_id"]);
+                        if ($gen) $genrow = $gen->fetch_assoc() ?: [];
+                    }
 
-                    $gen = $conn->select("genre", $row["genre_id"]);
-                    $genrow = $gen->fetch_assoc();
+                    $movieId      = (int)($row['id'] ?? 0);
+                    $movieName    = htmlspecialchars($row['name'] ?? 'Untitled');
+                    $movieBanner  = !empty($row['movie_banner']) ? htmlspecialchars($row['movie_banner']) : 'Images/default_poster.jpg';
+                    $rel_date     = htmlspecialchars($row['rel_date'] ?? '');
+                    $industryName = htmlspecialchars($indrow['industry_name'] ?? '');
+                    $langName     = htmlspecialchars($langrow['lang_name'] ?? '');
+                    $genreName    = htmlspecialchars($genrow['genre_name'] ?? '');
             ?>
                     <div class="col-md-3 mb-4">
-                        <img src="<?php echo $row["movie_banner"]; ?>" style="width: 100%; height: 350px; object-fit:cover;" />
-                        <h6 class="text-center mt-2" style="height: 40px; color:azure"><?php echo $row["name"]; ?></h6>
-                        <p style="height: 30px; color:azure"><b>Release Date: </b><?php echo $row["rel_date"]; ?></p>
-                        <p style="height: 30px; color:azure"><b>Industry: </b><?php echo $indrow["industry_name"]; ?></p>
-                        <p style="height: 30px; color:azure"><b>Language: </b><?php echo $langrow["lang_name"]; ?></p>
-                        <p style="height: 30px; color:azure"><b>Genre: </b><?php echo $genrow["genre_name"]; ?></p>
-                        <a class="btn" style="background-color:darkcyan; color:white; width:100%"
-                            data-toggle="modal" data-target="#movieModal<?php echo $row['id']; ?>">
-                            View Details
-                        </a>
-                    </div>
-
-                    <!-- Movie Details Modal -->
-                    <div class="modal fade" id="movieModal<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header" style="background-color:darkcyan; color:white;">
-                                    <h5 class="modal-title" id="movieModalLabel<?php echo $row['id']; ?>"><?php echo $row["name"]; ?></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true" style="color:white;">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="<?php echo $row["landscape_img"]; ?>" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;" />
-
-                                    <p><b>Description:</b> <?php echo $row["movie_desc"]; ?></p>
-                                    <p><b>Director:</b> <?php echo $row["director"]; ?></p>
-                                    <p><b>Cast:</b> <?php echo $row["cast"]; ?></p>
-                                    <p><b>Duration:</b> <?php echo $row["duration"]; ?></p>
-                                    <p><b>Genre:</b> <?php echo $genrow["genre_name"]; ?></p>
-                                    <p><b>Release Date:</b> <?php echo $row["rel_date"]; ?></p>
-                                    <p><b>Age Rating:</b> <?php echo $row["age_rating"]; ?></p>
-                                    <p><b>Language:</b> <?php echo $langrow["lang_name"]; ?></p>
-                                </div>
+                        <div class="card h-100 shadow-sm">
+                            <img src="<?php echo $movieBanner; ?>" class="card-img-top" style="height: 260px; object-fit:cover;" alt="<?php echo $movieName; ?>" />
+                            <div class="card-body">
+                                <h6 class="card-title text-center" style="min-height:48px;"><?php echo $movieName; ?></h6>
+                                <p class="card-text"><small><b>Release Date:</b> <?php echo $rel_date; ?></small></p>
+                                <p class="card-text"><small><b>Language:</b> <?php echo $langName; ?></small></p>
+                                <p class="card-text"><small><b>Genre:</b> <?php echo $genreName; ?></small></p>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <!-- open details page (no modal) -->
+                                <a class="btn btn-block" style="background-color:darkcyan; color:white;"
+                                   href="movie_details.php?movie_id=<?php echo $movieId; ?>">
+                                    View Details
+                                </a>
                             </div>
                         </div>
                     </div>
             <?php
                 }
+            } else {
+                echo '<div class="col-12"><p class="text-center">No upcoming movies found.</p></div>';
             }
             ?>
         </div>
     </div>
 </section>
+
 <?php
 include("footer.php");
 ?>
