@@ -1,25 +1,19 @@
 <?php
+session_start();
 if (isset($_POST["btn_login"])) {
 
     $email_id = $_POST["log_email"];
     $paswrd_log = $_POST["log_psw"];
 
-    $result = $conn->select_login("customer", $email_id);
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-
-        if ($row["email"] == $email_id && $row["password"] == $paswrd_log) {
-            $_SESSION["username"] = $row["fullname"];
-            $_SESSION["cust_id"] = $row["id"];
-            $_SERVER["ul"] = '<li class="nav-item"><a class="nav-link">Hello' . $_SESSION["username"] . '</a></li> <li class="nav-item"><a class="nav-link" href="index.php?action=logout">LogOut</a></li>';
+  
+        if ("admin@gmail.com"== $email_id && "admin1234" == $paswrd_log) {
+            $_SESSION["admin_username"] = $email_id;
+            header("Location: dashboard.php");
+        
         } else {
             echo '<script> alert("Invalid Password");</script>';
         }
-    } else {
-        echo '<script> alert("Invalid Email Id");</script>';
     }
-}
 ?>
 
 
