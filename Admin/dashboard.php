@@ -2,6 +2,4 @@ bakjefbwkefbewkf
 aswedkvjkdb
 erfberkgjber
 asjkvhbger
-srdkhvbgerkdhg
-sabgrergrg
 
