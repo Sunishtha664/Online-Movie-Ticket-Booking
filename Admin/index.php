@@ -125,7 +125,7 @@ if (isset($_POST["btn_login"])) {
                     </div>
 
                 </form>
-                <p style="color:maroon; margin-left:1%"><?php echo $error;?></p>
+                <p style="color:maroon; margin-left:1%; font-weight:bold"><?php echo $error;?></p>
             </div>
 
         </div>
