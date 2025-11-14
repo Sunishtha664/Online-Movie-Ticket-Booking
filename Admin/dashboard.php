@@ -1,4 +1,11 @@
-<!doctype html>
+<?php 
+session_start();
+if(!empty($_SESSION["admin_username"])){
+header("location: index.php");
+}
+else{
+    ?>
+    <!doctype html>
 <html lang="en">
   <head>
     <title>Admin Panel - Online Movie Ticket</title>
@@ -43,3 +50,8 @@
 
 
 
+
+    <?php
+}
+
+?>

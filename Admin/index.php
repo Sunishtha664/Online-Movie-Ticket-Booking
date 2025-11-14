@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION["admin_username"] = "";
 $error = "";
 if (isset($_POST["btn_login"])) {
 
@@ -9,7 +10,7 @@ if (isset($_POST["btn_login"])) {
 
     if ("admin@gmail.com" == $email_id) {
         if ("admin1234" == $paswrd_log) {
-            $_SESSION["admin_username"] = $email_id;
+            $email_id;
             header("Location: dashboard.php");
         } else {
             $error = "Invalid Password";
@@ -125,7 +126,7 @@ if (isset($_POST["btn_login"])) {
                     </div>
 
                 </form>
-                <p style="color:maroon; margin-left:1%; font-weight:bold"><?php echo $error;?></p>
+                <p style="color:maroon; margin-left:1%; font-weight:bold"><?php echo $error; ?></p>
             </div>
 
         </div>
