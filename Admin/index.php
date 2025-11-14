@@ -1,16 +1,23 @@
 <?php
 session_start();
+$error= "";
 if (isset($_POST["btn_login"])) {
 
     $email_id = $_POST["log_email"];
     $paswrd_log = $_POST["log_psw"];
 
 
-    if ("admin@gmail.com" == $email_id && "admin1234" == $paswrd_log) {
-        $_SESSION["admin_username"] = $email_id;
+    if ("admin@gmail.com" == $email_id) {
+        if("admin1234" == $paswrd_log){
+             $_SESSION["admin_username"] = $email_id;
         header("Location: dashboard.php");
+        }
+        else{
+            $error = "Invalid Password";
+        }
+       
     } else {
-        echo '<script> alert("Invalid Password");</script>';
+      $error = "Invalid Email";
     }
 }
 ?>
