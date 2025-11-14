@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Admin Panel - Online Movie Ticket</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,6 +11,27 @@
   </head>
   <body>
       
+  <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000;">
+        <a class="navbar-brand" href="index.php">
+            <img src="../Images/Clapperboard.jpeg" alt="Logo" style="height: 40px;">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <h5><li class="nav-item"><a class="nav-link" href="dashboard.php">Admin Panel Online Movie Ticket Booking</a></li></h5>
+            </ul>
+                
+            <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/index.php">Logout</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
