@@ -120,6 +120,7 @@ if (isset($_POST["btn_login"])) {
                     </div>
 
                 </form>
+                <p style="color:maroon; margin-left:1%"></p>
             </div>
 
         </div>
