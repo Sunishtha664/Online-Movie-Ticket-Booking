@@ -47,7 +47,7 @@ if (empty($_SESSION["admin_username"])) {
         <section>
             <div class="continer">
                 <div class="row">
-                    <div class="col-md-3"></div>
+                    <div class="col-md-3" style="background-color:#343a40; min-height:450px;"></div>
                     <div class="col-md-9"></div>
                 </div>
             </div>
