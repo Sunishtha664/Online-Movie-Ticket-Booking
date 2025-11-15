@@ -38,11 +38,21 @@ if (empty($_SESSION["admin_username"])) {
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../Admin/index.php">Logout</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
         </nav>
+
+        <section>
+            <div class="continer">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-9"></div>
+                </div>
+            </div>
+
+        </section>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
