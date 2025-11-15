@@ -1,8 +1,7 @@
-<?php
+<?php 
 session_start();
-
 if (empty($_SESSION["admin_username"])) {
-    header("Location:index.php");
+    header("Location: index.php");
 } else {
 ?>
     <!doctype html>
