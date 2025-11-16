@@ -47,11 +47,11 @@ if (empty($_SESSION["admin_username"])) {
         <section>
             <div class="continer">
                 <div class="row">
-                    <div class="col-md-3" style="background-color:#343a40;">
+                    <div class="col-md-2" style="background-color:#343a40;">
                         <?php include('admin_sidenavbar.php')?>
                     </div>
                 
-                    <div class="col-md-9">
+                    <div class="col-md-10">
 
                     </div>
                 </div>
