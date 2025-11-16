@@ -44,11 +44,15 @@ if (empty($_SESSION["admin_username"])) {
             </div>
         </nav>
 
-        <section>
+         <section>
             <div class="continer">
                 <div class="row">
                     <div class="col-md-2" style="background-color:#343a40;">
-                        <?php include('admin_sidenavbar.php')?>
+                    <?php include("admin_sidenavbar.php");?>
                     </div>
                 
                     <div class="col-md-10">
+                        <h5>Admin Dashboard</h5>
+
+
+        
