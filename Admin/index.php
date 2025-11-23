@@ -2,7 +2,7 @@
 session_start();
 $error = "";
 
-// If already logged in
+// If already logged indvjdnvk
 if (!empty($_SESSION["admin_username"])) {
     header("Location: dashboard.php");
     exit();
