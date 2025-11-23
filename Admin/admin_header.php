@@ -201,32 +201,34 @@
                 transform: translateY(0);
             }
         }
+        
     </style>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000;">
-        <a class="navbar-brand" href="index.php">
-            <img src="Images/Clapperboard.jpeg" alt="Logo" style="height: 40px;">
-        </a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            
-            <ul class="navbar-nav">
-                <?php if (empty($_SESSION["username"])): ?>
-                   
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link">Hello <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=logout">Logout</a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000;">
+    <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
+        <img src="Images/Clapperboard.jpeg" alt="Logo" style="height: 40px; margin-right:10px;">
+        <span style="font-size:20px; font-weight:600;">Admin Panel Online Movie Ticket Booking</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+
+            <?php if (!empty($_SESSION["username"])): ?>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?action=logout" style="font-size:16px; font-weight:600;">
+                        Logout
+                    </a>
+                </li>
+            <?php endif; ?>
+
+        </ul>
+    </div>
+</nav>
