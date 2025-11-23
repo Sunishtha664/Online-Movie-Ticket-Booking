@@ -1,9 +1,7 @@
 
-// ...existing code...
 <style>
-    /* Sidebar fills to the bottom of the viewport.
-       If your navbar height is different, change NAV_HEIGHT below. */
-    :root { --NAV_HEIGHT: 56px; }
+
+    :root { --NAV_HEIGHT: 100px; }
 
     .sidebar-nav {
         background-color: #111;
