@@ -201,29 +201,28 @@
                 transform: translateY(0);
             }
         }
-        
     </style>
 
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color:#000;">
-    <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
-        <img src="../Images/Clapperboard.jpeg" alt="Logo" style="height: 40px; margin-right:10px;">
-        <span style="font-size:20px; font-weight:600;">Admin Panel</span>
-    </a>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#000;">
+        <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
+            <img src="../Images/Clapperboard.jpeg" alt="Logo" style="height: 40px; margin-right:10px;">
+            <span style="font-size:20px; font-weight:600;">Admin Panel</span>
+        </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-        <ul class="navbar-nav">
-            <?php if (!empty($_SESSION["admin_username"])): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
-                </li>
-            <?php endif; ?>
-        </ul>
-    </div>
-</nav>
+        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+            <ul class="navbar-nav">
+                <?php if (!empty($_SESSION["admin_username"])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </nav>

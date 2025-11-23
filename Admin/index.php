@@ -22,11 +22,9 @@ if (isset($_POST["btn_login"])) {
 
             header("Location: dashboard.php");
             exit();
-
         } else {
             $error = "Invalid Password";
         }
-
     } else {
         $error = "Invalid Email";
     }

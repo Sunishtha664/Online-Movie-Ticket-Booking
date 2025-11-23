@@ -1,14 +1,15 @@
-
 <style>
-
-    :root { --NAV_HEIGHT: 100px; }
+    :root {
+        --NAV_HEIGHT: 100px;
+    }
 
     .sidebar-nav {
         background-color: #111;
         padding: 20px 0;
-        min-height: calc(100vh - var(--NAV_HEIGHT)); /* fills to page bottom */
+        min-height: calc(100vh - var(--NAV_HEIGHT));
+        /* fills to page bottom */
         overflow-y: auto;
-        box-shadow: 2px 0 6px rgba(0,0,0,0.3);
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
     }
 
     /* Keep sidebar visually full-height when inside a taller container */
