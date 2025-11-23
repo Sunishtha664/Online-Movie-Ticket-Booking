@@ -4,6 +4,14 @@ include("header.php");
 $conn = new connec();
 $result = $conn->select_show_dt();
 
+// Store all results in an array for reuse
+$shows_array = [];
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $shows_array[] = $row;
+    }
+}
+
 if (isset($_POST["btn_booking"])) {
     $cust_id = $_POST["cust_id"];
     $show_id = $_POST["show_id"];
@@ -30,19 +38,14 @@ if (isset($_POST["btn_booking"])) {
     // Store show info for dynamic display
     var showInfo = {};
     <?php
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            // Use show_id as key
-            echo "showInfo['{$row['id']}'] = {
-                cinema: '" . addslashes($row['name']) . "',
-                movie: '" . addslashes($row['movie_name']) . "',
-                date: '" . addslashes($row['show_date']) . "',
-                time: '" . addslashes($row['time']) . "',
-                price: '{$row['ticket_price']}'
-            };\n";
-        }
-        // Reset result pointer for dropdown
-        $result->data_seek(0);
+    foreach ($shows_array as $row) {
+        echo "showInfo['{$row['id']}'] = {
+            cinema: '" . addslashes($row['name']) . "',
+            movie: '" . addslashes($row['movie_name']) . "',
+            date: '" . addslashes($row['show_date']) . "',
+            time: '" . addslashes($row['time']) . "',
+            price: '{$row['ticket_price']}'
+        };\n";
     }
     ?>
 
@@ -50,7 +53,7 @@ if (isset($_POST["btn_booking"])) {
         // Generate seat chart
         for (i = 1; i <= 4; i++) {
             for (j = 1; j <= 10; j++) {
-                $('#seat_chart').append('<div class="col-md-2 mt-2 mb-2 ml-2 mr-2 text-center" style="background-color:grey;color:white"><input type="checkbox" value="R' + (i + 'S' + j) + '" name="seat_chart[]" class="mr-2  col-md-2 mb-2" onclick="checkboxtotal();" >R' + (i + 'S' + j) + '</div>');
+                $('#seat_chart').append('<div class="col-md-2 mt-2 mb-2 ml-2 mr-2 text-center" style="background-color:grey;color:white"><input type="checkbox" value="R' + (i + 'S' + j) + '" name="seat_chart[]" class="mr-2 col-md-2 mb-2" onclick="checkboxtotal();" >R' + (i + 'S' + j) + '</div>');
             }
         }
 
@@ -149,11 +152,8 @@ if (isset($_POST["btn_booking"])) {
                                 <select class="form-control" name="show_id" id="show_id" style="border-radius: 30px;">
                                     <option value="">Select Show</option>
                                     <?php
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                            echo '<option value="' . $row["id"] . '">' . $row["movie_name"] . ' | ' . $row["show_date"] . ' | ' . $row["time"] . ' | ' . $row["name"] . '</option>';
-                                        }
-                                        $result->data_seek(0); // Reset pointer for JS
+                                    foreach ($shows_array as $row) {
+                                        echo '<option value="' . $row["id"] . '">' . $row["movie_name"] . ' | ' . $row["show_date"] . ' | ' . $row["time"] . ' | ' . $row["name"] . '</option>';
                                     }
                                     ?>
                                 </select>
