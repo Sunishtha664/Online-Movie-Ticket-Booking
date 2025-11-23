@@ -207,7 +207,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: darkcyan;">
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color:#000;">
     <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
         <img src="../Images/Clapperboard.jpeg" alt="Logo" style="height: 40px; margin-right:10px;">
         <span style="font-size:20px; font-weight:600;">Admin Panel</span>
