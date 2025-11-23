@@ -16,7 +16,7 @@ else
             <section>
                 <div class="continer">
                     <div class="row">
-                        <div class="col-md-2" style="background-color:maroon;">
+                        <div class="col-md-2" style="background-color:black;">
                             <?php include('admin_sidenavbar.php'); ?>
                         </div>
                         <div class="col-md-10">

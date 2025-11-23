@@ -207,10 +207,10 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000;">
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: darkcyan;">
     <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
-        <img src="Images/Clapperboard.jpeg" alt="Logo" style="height: 40px; margin-right:10px;">
-        <span style="font-size:20px; font-weight:600;">Admin Panel Online Movie Ticket Booking</span>
+        <img src="../Images/Clapperboard.jpeg" alt="Logo" style="height: 40px; margin-right:10px;">
+        <span style="font-size:20px; font-weight:600;">Admin Panel</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
@@ -219,16 +219,11 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
         <ul class="navbar-nav">
-
-            <?php if (!empty($_SESSION["username"])): ?>
-
+            <?php if (!empty($_SESSION["admin_username"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=logout" style="font-size:16px; font-weight:600;">
-                        Logout
-                    </a>
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             <?php endif; ?>
-
         </ul>
     </div>
 </nav>
