@@ -20,11 +20,21 @@ if (empty($_SESSION["admin_username"])) {
                     <a href="addmovie.php" style="color:brown;">Add Movie</a>
 
                     <table class="table mt-5" border="1" >
-                        <thead>
+                        <thead style="background-color: lightcyan; color: black;">
                             <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th>Name</th>
+                                <th>Banner</th>
+                                <th>Description</th>
+                                <th>Release Date</th>
+                                <th>Industry</th>
+                                <th>Genre</th>
+                                <th>Language</th>
+                                <th>Movie Duration</th>
+                                <th>Director</th>
+                                <th>Cast</th>
+                                <th>Age Rating</th>
+                                <th>Image</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
