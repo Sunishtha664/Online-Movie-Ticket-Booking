@@ -17,9 +17,9 @@ if (empty($_SESSION["admin_username"])) {
                 </div>
                 <div class="col-md-10">
                     <h5 class="text-center mt-2" style="color:maroon;">Movie Details </h5>
-                    <a href="addmovie.php">Add Movie</a>
+                    <a href="addmovie.php" style="color:brown;">Add Movie</a>
 
-                    <table class="table">
+                    <table class="table mt-5" border="1" >
                         <thead>
                             <tr>
                                 <th></th>
@@ -33,14 +33,10 @@ if (empty($_SESSION["admin_username"])) {
                                 <td></td>
                                 <td></td>
                             </tr>
-                            <tr>
-                                <td scope="row"></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                          
                         </tbody>
                     </table>
-                    
+
                 </div>
             </div>
         </div>
