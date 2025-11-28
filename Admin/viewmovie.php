@@ -8,36 +8,7 @@ if (empty($_SESSION["admin_username"])) {
     include("admin_header.php");
 ?>
 
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* makes columns align properly */
-}
 
-th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-    vertical-align: top;
-    word-wrap: break-word; /* long text control */
-}
-
-th {
-    background-color: lightcyan;
-    color: black;
-    font-weight: 600;
-    text-align: center; /* makes headings look proper */
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #e6e6e6;
-}
-</style>
 <section>
     <div class="container-fluid" style="overflow: hidden;"> <!-- Prevent scrolling -->
         <div class="row">

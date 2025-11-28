@@ -1,5 +1,5 @@
 <style>
-    :root {
+    /*:root {
         --NAV_HEIGHT: 100px;
     }
 
@@ -7,12 +7,12 @@
         background-color: #111;
         padding: 20px 0;
         min-height: calc(100vh - var(--NAV_HEIGHT));
-        /* fills to page bottom */
+        /* fills to page bottom 
         overflow-y: auto;
         box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
     }
 
-    /* Keep sidebar visually full-height when inside a taller container */
+    /* Keep sidebar visually full-height when inside a taller container 
     .sidebar-nav .nav-link {
         color: #fff !important;
         padding: 12px 20px;
@@ -34,10 +34,10 @@
         border-left-color: maroon;
     }
 
-    /* Make sure the parent col doesn't collapse if you have short content */
-    .fix-sidebar-col {
+    /* Make sure the parent col doesn't collapse if you have short content 
+    .fix-sidebar-col 
         padding: 0;
-    }
+    }*/
 </style>
 
 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
