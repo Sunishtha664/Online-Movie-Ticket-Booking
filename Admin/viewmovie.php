@@ -6,6 +6,9 @@ if (empty($_SESSION["admin_username"])) {
 } else {
 
     include("admin_header.php");
+    $conn = new connec();
+    $tbl = "movie";
+    $result = $conn->select_all($tbl);
 ?>
 
 
@@ -22,9 +25,8 @@ if (empty($_SESSION["admin_username"])) {
                 <table class="table mt-5">
                     <thead>
                         <tr>
-                            <th>Name</th>
                             <th>Banner</th>
-                            <th>Description</th>
+                            <th>Name</th>
                             <th>Release Date</th>
                             <th>Industry</th>
                             <th>Genre</th>
@@ -33,7 +35,6 @@ if (empty($_SESSION["admin_username"])) {
                             <th>Director</th>
                             <th>Cast</th>
                             <th>Age Rating</th>
-                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
