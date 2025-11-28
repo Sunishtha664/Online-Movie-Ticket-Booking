@@ -10,7 +10,7 @@ if (empty($_SESSION["admin_username"])) {
 
 
     <section>
-        <div class="continer">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2" style="background-color:black;">
                     <?php include('admin_sidenavbar.php'); ?>
