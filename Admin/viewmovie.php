@@ -39,11 +39,28 @@ if (empty($_SESSION["admin_username"])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row"></td>
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                ?>
+                                       <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                         </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                 
                     </tbody>
                 </table>
 
