@@ -11,37 +11,39 @@ if (empty($_SESSION["admin_username"])) {
     $result = $conn->select_all($tbl);
 ?>
 
-<style>
-    /* Make table scrollable horizontally */
-    .table-responsive {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
+    <style>
+        /* Make table scrollable horizontally */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
 
-    /* Reduce font size */
-    table.table th,
-    table.table td {
-        font-size: 14px;   /* Adjust font size */
-        white-space: nowrap; /* Prevent text from breaking */
-    }
+        /* Reduce font size */
+        table.table th,
+        table.table td {
+            font-size: 14px;
+            /* Adjust font size */
+            white-space: nowrap;
+            /* Prevent text from breaking */
+        }
 
-    /* Reduce row height & spacing */
-    table.table tr {
-        height: 10px !important;
-    }
+        /* Reduce row height & spacing */
+        table.table tr {
+            height: 10px !important;
+        }
 
-    /* Make header bold & small */
-    table.table th {
-        font-weight: 600;
-        font-size: 15px;
-    }
+        /* Make header bold & small */
+        table.table th {
+            font-weight: 600;
+            font-size: 15px;
+        }
 
-    /* Make action buttons smaller */
-    .btn {
-        padding: 3px 8px;
-        font-size: 12px;
-    }
-</style>
+        /* Make action buttons smaller */
+        .btn {
+            padding: 3px 8px;
+            font-size: 12px;
+        }
+    </style>
 
     <section>
         <div class="container-fluid" style="overflow: hidden;"> <!-- Prevent scrolling -->
@@ -54,53 +56,53 @@ if (empty($_SESSION["admin_username"])) {
                     <a href="addmovie.php" style="color:brown;">Add Movie</a>
 
                     <div class="table-responsive mt-4">
-                    <table class="table table-bordered table-striped"s>
-                        <thead>
-                            <tr>
-                                <th>Banner</th>
-                                <th>Name</th>
-                                <th>Release Date</th>
-                                <th>Industry</th>
-                                <th>Genre</th>
-                                <th>Language</th>
-                                <th>Movie Duration</th>
-                                <th>Director</th>
-                                <th>Cast</th>
-                                <th>Age Rating</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                            ?>
-                                    <tr>
-                                        <td><img src="../<?php echo $row["movie_banner"]?>" style="height:100px;"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><a href="editmovie.php?id=" class="btn btn-primary">Edit</a>
-                                            <a href="deletemovie.php?id=" class="btn btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                            <?php
+                        <table class="table table-bordered table-striped" s>
+                            <thead>
+                                <tr>
+                                    <th>Banner</th>
+                                    <th>Name</th>
+                                    <th>Release Date</th>
+                                    <th>Industry</th>
+                                    <th>Genre</th>
+                                    <th>Language</th>
+                                    <th>Movie Duration</th>
+                                    <th>Director</th>
+                                    <th>Cast</th>
+                                    <th>Age Rating</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                ?>
+                                        <tr>
+                                            <td><img src="../<?php echo $row["movie_banner"] ?>" style="height:100px;"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a href="editmovie.php?id=" class="btn btn-primary">Edit</a>
+                                                <a href="deletemovie.php?id=" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                <?php
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
 
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
 <?php
