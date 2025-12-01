@@ -107,6 +107,6 @@ if (empty($_SESSION["admin_username"])) {
     </section>
 
 <?php
-    include("admin_footer.php");
+    include("admin_footer.php");efred
 }
 ?>
