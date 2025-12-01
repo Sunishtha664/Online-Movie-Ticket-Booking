@@ -76,7 +76,7 @@ if (empty($_SESSION["admin_username"])) {
                                 while ($row = $result->fetch_assoc()) {
                             ?>
                                     <tr>
-                                        <td></td>
+                                        <td><img src="../<?php echo $row["movie_banner"]?>" style="height:100px;"></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
