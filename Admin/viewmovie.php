@@ -54,8 +54,8 @@ if (empty($_SESSION["admin_username"])) {
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td><a href="editmovie.php?id=">Edit</a>
-                                            <a href="deletemovie.php?id=">Delete</a>
+                                        <td><a href="editmovie.php?id=">Edit</a> |
+                                            <a href="deletemovie.php?id=" style="color: red;">Delete</a>
                                         </td>
                                     </tr>
                             <?php
