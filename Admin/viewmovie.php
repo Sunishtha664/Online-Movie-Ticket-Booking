@@ -81,9 +81,9 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><img src="../<?php echo $row["movie_banner"] ?>" style="height:100px;"></td>
                                             <td><?php echo $row["name"] ?></td>
                                             <td><?php echo $row["rel_date"] ?></td>
-                                            <td><?php echo $row["industry_id "] ?></td>
-                                            <td><?php echo $row["genre_id "] ?></td>
-                                            <td><?php echo $row["lang_id "] ?></td>
+                                            <td><?php echo $row["industry_id"] ?></td>
+                                            <td><?php echo $row["genre_id"] ?></td>
+                                            <td><?php echo $row["lang_id"] ?></td>
                                             <td><?php echo $row["duration"] ?></td>
                                             <td><?php echo $row["director"] ?></td>
                                             <td><?php echo $row["cast"] ?></td>
