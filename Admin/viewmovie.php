@@ -7,8 +7,12 @@ if (empty($_SESSION["admin_username"])) {
 
     include("admin_header.php");
     $conn = new connec();
-    $tbl = "movie";
-    $result = $conn->select_all($tbl);
+    $sql = "SELECT movie.name, movie.movie_banner, movie.rel_date, industry.industry_name, genre.genre_name,language.lang_name, movie.duration, movie.director, movie.cast, movie.age_rating
+FROM movie, genre, industry, movie_ticket_booking.language
+WHERE movie.industry_id=industry.id AND
+movie.genre_id= genre.id AND
+movie.lang_id = language.id;";
+    $result = $conn->select_by_query($tbl);
 ?>
 
     <style>

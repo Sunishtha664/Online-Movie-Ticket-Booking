@@ -27,6 +27,8 @@ class connec
     }
 
 
+    
+
     function select_show_dt()
     {
         $sql = "SELECT
@@ -68,6 +70,8 @@ WHERE
 
         return $result;
     }
+
+
 
     function select_by_query($query)
     {
