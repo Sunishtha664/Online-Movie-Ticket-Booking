@@ -12,7 +12,7 @@ FROM movie, genre, industry, movie_ticket_booking.language
 WHERE movie.industry_id=industry.id AND
 movie.genre_id= genre.id AND
 movie.lang_id = language.id;";
-    $result = $conn->select_by_query($tbl);
+    $result = $conn->select_by_query($sql);
 ?>
 
     <style>
@@ -85,9 +85,9 @@ movie.lang_id = language.id;";
                                             <td><img src="../<?php echo $row["movie_banner"] ?>" style="height:100px;"></td>
                                             <td><?php echo $row["name"] ?></td>
                                             <td><?php echo $row["rel_date"] ?></td>
-                                            <td><?php echo $row["industry_id"] ?></td>
-                                            <td><?php echo $row["genre_id"] ?></td>
-                                            <td><?php echo $row["lang_id"] ?></td>
+                                            <td><?php echo $row["industry_name"] ?></td>
+                                            <td><?php echo $row["genre_name"] ?></td>
+                                            <td><?php echo $row["lang_name"] ?></td>
                                             <td><?php echo $row["duration"] ?></td>
                                             <td><?php echo $row["director"] ?></td>
                                             <td><?php echo $row["cast"] ?></td>
