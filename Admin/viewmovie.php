@@ -7,7 +7,7 @@ if (empty($_SESSION["admin_username"])) {
 
     include("admin_header.php");
     $conn = new connec();
-    $sql = "SELECT movie.name, movie.movie_banner, movie.rel_date, industry.industry_name, genre.genre_name,language.lang_name, movie.duration, movie.director, movie.cast, movie.age_rating
+    $sql = "SELECT movie.id, movie.name, movie.movie_banner, movie.rel_date, industry.industry_name, genre.genre_name,language.lang_name, movie.duration, movie.director, movie.cast, movie.age_rating
     FROM movie, genre, industry, movie_ticket_booking.language
     WHERE movie.industry_id=industry.id AND
     movie.genre_id= genre.id AND
@@ -94,8 +94,8 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><?php echo $row["cast"] ?></td>
                                             <td><?php echo $row["age_rating"] ?></td>
 
-                                            <td><a href="editmovie.php?id=" class="btn btn-primary">Edit</a>
-                                                <a href="deletemovie.php?id=" class="btn btn-danger">Delete</a>
+                                            <td><a href="editmovie.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
+                                                <a href="deletemovie.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                 <?php
