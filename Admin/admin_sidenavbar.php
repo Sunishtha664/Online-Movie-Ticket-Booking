@@ -59,7 +59,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Movie Genre</a>
+        <a class="nav-link" href="viewgenre.php" style="color: white;">Movie Genre</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#" style="color: white;">Movie Industry</a>

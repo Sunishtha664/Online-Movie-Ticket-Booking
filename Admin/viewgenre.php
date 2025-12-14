@@ -7,9 +7,9 @@ if (empty($_SESSION["admin_username"])) {
 
     include("admin_header.php");
     $conn = new connec();
-    $tbl = "slider";
-$result = $conn->select_all($tbl);
-    $result = $conn->select_by_query($sql);
+    $tbl = "genre";
+    $result = $conn->select_all($tbl);
+    
 ?>
 
     <style>
@@ -54,22 +54,15 @@ $result = $conn->select_all($tbl);
                 </div>
                 <div class="col-md-10">
                     <h5 class="text-center mt-2" style="color:maroon;">Genre Details </h5>
-                    <a href="addmovie.php" style="color:brown;">Add Movie</a>
+                    <a href="addgenre.php" style="color:brown;">Add Genre</a>
 
                     <div class="table-responsive mt-4">
                         <table class="table table-bordered table-striped" s>
                             <thead>
                                 <tr>
-                                    <th>Banner</th>
+                                    <th>ID</th>
                                     <th>Name</th>
-                                    <th>Release Date</th>
-                                    <th>Industry</th>
-                                    <th>Genre</th>
-                                    <th>Language</th>
-                                    <th>Movie Duration</th>
-                                    <th>Director</th>
-                                    <th>Cast</th>
-                                    <th>Age Rating</th>
+                                   
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -79,19 +72,11 @@ $result = $conn->select_all($tbl);
                                     while ($row = $result->fetch_assoc()) {
                                 ?>
                                         <tr>
-                                            <td><img src="../<?php echo $row["movie_banner"] ?>" style="height:100px;"></td>
-                                            <td><?php echo $row["name"] ?></td>
-                                            <td><?php echo $row["rel_date"] ?></td>
-                                            <td><?php echo $row["industry_name"] ?></td>
+                                            <td><?php echo $row["id"] ?></td>
                                             <td><?php echo $row["genre_name"] ?></td>
-                                            <td><?php echo $row["lang_name"] ?></td>
-                                            <td><?php echo $row["duration"] ?></td>
-                                            <td><?php echo $row["director"] ?></td>
-                                            <td><?php echo $row["cast"] ?></td>
-                                            <td><?php echo $row["age_rating"] ?></td>
-
-                                            <td><a href="editmovie.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
-                                                <a href="deletemovie.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
+                                        
+                                            <td><a href="editgenre.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
+                                                <a href="deletegenre.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                 <?php
@@ -111,6 +96,3 @@ $result = $conn->select_all($tbl);
     include("admin_footer.php");
 }
 ?>
-
-
-
