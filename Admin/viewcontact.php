@@ -9,7 +9,7 @@ if (empty($_SESSION["admin_username"])) {
     $conn = new connec();
     $tbl = "contact";
     $result = $conn->select_all($tbl);
-    
+
 ?>
 
     <style>
@@ -66,7 +66,7 @@ if (empty($_SESSION["admin_username"])) {
                                     <th>Phone Number</th>
                                     <th>Message</th>
                                     <th>Message Date</th>
-                                   
+
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -82,7 +82,7 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><?php echo $row["num"] ?></td>
                                             <td><?php echo $row["msg"] ?></td>
                                             <td><?php echo $row["msg_date"] ?></td>
-                                        
+
                                             <td><a href="editcontact.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
                                                 <a href="deletecontact.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>

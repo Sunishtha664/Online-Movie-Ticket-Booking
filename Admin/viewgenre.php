@@ -9,7 +9,7 @@ if (empty($_SESSION["admin_username"])) {
     $conn = new connec();
     $tbl = "genre";
     $result = $conn->select_all($tbl);
-    
+
 ?>
 
     <style>
@@ -62,7 +62,7 @@ if (empty($_SESSION["admin_username"])) {
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                   
+
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -74,7 +74,7 @@ if (empty($_SESSION["admin_username"])) {
                                         <tr>
                                             <td><?php echo $row["id"] ?></td>
                                             <td><?php echo $row["genre_name"] ?></td>
-                                        
+
                                             <td><a href="editgenre.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
                                                 <a href="deletegenre.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>

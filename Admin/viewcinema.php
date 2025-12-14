@@ -9,7 +9,7 @@ if (empty($_SESSION["admin_username"])) {
     $conn = new connec();
     $tbl = "cinema";
     $result = $conn->select_all($tbl);
-    
+
 ?>
 
     <style>
@@ -64,7 +64,7 @@ if (empty($_SESSION["admin_username"])) {
                                     <th>Name</th>
                                     <th>Location</th>
                                     <th>City</th>
-                                   
+
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -78,7 +78,7 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><?php echo $row["name"] ?></td>
                                             <td><?php echo $row["location"] ?></td>
                                             <td><?php echo $row["city"] ?></td>
-                                        
+
                                             <td><a href="editcinema.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
                                                 <a href="deletecinema.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>

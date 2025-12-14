@@ -9,7 +9,7 @@ if (empty($_SESSION["admin_username"])) {
     $conn = new connec();
     $tbl = "slider";
     $result = $conn->select_all($tbl);
-    
+
 ?>
 
     <style>
@@ -63,8 +63,8 @@ if (empty($_SESSION["admin_username"])) {
                                     <th>ID</th>
                                     <th>Image Path</th>
                                     <th>Alt text</th>
-                                 
-                                   
+
+
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -77,8 +77,8 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><?php echo $row["id"] ?></td>
                                             <td><img src="../<?php echo $row["img_path"] ?>" style="height:100px; width:200px;"></td>
                                             <td><?php echo $row["alt"] ?></td>
-                                            
-                                        
+
+
                                             <td><a href="editslider.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
                                                 <a href="deleteslider.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>

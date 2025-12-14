@@ -12,7 +12,7 @@ if (empty($_SESSION["admin_username"])) {
     WHERE movie.industry_id=industry.id AND
     movie.genre_id= genre.id AND
     movie.lang_id = language.id;";
-    
+
     $result = $conn->select_by_query($sql);
 ?>
 
@@ -115,6 +115,3 @@ if (empty($_SESSION["admin_username"])) {
     include("admin_footer.php");
 }
 ?>
-
-
-
