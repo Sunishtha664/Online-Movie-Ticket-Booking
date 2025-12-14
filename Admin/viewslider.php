@@ -75,7 +75,7 @@ if (empty($_SESSION["admin_username"])) {
                                 ?>
                                         <tr>
                                             <td><?php echo $row["id"] ?></td>
-                                            <td><img src="../<?php echo $row["img_path"] ?>" style="height:100px;"></td>
+                                            <td><img src="../<?php echo $row["img_path"] ?>" style="height:100px; width:200px;"></td>
                                             <td><?php echo $row["alt"] ?></td>
                                             
                                         
