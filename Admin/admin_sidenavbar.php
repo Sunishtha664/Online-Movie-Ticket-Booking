@@ -47,11 +47,11 @@
 
 
     <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Cinema</a>
+        <a class="nav-link" href="viewcinema.php" style="color: white;">Cinema</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Contact</a>
+        <a class="nav-link" href="viewcontact.php" style="color: white;">Contact</a>
     </li>
 
     <li class="nav-item">
