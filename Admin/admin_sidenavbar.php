@@ -55,7 +55,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Customer</a>
+        <a class="nav-link" href="viewcustomer.php" style="color: white;">Customer</a>
     </li>
 
     <li class="nav-item">
