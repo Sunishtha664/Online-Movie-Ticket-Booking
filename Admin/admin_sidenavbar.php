@@ -66,7 +66,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Movie Language</a>
+        <a class="nav-link" href="viewlanguage.php" style="color: white;">Movie Language</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="viewmovie.php" style="color: white;">Movie</a>
