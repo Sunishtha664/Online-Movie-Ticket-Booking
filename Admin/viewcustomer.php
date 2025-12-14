@@ -76,7 +76,11 @@ if (empty($_SESSION["admin_username"])) {
                                 ?>
                                         <tr>
                                             <td><?php echo $row["id"] ?></td>
-                                            <td><?php echo $row["lang_name"] ?></td>
+                                            <td><?php echo $row["fullname"] ?></td>
+                                            <td><?php echo $row["email"] ?></td>
+                                            <td><?php echo $row["cellno"] ?></td>
+                                            <td><?php echo $row["gender"] ?></td>
+                                            <td><?php echo $row["password"] ?></td>
                                         
                                             <td><a href="editcustomer.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
                                                 <a href="deletecustomer.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
