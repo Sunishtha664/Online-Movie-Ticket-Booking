@@ -58,15 +58,17 @@ if (empty($_SESSION["admin_username"])) {
                     <div class="table-responsive mt-4">
                     <form method="post">
                         <div class="container" style="color: #343a40;">
-                        <center>
-                            <h1>Admin LogIn</h1>
-                        </center>
-                        <hr>
-                        <label for="email"><b>Email</b></label>
-                        <input type="email" style="border-radius: 30px;" placeholder="Enter Email" name="log_email" id="email" required>
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="log_psw" id="psw" required>
-                        <button type="submit" name="btn_login" class="btn" style="background-color:darkcyan; color:white">Login</button>
+                        
+                        <label for="email"><b>Cinema Name</b></label>
+                        <input type="email" style="border-radius: 30px;" placeholder="Enter Cinema Name" name="cinema_name_txt" id="email">
+
+                       <label for="email"><b>Cinema Location</b></label>
+                        <input type="email" style="border-radius: 30px;" placeholder="Enter Cinema Location" name="cinema_location_txt" id="email">
+
+                        <label for="email"><b>City</b></label>
+                        <input type="email" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email">
+
+                        <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
                     </div>
                     </form>
 
