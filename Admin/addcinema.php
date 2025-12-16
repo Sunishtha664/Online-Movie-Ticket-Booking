@@ -1,13 +1,6 @@
 <?php
 session_start();
-
-if (empty($_SESSION["admin_username"])) {
-    header("Location:index.php");
-} else {
-
-    include("admin_header.php");
-    
-    if(isset($_POST["btn_insert"])){
+  if(isset($_POST["btn_insert"])){
 
         $name = $_POST["cinema_name_txt"];
         $location = $_POST["cinema_location_txt"];
@@ -18,7 +11,15 @@ if (empty($_SESSION["admin_username"])) {
         $sql = "insert into cinema values(0,'$name','$location','$city')";
 
         $conn->insert($sql, "Cinema Inserted Successfully");
+        header("Location: viewcinema.php");
     }
+
+if (empty($_SESSION["admin_username"])) {
+    header("Location:index.php");
+} else {
+
+    include("admin_header.php");
+    
 ?>
 
     <style>
@@ -68,14 +69,13 @@ if (empty($_SESSION["admin_username"])) {
                     <form method="post">
                         <div class="container" style="color: #343a40;">
                         
-                        <label for="email"><b>Cinema Name</b></label>
-                        <input type="email" style="border-radius: 30px;" placeholder="Enter Cinema Name" name="cinema_name_txt" id="email">
+                        <label for="text"><b>Cinema Name</b></label>
+                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Name" name="cinema_name_txt" id="email">
 
-                       <label for="email"><b>Cinema Location</b></label>
-                        <input type="email" style="border-radius: 30px;" placeholder="Enter Cinema Location" name="cinema_location_txt" id="email">
-
-                        <label for="email"><b>City</b></label>
-                        <input type="email" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email">
+                       <label for="text"><b>Cinema Location</b></label>
+                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Location" name="cinema_location_txt" id="email">
+                        <label for="text"><b>City</b></label>
+                        <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email">
 
                         <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
                     </div>
