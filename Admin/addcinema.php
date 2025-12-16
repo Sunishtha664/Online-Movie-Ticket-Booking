@@ -6,10 +6,19 @@ if (empty($_SESSION["admin_username"])) {
 } else {
 
     include("admin_header.php");
-    $conn = new connec();
-    $tbl = "cinema";
     
+    if(isset($_POST["btn_insert"])){
 
+        $name = $_POST["cinema_name_txt"];
+        $location = $_POST["cinema_location_txt"];
+        $city = $_POST["city_name_txt"];
+
+
+        $conn = new connec();
+        $sql = "insert into cinema values(0,'$name','$location','$city')";
+
+        $conn->insert($sql, "Cinema Inserted Successfully");
+    }
 ?>
 
     <style>
