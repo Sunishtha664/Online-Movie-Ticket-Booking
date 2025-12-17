@@ -84,7 +84,7 @@ if (empty($_SESSION["admin_username"])) {
                     <?php include('admin_sidenavbar.php'); ?>
                 </div>
                 <div class="col-md-10">
-                    <h5 class="text-center mt-2" style="color:maroon;">Edit Cinema Details</h5>
+                    <h5 class="text-center mt-2" style="color:maroon;">Delete Cinema Details</h5>
 
                     <div class="table-responsive mt-4">
                     <form method="post">
