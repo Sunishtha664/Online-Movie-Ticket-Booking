@@ -1,5 +1,6 @@
 <?php
 session_start();
+
   if(isset($_POST["btn_update"])){
 
          include("../conn.php");
@@ -9,7 +10,7 @@ session_start();
 
 
         $conn = new connec();
-        $sql = "update cinema set cinema_name='$name', cinema_location='$location', city='$city' where cinema_id=1";
+       // $sql = "update cinema set cinema_name='$name', cinema_location='$location', city='$city' where cinema_id=1";
 
         $conn->insert($sql, "Cinema Updated Successfully");
         header("Location: viewcinema.php");
@@ -18,8 +19,15 @@ session_start();
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
+     include("admin_header.php");
 
-    include("admin_header.php");
+    if(isset($_GET["id"])){
+          $id = $_GET["id"];
+    
+     $conn = new connec();
+    $tbl = "cinema";
+    $result = $conn->select($tbl, $id);
+    }
     
 ?>
 
