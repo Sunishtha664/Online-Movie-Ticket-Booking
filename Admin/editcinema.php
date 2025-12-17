@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+$n = "";
+$l = "";
+$c = "";
+
   if(isset($_POST["btn_update"])){
 
          include("../conn.php");
@@ -24,9 +28,17 @@ if (empty($_SESSION["admin_username"])) {
     if(isset($_GET["id"])){
           $id = $_GET["id"];
     
-     $conn = new connec();
-    $tbl = "cinema";
-    $result = $conn->select($tbl, $id);
+        $conn = new connec();
+        $tbl = "cinema";
+        $result = $conn->select($tbl, $id);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $n = $row["name"];
+                $l = $row["location"];
+                $c = $row["city"];
+             }
+        }
     }
     
 ?>
@@ -79,12 +91,12 @@ if (empty($_SESSION["admin_username"])) {
                         <div class="container" style="color: #343a40;">
                         
                         <label for="text"><b>Cinema Name</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Name" name="cinema_name_txt" id="email">
+                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Name" name="cinema_name_txt" id="email" value="<?php echo $n; ?>">
 
                        <label for="text"><b>Cinema Location</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Location" name="cinema_location_txt" id="email">
+                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Location" name="cinema_location_txt" id="email" value="<?php echo $l; ?>">
                         <label for="text"><b>City</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email">
+                        <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email" value="<?php echo $c; ?>">
 
                         <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
                     </div>
