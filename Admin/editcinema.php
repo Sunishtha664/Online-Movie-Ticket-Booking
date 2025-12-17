@@ -14,9 +14,9 @@ $c = "";
 
 
         $conn = new connec();
-       // $sql = "update cinema set cinema_name='$name', cinema_location='$location', city='$city' where cinema_id=1";
+        $sql = "update cinema set name='$name', location='$location', city='$city' where id='$id'";
 
-        $conn->insert($sql, "Cinema Updated Successfully");
+        $conn->update($sql, "Cinema Updated Successfully");
         header("Location: viewcinema.php");
     }
 

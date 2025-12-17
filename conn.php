@@ -103,7 +103,6 @@ WHERE
         }
     }
 
-
     function update($query, $msg)
     {
         if ($this->conn->query($query) === TRUE) {
