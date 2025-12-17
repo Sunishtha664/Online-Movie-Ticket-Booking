@@ -5,18 +5,15 @@ $n = "";
 $l = "";
 $c = "";
 
-  if(isset($_POST["btn_update"])){
+  if(isset($_POST["btn_delete"])){
 
          include("../conn.php");
-        $name = $_POST["cinema_name_txt"];
-        $location = $_POST["cinema_location_txt"];
-        $city = $_POST["city_name_txt"];
-
+       
         $id = $_GET["id"];
         $conn = new connec();
-        $sql = "update cinema set name='$name', location='$location', city='$city' where id=$id";
+        $table = "cinema";
 
-        $conn->update($sql, "Cinema Updated Successfully");
+        $conn->delete($table, $id);
         header("Location: viewcinema.php");
     }
 
@@ -98,7 +95,8 @@ if (empty($_SESSION["admin_username"])) {
                         <label for="text"><b>City</b></label>
                         <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email" value="<?php echo $c; ?>">
 
-                        <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
+                        <a href="viewcinema.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                        <button type="submit" name="btn_delete" class="btn" style="background-color:darkcyan; color:white">Delete</button>
                     </div>
                     </form>
 

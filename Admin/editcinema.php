@@ -98,6 +98,7 @@ if (empty($_SESSION["admin_username"])) {
                         <label for="text"><b>City</b></label>
                         <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email" value="<?php echo $c; ?>">
 
+                        <a href="viewcinema.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
                         <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
                     </div>
                     </form>
