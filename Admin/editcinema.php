@@ -1,6 +1,6 @@
 <?php
 session_start();
-  if(isset($_POST["btn_insert"])){
+  if(isset($_POST["btn_update"])){
 
          include("../conn.php");
         $name = $_POST["cinema_name_txt"];
@@ -9,9 +9,9 @@ session_start();
 
 
         $conn = new connec();
-        $sql = "insert into cinema values(0,'$name','$location','$city')";
+        $sql = "update cinema set cinema_name='$name', cinema_location='$location', city='$city' where cinema_id=1";
 
-        $conn->insert($sql, "Cinema Inserted Successfully");
+        $conn->insert($sql, "Cinema Updated Successfully");
         header("Location: viewcinema.php");
     }
 
@@ -64,7 +64,7 @@ if (empty($_SESSION["admin_username"])) {
                     <?php include('admin_sidenavbar.php'); ?>
                 </div>
                 <div class="col-md-10">
-                    <h5 class="text-center mt-2" style="color:maroon;">Add Cinema</h5>
+                    <h5 class="text-center mt-2" style="color:maroon;">Edit Cinema Details</h5>
 
                     <div class="table-responsive mt-4">
                     <form method="post">
@@ -78,7 +78,7 @@ if (empty($_SESSION["admin_username"])) {
                         <label for="text"><b>City</b></label>
                         <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email">
 
-                        <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
+                        <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
                     </div>
                     </form>
 
