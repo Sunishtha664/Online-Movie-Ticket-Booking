@@ -1,23 +1,36 @@
 <?php
 session_start();
 
-$n = "";
-$l = "";
-$c = "";
+$imgsrc = "";
+$alt_txt = "";
 
   if(isset($_POST["btn_update"])){
 
-         include("../conn.php");
-        $name = $_POST["cinema_name_txt"];
-        $location = $_POST["cinema_location_txt"];
-        $city = $_POST["city_name_txt"];
+        $alt = $_POST["slider_alt_text"];
 
-        $id = $_GET["id"];
+
+    $target_dir =  "images/";
+    $target_file = $target_dir . $_FILES["fileToUpload"]["name"];
+
+    $target_dir_01 =  "../images/";
+    $target_file_01 = $target_dir_01 . $_FILES["fileToUpload"]["name"];
+
+
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file_01)) {
+         $id = $_GET["id"];
         $conn = new connec();
-        $sql = "update cinema set name='$name', location='$location', city='$city' where id=$id";
+        $sql = "update slider set img_path='$target_file', alt='$alt' where id=$id";
 
         $conn->update($sql, "Cinema Updated Successfully");
-        header("Location: viewcinema.php");
+        header("Location:viewslider.php");
+    } else {
+        echo "Error in uploading";
+    }
+
+
     }
 
 if (empty($_SESSION["admin_username"])) {
@@ -29,14 +42,14 @@ if (empty($_SESSION["admin_username"])) {
           $id = $_GET["id"];
     
         $conn = new connec();
-        $tbl = "cinema";
+        $tbl = "slider";
         $result = $conn->select($tbl, $id);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $n = $row["name"];
-                $l = $row["location"];
-                $c = $row["city"];
+                $imgsrc = $row["img_path"];
+                $alt_txt = $row["alt"];
+            
              }
         }
     }
@@ -84,7 +97,7 @@ if (empty($_SESSION["admin_username"])) {
                     <?php include('admin_sidenavbar.php'); ?>
                 </div>
                 <div class="col-md-10">
-                    <h5 class="text-center mt-2" style="color:maroon;">Edit Slider Details</h5>
+                    <h5 class="text-center mt-2" style="color:maroon;">Update Slider</h5>
 
                     <div class="table-responsive mt-4">
                     
@@ -98,7 +111,7 @@ if (empty($_SESSION["admin_username"])) {
                                 <input type="text" style="border-radius: 30px;" placeholder="Enter Alternate Text" name="slider_alt_text" required>
 
 
-                                <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
+                                <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
                             </div>
                         </form>
                     </div>
