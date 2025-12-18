@@ -1,27 +1,38 @@
 <?php
 session_start();
+if (isset($_POST["btn_insert"])) {
 
- /* if(isset($_POST["btn_update"])){
+    $alt = $_POST["slider_alt_text"];
 
-         include("../conn.php");
-        $name = $_POST["cinema_name_txt"];
-        $location = $_POST["cinema_location_txt"];
-        $city = $_POST["city_name_txt"];
 
-        $id = $_GET["id"];
+    $target_dir =  "images/";
+    $target_file = $target_dir . $_FILES["fileToUpload"]["name"];
+
+    $target_dir_01 =  "../images/";
+    $target_file_01 = $target_dir_01 . $_FILES["fileToUpload"]["name"];
+
+
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file_01)) {
+        include("../conn.php");
         $conn = new connec();
-        $sql = "update cinema set name='$name', location='$location', city='$city' where id=$id";
+        $sql = "insert into slider values(0,'$target_file','$alt')";
 
-        $conn->update($sql, "Cinema Updated Successfully");
-        header("Location: viewcinema.php");
+        $conn->insert($sql, "Slider Inserted Successfully");
+        header("Location:viewslider.php");
+    } else {
+        echo "Error in uploading";
     }
-*/
+}
+
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
-     include("admin_header.php");
+    include("admin_header.php");
 
-    
+
 ?>
 
     <style>
@@ -68,19 +79,19 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Add Slider</h5>
 
                     <div class="table-responsive mt-4">
-                    <form method="post" enctype="multipart/form-data" class="mt-5">
-                        <div class="container" style="color: #343a40;">
-                        
-                        <label for="text"><b>Select Image</b></label>
-                        <input type="file" style="border-radius: 30px;"  name="fileToUpload" id="fileToUpload" required><br><br>
+                        <form method="post" enctype="multipart/form-data" class="mt-5">
+                            <div class="container" style="color: #343a40;">
 
-                       <label for="text"><b>Alternate Text</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Alternate Text" name="slider_alt_text" required>
-                       
+                                <label for="text"><b>Select Image</b></label>
+                                <input type="file" style="border-radius: 30px;" name="fileToUpload" id="fileToUpload" required><br><br>
 
-                        <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
-                    </div>
-                    </form>
+                                <label for="text"><b>Alternate Text</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Alternate Text" name="slider_alt_text" required>
+
+
+                                <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
