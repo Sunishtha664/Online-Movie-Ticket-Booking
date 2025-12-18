@@ -105,10 +105,14 @@ if (empty($_SESSION["admin_username"])) {
                             <div class="container" style="color: #343a40;">
 
                                 <label for="text"><b>Select Image</b></label>
-                                <input type="file" style="border-radius: 30px;" name="fileToUpload" id="fileToUpload" required><br><br>
+                                <input type="file" style="border-radius: 30px;" name="fileToUpload" id="fileToUpload" value="<?php echo $imgsrc; ?>" required><br><br>
+
+
+                                <img src="../<?php echo $imgsrc; ?>" width="150px" height="100px;"/>
+                                <br><br>
 
                                 <label for="text"><b>Alternate Text</b></label>
-                                <input type="text" style="border-radius: 30px;" placeholder="Enter Alternate Text" name="slider_alt_text" required>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Alternate Text" name="slider_alt_text" value="<?php echo $alt_txt; ?>" required><br><br>
 
 
                                 <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
