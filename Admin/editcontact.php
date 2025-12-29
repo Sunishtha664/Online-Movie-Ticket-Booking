@@ -107,7 +107,7 @@ if (empty($_SESSION["admin_username"])) {
                         <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Message" name="contact_msg_txt" id="email" value="<?php echo $msg; ?>">
                         <label for="text"><b>Message Date</b></label>
                         <input type="date" style="border-radius: 30px;" placeholder="Enter Message Date" name="contact_msg_date_txt" id="email" value="<?php echo $msg_date; ?>">
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email" value="<?php echo $c; ?>">
+
 
                         <a href="viewcontact.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
                         <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
