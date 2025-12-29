@@ -7,15 +7,19 @@ $num = "";
 $msg = "";
 $msg_date = "";
 
-  if(isset($_POST["btn_delete"])){
+  if(isset($_POST["btn_update"])){
 
          include("../conn.php");
-       
+        $name = $_POST["contact_name_txt"];
+        $email = $_POST["contact_email_txt"];
+        $num = $_POST["contact_num_txt"];
+        $msg = $_POST["contact_msg_txt"];
+        $msg_date = $_POST["contact_msg_date_txt"];
+
         $id = $_GET["id"];
         $conn = new connec();
-        $table = "contact";
-
-        $conn->delete($table, $id);
+        $sql = "update contact set name='$name', email='$email', num='$num', msg='$msg', msg_date='$msg_date' where id=$id";
+        $conn->update($sql, "Contact Updated Successfully");
         header("Location: viewcontact.php");
     }
 
@@ -38,6 +42,7 @@ if (empty($_SESSION["admin_username"])) {
                 $num = $row["num"];
                 $msg = $row["msg"];
                 $msg_date = $row["msg_date"];
+
              }
         }
     }
@@ -85,7 +90,7 @@ if (empty($_SESSION["admin_username"])) {
                     <?php include('admin_sidenavbar.php'); ?>
                 </div>
                 <div class="col-md-10">
-                    <h5 class="text-center mt-2" style="color:maroon;">Delete Cinema Details</h5>
+                    <h5 class="text-center mt-2" style="color:maroon;">Edit Contact Details</h5>
 
                     <div class="table-responsive mt-4">
                     <form method="post">
@@ -102,9 +107,10 @@ if (empty($_SESSION["admin_username"])) {
                         <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Message" name="contact_msg_txt" id="email" value="<?php echo $msg; ?>">
                         <label for="text"><b>Message Date</b></label>
                         <input type="date" style="border-radius: 30px;" placeholder="Enter Message Date" name="contact_msg_date_txt" id="email" value="<?php echo $msg_date; ?>">
+                        <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email" value="<?php echo $c; ?>">
 
-                        <a href="viewcontactphp" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
-                        <button type="submit" name="btn_delete" class="btn" style="background-color:darkcyan; color:white">Delete</button>
+                        <a href="viewcontact.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                        <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
                     </div>
                     </form>
 
