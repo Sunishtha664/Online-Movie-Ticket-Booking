@@ -1,23 +1,23 @@
 <?php
 session_start();
-  if(isset($_POST["btn_insert"])){
+if (isset($_POST["btn_insert"])) {
 
-         include("../conn.php");
-        $name = $_POST["language_name_txt"];
-      
-        $conn = new connec();
-        $sql = "insert into language values(0,'$name')";
+    include("../conn.php");
+    $name = $_POST["language_name_txt"];
 
-       $conn->insert($sql, "Language Inserted Successfully");
-        header("Location: viewlanguage.php");
-    }
+    $conn = new connec();
+    $sql = "insert into language values(0,'$name')";
+
+    $conn->insert($sql, "Language Inserted Successfully");
+    header("Location: viewlanguage.php");
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
 
     include("admin_header.php");
-    
+
 ?>
 
     <style>
@@ -64,17 +64,17 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Add Language</h5>
 
                     <div class="table-responsive mt-4">
-                    <form method="post">
-                        <div class="container" style="color: #343a40;">
+                        <form method="post">
+                            <div class="container" style="color: #343a40;">
 
-                        <label for="text"><b>Language Name</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Language Name" name="language_name_txt" id="email">
+                                <label for="text"><b>Language Name</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Language Name" name="language_name_txt" id="email">
 
 
-                        <a href="viewlanguage.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
-                        <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
-                    </div>
-                    </form>
+                                <a href="viewlanguage.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                                <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>

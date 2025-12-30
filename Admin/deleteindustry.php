@@ -3,26 +3,26 @@ session_start();
 
 $name = "";
 
-  if(isset($_POST["btn_delete"])){
+if (isset($_POST["btn_delete"])) {
 
-         include("../conn.php");
-       
-        $id = $_GET["id"];
-        $conn = new connec();
-        $table = "industry";
+    include("../conn.php");
 
-        $conn->delete($table, $id);
-        header("Location: viewindustry.php");
-    }
+    $id = $_GET["id"];
+    $conn = new connec();
+    $table = "industry";
+
+    $conn->delete($table, $id);
+    header("Location: viewindustry.php");
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
-     include("admin_header.php");
+    include("admin_header.php");
 
-    if(isset($_GET["id"])){
-          $id = $_GET["id"];
-    
+    if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+
         $conn = new connec();
         $tbl = "industry";
         $result = $conn->select($tbl, $id);
@@ -30,11 +30,10 @@ if (empty($_SESSION["admin_username"])) {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $name = $row["industry_name"];
-            
-             }
+            }
         }
     }
-    
+
 ?>
 
     <style>
@@ -81,16 +80,16 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Delete Industry Details</h5>
 
                     <div class="table-responsive mt-4">
-                    <form method="post">
-                        <div class="container" style="color: #343a40;">
-                        
-                        <label for="text"><b>Industry Name</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Industry Name" name="industry_name_txt" id="email" value="<?php echo $name; ?>">
+                        <form method="post">
+                            <div class="container" style="color: #343a40;">
 
-                        <a href="viewindustry.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
-                        <button type="submit" name="btn_delete" class="btn" style="background-color:darkcyan; color:white">Delete</button>
-                    </div>
-                    </form>
+                                <label for="text"><b>Industry Name</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Industry Name" name="industry_name_txt" id="email" value="<?php echo $name; ?>">
+
+                                <a href="viewindustry.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                                <button type="submit" name="btn_delete" class="btn" style="background-color:darkcyan; color:white">Delete</button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
