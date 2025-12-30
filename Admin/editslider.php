@@ -4,9 +4,9 @@ session_start();
 $imgsrc = "";
 $alt_txt = "";
 
-  if(isset($_POST["btn_update"])){
+if (isset($_POST["btn_update"])) {
 
-        $alt = $_POST["slider_alt_text"];
+    $alt = $_POST["slider_alt_text"];
 
 
     $target_dir =  "images/";
@@ -20,7 +20,7 @@ $alt_txt = "";
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file_01)) {
-         $id = $_GET["id"];
+        $id = $_GET["id"];
         $conn = new connec();
         $sql = "update slider set img_path='$target_file', alt='$alt' where id=$id";
 
@@ -29,18 +29,16 @@ $alt_txt = "";
     } else {
         echo "Error in uploading";
     }
-
-
-    }
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
-     include("admin_header.php");
+    include("admin_header.php");
 
-    if(isset($_GET["id"])){
-          $id = $_GET["id"];
-    
+    if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+
         $conn = new connec();
         $tbl = "slider";
         $result = $conn->select($tbl, $id);
@@ -49,11 +47,10 @@ if (empty($_SESSION["admin_username"])) {
             while ($row = $result->fetch_assoc()) {
                 $imgsrc = $row["img_path"];
                 $alt_txt = $row["alt"];
-            
-             }
+            }
         }
     }
-    
+
 ?>
 
     <style>
@@ -100,7 +97,7 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Update Slider</h5>
 
                     <div class="table-responsive mt-4">
-                    
+
                         <form method="post" enctype="multipart/form-data" class="mt-5">
                             <div class="container" style="color: #343a40;">
 
@@ -108,7 +105,7 @@ if (empty($_SESSION["admin_username"])) {
                                 <input type="file" style="border-radius: 30px;" name="fileToUpload" id="fileToUpload" value="<?php echo $imgsrc; ?>" required><br><br>
 
 
-                                <img src="../<?php echo $imgsrc; ?>" width="150px" height="100px;"/>
+                                <img src="../<?php echo $imgsrc; ?>" width="150px" height="100px;" />
                                 <br><br>
 
                                 <label for="text"><b>Alternate Text</b></label>

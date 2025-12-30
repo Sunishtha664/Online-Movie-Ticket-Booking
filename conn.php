@@ -27,7 +27,7 @@ class connec
     }
 
 
-    
+
 
     function select_show_dt()
     {

@@ -4,26 +4,26 @@ session_start();
 $imgsrc = "";
 $alt_txt = "";
 
-  if(isset($_POST["btn_delete"])){
+if (isset($_POST["btn_delete"])) {
 
-         include("../conn.php");
-       
-        $id = $_GET["id"];
-        $conn = new connec();
-        $table = "slider";
+    include("../conn.php");
 
-        $conn->delete($table, $id);
-        header("Location: viewslider.php");
-    }
+    $id = $_GET["id"];
+    $conn = new connec();
+    $table = "slider";
+
+    $conn->delete($table, $id);
+    header("Location: viewslider.php");
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
-     include("admin_header.php");
+    include("admin_header.php");
 
-    if(isset($_GET["id"])){
-          $id = $_GET["id"];
-    
+    if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+
         $conn = new connec();
         $tbl = "slider";
         $result = $conn->select($tbl, $id);
@@ -32,14 +32,14 @@ if (empty($_SESSION["admin_username"])) {
             while ($row = $result->fetch_assoc()) {
                 $imgsrc = $row["img_path"];
                 $alt_txt = $row["alt"];
-             }
+            }
         }
     }
-    
+
 ?>
 
-   
-    
+
+
 
     <style>
         /* Make table scrollable horizontally */
@@ -85,11 +85,11 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Delete Cinema Details</h5>
 
                     <div class="table-responsive mt-4">
-                     <form method="post" enctype="multipart/form-data" class="mt-5">
+                        <form method="post" enctype="multipart/form-data" class="mt-5">
                             <div class="container" style="color: #343a40;">
 
 
-                                <img src="../<?php echo $imgsrc; ?>" width="150px" height="100px;"/>
+                                <img src="../<?php echo $imgsrc; ?>" width="150px" height="100px;" />
                                 <br><br>
 
                                 <label for="text"><b>Alternate Text</b></label>

@@ -1,28 +1,28 @@
 <?php
 session_start();
-  if(isset($_POST["btn_insert"])){
+if (isset($_POST["btn_insert"])) {
 
-         include("../conn.php");
-        $name = $_POST["contact_name_txt"];
-        $email = $_POST["contact_email_txt"];
-        $num = $_POST["contact_num_txt"];
-        $msg = $_POST["contact_msg_txt"];
-        $msg_date = $_POST["contact_msg_date_txt"];
+    include("../conn.php");
+    $name = $_POST["contact_name_txt"];
+    $email = $_POST["contact_email_txt"];
+    $num = $_POST["contact_num_txt"];
+    $msg = $_POST["contact_msg_txt"];
+    $msg_date = $_POST["contact_msg_date_txt"];
 
 
-        $conn = new connec();
-        $sql = "insert into contact values(0,'$name','$email','$num','$msg','$msg_date')";
+    $conn = new connec();
+    $sql = "insert into contact values(0,'$name','$email','$num','$msg','$msg_date')";
 
-       $conn->insert($sql, "Contact Inserted Successfully");
-        header("Location: viewcontact.php");
-    }
+    $conn->insert($sql, "Contact Inserted Successfully");
+    header("Location: viewcontact.php");
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
 
     include("admin_header.php");
-    
+
 ?>
 
     <style>
@@ -69,26 +69,26 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Add Contact</h5>
 
                     <div class="table-responsive mt-4">
-                    <form method="post">
-                        <div class="container" style="color: #343a40;">
-                        
-                        <label for="text"><b>Contact Name</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Name" name="contact_name_txt" id="email">
+                        <form method="post">
+                            <div class="container" style="color: #343a40;">
 
-                       <label for="text"><b>Contact Email</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Email" name="contact_email_txt" id="email">
-                        <label for="text"><b>Contact Number</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Number" name="contact_num_txt" id="email">
-                        <label for="text"><b>Contact Message</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Message" name="contact_msg_txt" id="email">
-                        <label for="text"><b>Message Date</b></label>
-                        <input type="date" style="border-radius: 30px;" placeholder="Enter Message Date" name="contact_msg_date_txt" id="email">
-                        <br><br>
+                                <label for="text"><b>Contact Name</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Name" name="contact_name_txt" id="email">
 
-                        <a href="viewcontact.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
-                        <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
-                    </div>
-                    </form>
+                                <label for="text"><b>Contact Email</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Email" name="contact_email_txt" id="email">
+                                <label for="text"><b>Contact Number</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Number" name="contact_num_txt" id="email">
+                                <label for="text"><b>Contact Message</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Contact Message" name="contact_msg_txt" id="email">
+                                <label for="text"><b>Message Date</b></label>
+                                <input type="date" style="border-radius: 30px;" placeholder="Enter Message Date" name="contact_msg_date_txt" id="email">
+                                <br><br>
+
+                                <a href="viewcontact.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                                <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
