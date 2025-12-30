@@ -5,29 +5,29 @@ $n = "";
 $l = "";
 $c = "";
 
-  if(isset($_POST["btn_update"])){
+if (isset($_POST["btn_update"])) {
 
-         include("../conn.php");
-        $name = $_POST["cinema_name_txt"];
-        $location = $_POST["cinema_location_txt"];
-        $city = $_POST["city_name_txt"];
+    include("../conn.php");
+    $name = $_POST["cinema_name_txt"];
+    $location = $_POST["cinema_location_txt"];
+    $city = $_POST["city_name_txt"];
 
-        $id = $_GET["id"];
-        $conn = new connec();
-        $sql = "update cinema set name='$name', location='$location', city='$city' where id=$id";
+    $id = $_GET["id"];
+    $conn = new connec();
+    $sql = "update cinema set name='$name', location='$location', city='$city' where id=$id";
 
-        $conn->update($sql, "Cinema Updated Successfully");
-        header("Location: viewcinema.php");
-    }
+    $conn->update($sql, "Cinema Updated Successfully");
+    header("Location: viewcinema.php");
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
-     include("admin_header.php");
+    include("admin_header.php");
 
-    if(isset($_GET["id"])){
-          $id = $_GET["id"];
-    
+    if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+
         $conn = new connec();
         $tbl = "cinema";
         $result = $conn->select($tbl, $id);
@@ -37,10 +37,10 @@ if (empty($_SESSION["admin_username"])) {
                 $n = $row["name"];
                 $l = $row["location"];
                 $c = $row["city"];
-             }
+            }
         }
     }
-    
+
 ?>
 
     <style>
@@ -87,21 +87,21 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Edit Cinema Details</h5>
 
                     <div class="table-responsive mt-4">
-                    <form method="post">
-                        <div class="container" style="color: #343a40;">
-                        
-                        <label for="text"><b>Cinema Name</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Name" name="cinema_name_txt" id="email" value="<?php echo $n; ?>">
+                        <form method="post">
+                            <div class="container" style="color: #343a40;">
 
-                       <label for="text"><b>Cinema Location</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Location" name="cinema_location_txt" id="email" value="<?php echo $l; ?>">
-                        <label for="text"><b>City</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email" value="<?php echo $c; ?>">
+                                <label for="text"><b>Cinema Name</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Name" name="cinema_name_txt" id="email" value="<?php echo $n; ?>">
 
-                        <a href="viewcinema.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
-                        <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
-                    </div>
-                    </form>
+                                <label for="text"><b>Cinema Location</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Cinema Location" name="cinema_location_txt" id="email" value="<?php echo $l; ?>">
+                                <label for="text"><b>City</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter City" name="city_name_txt" id="email" value="<?php echo $c; ?>">
+
+                                <a href="viewcinema.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                                <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
