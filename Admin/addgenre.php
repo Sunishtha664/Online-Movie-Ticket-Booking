@@ -1,23 +1,23 @@
 <?php
 session_start();
-  if(isset($_POST["btn_insert"])){
+if (isset($_POST["btn_insert"])) {
 
-         include("../conn.php");
-        $name = $_POST["genre_name_txt"];
-      
-        $conn = new connec();
-        $sql = "insert into genre values(0,'$name')";
+    include("../conn.php");
+    $name = $_POST["genre_name_txt"];
 
-       $conn->insert($sql, "Genre Inserted Successfully");
-        header("Location: viewgenre.php");
-    }
+    $conn = new connec();
+    $sql = "insert into genre values(0,'$name')";
+
+    $conn->insert($sql, "Genre Inserted Successfully");
+    header("Location: viewgenre.php");
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
 
     include("admin_header.php");
-    
+
 ?>
 
     <style>
@@ -64,17 +64,17 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Add Genre</h5>
 
                     <div class="table-responsive mt-4">
-                    <form method="post">
-                        <div class="container" style="color: #343a40;">
-                        
-                        <label for="text"><b>Genre Name</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Genre Name" name="genre_name_txt" id="email">
+                        <form method="post">
+                            <div class="container" style="color: #343a40;">
+
+                                <label for="text"><b>Genre Name</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Genre Name" name="genre_name_txt" id="email">
 
 
-                        <a href="viewgenre.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
-                        <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
-                    </div>
-                    </form>
+                                <a href="viewgenre.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                                <button type="submit" name="btn_insert" class="btn" style="background-color:darkcyan; color:white">Insert</button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>

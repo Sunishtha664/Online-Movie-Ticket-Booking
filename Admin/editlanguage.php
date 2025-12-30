@@ -3,26 +3,26 @@ session_start();
 
 $name = "";
 
-  if(isset($_POST["btn_update"])){
+if (isset($_POST["btn_update"])) {
 
-         include("../conn.php");
-        $name = $_POST["language_name_txt"];
-      
-        $id = $_GET["id"];
-        $conn = new connec();
-        $sql = "update language set lang_name='$name' where id=$id";
-        $conn->update($sql, "Language Updated Successfully");
-        header("Location: viewlanguage.php");
-    }
+    include("../conn.php");
+    $name = $_POST["language_name_txt"];
+
+    $id = $_GET["id"];
+    $conn = new connec();
+    $sql = "update language set lang_name='$name' where id=$id";
+    $conn->update($sql, "Language Updated Successfully");
+    header("Location: viewlanguage.php");
+}
 
 if (empty($_SESSION["admin_username"])) {
     header("Location:index.php");
 } else {
-     include("admin_header.php");
+    include("admin_header.php");
 
-    if(isset($_GET["id"])){
-          $id = $_GET["id"];
-    
+    if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+
         $conn = new connec();
         $tbl = "language";
         $result = $conn->select($tbl, $id);
@@ -33,7 +33,7 @@ if (empty($_SESSION["admin_username"])) {
             }
         }
     }
-    
+
 ?>
 
     <style>
@@ -80,17 +80,17 @@ if (empty($_SESSION["admin_username"])) {
                     <h5 class="text-center mt-2" style="color:maroon;">Edit Language Details</h5>
 
                     <div class="table-responsive mt-4">
-                    <form method="post">
-                        <div class="container" style="color: #343a40;">
-                        
-                        <label for="text"><b>Language Name</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Language Name" name="language_name_txt" id="email" value="<?php echo $name; ?>">
-                        
+                        <form method="post">
+                            <div class="container" style="color: #343a40;">
 
-                        <a href="viewlanguage.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
-                        <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
-                    </div>
-                    </form>
+                                <label for="text"><b>Language Name</b></label>
+                                <input type="text" style="border-radius: 30px;" placeholder="Enter Language Name" name="language_name_txt" id="email" value="<?php echo $name; ?>">
+
+
+                                <a href="viewlanguage.php" class="btn" style="background-color:darkcyan; color:white">Cancel</a>
+                                <button type="submit" name="btn_update" class="btn" style="background-color:darkcyan; color:white">Update</button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
