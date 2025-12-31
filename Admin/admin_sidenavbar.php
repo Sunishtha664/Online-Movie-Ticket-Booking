@@ -72,7 +72,7 @@
         <a class="nav-link" href="viewmovie.php" style="color: white;">Movie</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Seat Details</a>
+        <a class="nav-link" href="viewseat_details.php" style="color: white;">Seat Details</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#" style="color: white;">Seat Reserved</a>
