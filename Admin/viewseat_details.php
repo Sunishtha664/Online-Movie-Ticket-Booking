@@ -57,8 +57,8 @@ if (empty($_SESSION["admin_username"])) {
                     <?php include('admin_sidenavbar.php'); ?>
                 </div>
                 <div class="col-md-10">
-                    <h5 class="text-center mt-2" style="color:maroon;">Movie Details </h5>
-                    <a href="addmovie.php" style="color:brown;">Add Movie</a>
+                    <h5 class="text-center mt-2" style="color:maroon;">Seat Details </h5>
+                    <a href="addmovie.php" style="color:brown;">Book Seat</a>
 
                     <div class="table-responsive mt-4">
                         <table class="table table-bordered table-striped" s>
