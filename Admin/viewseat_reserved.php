@@ -78,7 +78,16 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><?php echo $row["id"] ?></td>
                                             <td><?php echo $row["fullname"] ?></td>
                                             <td><?php echo $row["seat_number"] ?></td>
-                                            <td><?php echo $row["reserved"] ?></td>
+                                            <td>
+                                                <?php 
+                                                if($row["reserved"]==0){
+                                                    echo "<p style='color:blue;'> Already Booked </p>";
+                                                } else {
+                                                    echo "<p style='color:green;'> Available </p>";
+                                                }
+                                                ?>
+                                        
+                                            </td>
                                     
                                             <td><a href="editseat_reserved.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
                                                 <a href="deleteseat_reserved.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>

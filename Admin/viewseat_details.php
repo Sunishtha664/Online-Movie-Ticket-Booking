@@ -61,7 +61,7 @@ movie.id = movie_ticket_booking.show.movie_id;";
                 </div>
                 <div class="col-md-10">
                     <h5 class="text-center mt-2" style="color:maroon;">Seat Details </h5>
-                    <a href="addseat_details.php" style="color:brown;">Book Seat</a>
+                   
 
                     <div class="table-responsive mt-4">
                         <table class="table table-bordered table-striped" s>
