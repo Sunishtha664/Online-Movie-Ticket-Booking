@@ -81,7 +81,7 @@
         <a class="nav-link" href="#" style="color: white;">Movie Show</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Movie Show Time</a>
+        <a class="nav-link" href="viewshowtime.php" style="color: white;">Movie Show Time</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="viewslider.php" style="color: white;">Slider</a>
