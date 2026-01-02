@@ -7,11 +7,14 @@ if (empty($_SESSION["admin_username"])) {
 
     include("admin_header.php");
     $conn = new connec();
-    $sql = "SELECT movie.id, movie.name, movie.movie_banner, movie.rel_date, industry.industry_name, genre.genre_name,language.lang_name, movie.duration, movie.director, movie.cast, movie.age_rating
-    FROM movie, genre, industry, movie_ticket_booking.language
-    WHERE movie.industry_id=industry.id AND
-    movie.genre_id= genre.id AND
-    movie.lang_id = language.id;";
+    $sql = "SELECT seat_detail.id, customer.fullname, seat_detail.seat_no, movie.name, movie_ticket_booking.show.id AS 'show_id'
+
+FROM seat_detail, customer, movie_ticket_booking.show
+JOIN movie
+
+WHERE seat_detail.cust_id = customer.id AND
+seat_detail.show_id = movie_ticket_booking.show.id AND
+movie.id = movie_ticket_booking.show.movie_id;";
 
     $result = $conn->select_by_query($sql);
 ?>
@@ -58,7 +61,7 @@ if (empty($_SESSION["admin_username"])) {
                 </div>
                 <div class="col-md-10">
                     <h5 class="text-center mt-2" style="color:maroon;">Seat Details </h5>
-                    <a href="addmovie.php" style="color:brown;">Book Seat</a>
+                    <a href="addseat_details.php" style="color:brown;">Book Seat</a>
 
                     <div class="table-responsive mt-4">
                         <table class="table table-bordered table-striped" s>
