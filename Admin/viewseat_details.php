@@ -64,16 +64,11 @@ if (empty($_SESSION["admin_username"])) {
                         <table class="table table-bordered table-striped" s>
                             <thead>
                                 <tr>
-                                    <th>Banner</th>
-                                    <th>Name</th>
-                                    <th>Release Date</th>
-                                    <th>Industry</th>
-                                    <th>Genre</th>
-                                    <th>Language</th>
-                                    <th>Movie Duration</th>
-                                    <th>Director</th>
-                                    <th>Cast</th>
-                                    <th>Age Rating</th>
+                                    <th>ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Seat No.</th>
+                                    <th>Movie Name</th>
+                               
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -83,19 +78,13 @@ if (empty($_SESSION["admin_username"])) {
                                     while ($row = $result->fetch_assoc()) {
                                 ?>
                                         <tr>
-                                            <td><img src="../<?php echo $row["movie_banner"] ?>" style="height:100px;"></td>
+                                            <td><?php echo $row["id"] ?></td>
+                                            <td><?php echo $row["fullname"] ?></td>
+                                            <td><?php echo $row["seat_no"] ?></td>
                                             <td><?php echo $row["name"] ?></td>
-                                            <td><?php echo $row["rel_date"] ?></td>
-                                            <td><?php echo $row["industry_name"] ?></td>
-                                            <td><?php echo $row["genre_name"] ?></td>
-                                            <td><?php echo $row["lang_name"] ?></td>
-                                            <td><?php echo $row["duration"] ?></td>
-                                            <td><?php echo $row["director"] ?></td>
-                                            <td><?php echo $row["cast"] ?></td>
-                                            <td><?php echo $row["age_rating"] ?></td>
-
-                                            <td><a href="editmovie.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
-                                                <a href="deletemovie.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
+                                    
+                                            <td><a href="editseat_details.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
+                                                <a href="deleteseat_details.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                 <?php
