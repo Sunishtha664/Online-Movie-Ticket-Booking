@@ -7,14 +7,9 @@ if (empty($_SESSION["admin_username"])) {
 
     include("admin_header.php");
     $conn = new connec();
-    $sql = "SELECT seat_detail.id, customer.fullname, seat_detail.seat_no, movie.name, movie_ticket_booking.show.id AS 'show_id'
-
-FROM seat_detail, customer, movie_ticket_booking.show
-JOIN movie
-
-WHERE seat_detail.cust_id = customer.id AND
-seat_detail.show_id = movie_ticket_booking.show.id AND
-movie.id = movie_ticket_booking.show.movie_id;";
+    $sql = "SELECT seat_reserved.id, seat_reserved.show_id, customer.fullname, seat_reserved.seat_number, seat_reserved.reserved
+    FROM seat_reserved, customer
+    WHERE seat_reserved.cust_id = cust_id;";
 
     $result = $conn->select_by_query($sql);
 ?>
@@ -69,7 +64,7 @@ movie.id = movie_ticket_booking.show.movie_id;";
                                     <th>ID</th>
                                     <th>Customer Name</th>
                                     <th>Seat No.</th>
-                                    <th>Movie Name</th>
+                                    <th>Status</th>
                                
                                     <th>Action</th>
                                 </tr>
@@ -82,11 +77,11 @@ movie.id = movie_ticket_booking.show.movie_id;";
                                         <tr>
                                             <td><?php echo $row["id"] ?></td>
                                             <td><?php echo $row["fullname"] ?></td>
-                                            <td><?php echo $row["seat_no"] ?></td>
-                                            <td><?php echo $row["name"] ?></td>
+                                            <td><?php echo $row["seat_number"] ?></td>
+                                            <td><?php echo $row["reserved"] ?></td>
                                     
-                                            <td><a href="editseat_details.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
-                                                <a href="deleteseat_details.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
+                                            <td><a href="editseat_reserved.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Edit</a>
+                                                <a href="deleteseat_reserved.php?id= <?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                 <?php
