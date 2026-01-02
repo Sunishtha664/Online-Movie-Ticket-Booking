@@ -19,7 +19,7 @@ class connec
 
     function select_all($table_name)
     {
-        $sql = "SELECT * FROM $table_name";
+        $sql = "SELECT * FROM `$table_name`";
         $result = $this->conn->query($sql);
 
 
@@ -82,14 +82,14 @@ WHERE
 
     function select($table_name, $id)
     {
-        $sql = "SELECT * FROM $table_name where id=$id";
+        $sql = "SELECT * FROM `$table_name` where id=$id";
         $result = $this->conn->query($sql);
         return  $result;
     }
 
     function select_login($table_name, $email)
     {
-        $sql = "SELECT * FROM $table_name where email='$email'";
+        $sql = "SELECT * FROM `$table_name` where email='$email'";
         $result = $this->conn->query($sql);
         return  $result;
     }
@@ -114,8 +114,7 @@ WHERE
 
     function delete($table_name, $id)
     {
-
-        $query = "Delete from $table_name WHERE id =$id";
+        $query = "Delete from `$table_name` WHERE id =$id";
         if ($this->conn->query($query) === TRUE) {
             echo '<script> alert("Record Deleted");</script>';
         } else {
