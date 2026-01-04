@@ -18,27 +18,27 @@ if (empty($_SESSION["admin_username"])) {
                 </div>
                 <div class="col-md-10" style="padding: 20px;">
                     <h5 class="text-center mb-4" style="color:maroon; font-weight:bold;">Admin Dashboard</h5>
-                    
+
                     <!-- Dashboard Stats -->
                     <div class="row mb-4">
                         <?php
                         // Total Movies
                         $movies = $conn->select_all("movie");
                         $total_movies = $movies->num_rows;
-                        
+
                         // Total Bookings
                         $bookings = $conn->select_all("booking");
                         $total_bookings = $bookings->num_rows;
-                        
+
                         // Total Customers
                         $customers = $conn->select_all("customer");
                         $total_customers = $customers->num_rows;
-                        
+
                         // Total Cinemas
                         $cinemas = $conn->select_all("cinema");
                         $total_cinemas = $cinemas->num_rows;
                         ?>
-                        
+
                         <!-- Movies Card -->
                         <div class="col-md-3 mb-3">
                             <div class="card" style="border-left: 5px solid #b51313ff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
@@ -49,7 +49,7 @@ if (empty($_SESSION["admin_username"])) {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Bookings Card -->
                         <div class="col-md-3 mb-3">
                             <div class="card" style="border-left: 5px solid #11967dff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
@@ -60,7 +60,7 @@ if (empty($_SESSION["admin_username"])) {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Customers Card -->
                         <div class="col-md-3 mb-3">
                             <div class="card" style="border-left: 5px solid #11967dff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
@@ -71,7 +71,7 @@ if (empty($_SESSION["admin_username"])) {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Cinemas Card -->
                         <div class="col-md-3 mb-3">
                             <div class="card" style="border-left: 5px solid #b51313ff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
