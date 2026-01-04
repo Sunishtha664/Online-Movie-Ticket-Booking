@@ -1,15 +1,17 @@
 <?php
-// Check session BEFORE any output
-if (!isset($_SESSION['booking_id']) || empty($_SESSION['booking_id'])) {
-    header('Location: booking.php');
-    exit;
-}
-
+ob_start(); // Buffer output to allow header() calls
 include("header.php");
 
 // Get booking ID from session (set during booking confirmation)
 $booking_id = isset($_SESSION['booking_id']) ? $_SESSION['booking_id'] : '';
 $total_amount = isset($_SESSION['booking_total']) ? $_SESSION['booking_total'] : '';
+
+// Redirect if no valid booking session
+if (empty($booking_id)) {
+    ob_end_clean(); // Clear buffer
+    header('Location: booking.php');
+    exit;
+}
 
 // Update booking with counter payment method
 if ($booking_id) {
@@ -99,4 +101,5 @@ if ($booking_id) {
 
 <?php
 include("footer.php");
+ob_end_flush(); // Send buffered output
 ?>
