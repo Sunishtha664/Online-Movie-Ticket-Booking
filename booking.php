@@ -13,24 +13,37 @@ if ($result && $result->num_rows > 0) {
 }
 
 if (isset($_POST["btn_booking"])) {
-    $cust_id = $_POST["cust_id"];
-    $show_id = $_POST["show_id"];
-    $no_tikt = $_POST["no_ticket"];
+    $cust_id = (int)$_POST["cust_id"];
+    $show_id = (int)$_POST["show_id"];
+    $no_tikt = (int)$_POST["no_ticket"];
     $bkng_date = $_POST["booking_date"];
     $total_amnt = 250 * $no_tikt;
     $seat_number = $_POST["seat_dt"];
-    $seat_arr = explode(", ", $seat_number);
+    $seat_arr = array_filter(array_map('trim', explode(",", $seat_number)));
 
-    foreach ($seat_arr as $item) {
-        $sql = "insert into seat_reserved values(0,$show_id,$cust_id,'$item','true')";
+    // Insert reserved seats (use explicit columns and escape seat values)
+    foreach ($seat_arr as $item_raw) {
+        $item = $conn->conn->real_escape_string($item_raw);
+        $sql = "INSERT INTO `seat_reserved` (`show_id`,`cust_id`,`seat_number`,`reserved`) VALUES ($show_id, $cust_id, '$item', 0)";
         $abc = $conn->insert_lastid($sql);
     }
 
-    $sql = "insert into seat_detail values(0,$cust_id,$show_id,$no_tikt)";
+    // Insert seat detail and booking using explicit column lists (avoid schema mismatch)
+    // seat_detail table stores seat_no (comma-separated seats) rather than no_ticket
+    $seat_no_escaped = $conn->conn->real_escape_string($seat_number);
+    $sql = "INSERT INTO `seat_detail` (`cust_id`,`show_id`,`seat_no`) VALUES ($cust_id, $show_id, '$seat_no_escaped')";
     $seat_dt_id = $conn->insert_lastid($sql);
 
-    $sql = "insert into booking values(0,$cust_id,$show_id,$no_tikt,$seat_dt_id,'$bkng_date',$total_amnt)";
-    $conn->insert($sql, "Your Ticket is Booked");
+    $sql = "INSERT INTO `booking` (`cust_id`,`show_id`,`no_ticket`,`seat_dt_id`,`booking_date`,`total_amount`) VALUES ($cust_id, $show_id, $no_tikt, $seat_dt_id, '$booking_date', $total_amnt)";
+    $booking_id = $conn->insert_lastid($sql);
+
+    // Store booking info in session for payment processing
+    $_SESSION["booking_id"] = $booking_id;
+    $_SESSION["booking_total"] = $total_amnt;
+    $_SESSION["booking_seats"] = $seat_number;
+
+    // Show payment options modal
+    $_SESSION["show_payment_modal"] = true;
 }
 ?>
 
@@ -176,6 +189,49 @@ if (isset($_POST["btn_booking"])) {
         </div>
     <?php endif; ?>
 </section>
+
+<!-- Payment Options Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: darkcyan; color: white;">
+                <h5 class="modal-title" id="paymentModalLabel">Select Payment Method</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center; padding: 30px;">
+                <p style="margin-bottom: 30px; color: #333;">Choose how you want to pay for your booking:</p>
+                
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <!-- eSewa Payment Option -->
+                    <form method="POST" action="esewa_payment.php" style="flex: 1;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; background-color: #2ecc71; border: none; border-radius: 8px; color: white; font-weight: bold; font-size: 16px;">
+                            <i class="fa fa-mobile"></i> Pay with eSewa
+                        </button>
+                    </form>
+                    
+                    <!-- Pay at Counter Option -->
+                    <form method="POST" action="payment_counter.php" style="flex: 1;">
+                        <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 15px; background-color: #3498db; border: none; border-radius: 8px; color: white; font-weight: bold; font-size: 16px;">
+                            <i class="fa fa-money"></i> Pay at Counter
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        <?php if (!empty($_SESSION["show_payment_modal"])): ?>
+            $("#paymentModal").modal('show');
+            <?php unset($_SESSION["show_payment_modal"]); ?>
+        <?php endif; ?>
+    });
+</script>
+
 <?php
 include("footer.php");
 ?>
