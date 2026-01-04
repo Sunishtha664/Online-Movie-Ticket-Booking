@@ -294,7 +294,7 @@ if (isset($_POST["btn_reg"])) {
             <ul class="navbar-nav">
                 <li class="nav-item" style="margin-right: 10px;">
                     <form class="form-inline" method="GET" action="index.php">
-                        <div class="input-group" style="width: 200px;">
+                        <div class="input-group" style="width: 300px;">
                             <input class="form-control" type="search" placeholder="Search movies..." name="search" style="border-radius: 20px 0 0 20px; border: 1px solid #ccc;">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="submit" style="border-radius: 0 20px 20px 0; background-color: darkcyan; color: white; border: 1px solid darkcyan;">
