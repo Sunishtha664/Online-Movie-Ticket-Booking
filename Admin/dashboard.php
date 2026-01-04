@@ -41,44 +41,44 @@ if (empty($_SESSION["admin_username"])) {
                         
                         <!-- Movies Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card" style="border-left: 5px solid #FF6B6B; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <div class="card" style="border-left: 5px solid #b51313ff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                                 <div class="card-body">
                                     <h6 class="card-title" style="color:#666;">Total Movies</h6>
                                     <h2 style="color:#FF6B6B; font-weight:bold;"><?php echo $total_movies; ?></h2>
-                                    <a href="viewmovie.php" class="btn btn-sm" style="background-color:#FF6B6B; color:white; width:100%;">View Movies</a>
+                                    <a href="viewmovie.php" class="btn btn-sm" style="background-color:#b51313ff; color:white; width:100%;">View Movies</a>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Bookings Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card" style="border-left: 5px solid #4ECDC4; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <div class="card" style="border-left: 5px solid #11967dff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                                 <div class="card-body">
                                     <h6 class="card-title" style="color:#666;">Total Bookings</h6>
                                     <h2 style="color:#4ECDC4; font-weight:bold;"><?php echo $total_bookings; ?></h2>
-                                    <a href="viewbooking.php" class="btn btn-sm" style="background-color:#4ECDC4; color:white; width:100%;">View Bookings</a>
+                                    <a href="viewbooking.php" class="btn btn-sm" style="background-color:#11967dff; color:white; width:100%;">View Bookings</a>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Customers Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card" style="border-left: 5px solid #95E1D3; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <div class="card" style="border-left: 5px solid #11967dff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                                 <div class="card-body">
                                     <h6 class="card-title" style="color:#666;">Total Customers</h6>
                                     <h2 style="color:#95E1D3; font-weight:bold;"><?php echo $total_customers; ?></h2>
-                                    <a href="viewcustomer.php" class="btn btn-sm" style="background-color:#95E1D3; color:#333; width:100%;">View Customers</a>
+                                    <a href="viewcustomer.php" class="btn btn-sm" style="background-color:#11967dff; color:white; width:100%;">View Customers</a>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Cinemas Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card" style="border-left: 5px solid #F38181; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                            <div class="card" style="border-left: 5px solid #b51313ff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                                 <div class="card-body">
                                     <h6 class="card-title" style="color:#666;">Total Cinemas</h6>
                                     <h2 style="color:#F38181; font-weight:bold;"><?php echo $total_cinemas; ?></h2>
-                                    <a href="viewcinema.php" class="btn btn-sm" style="background-color:#F38181; color:white; width:100%;">View Cinemas</a>
+                                    <a href="viewcinema.php" class="btn btn-sm" style="background-color:#b51313ff; color:white; width:100%;">View Cinemas</a>
                                 </div>
                             </div>
                         </div>
