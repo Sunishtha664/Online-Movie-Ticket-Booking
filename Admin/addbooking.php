@@ -14,13 +14,12 @@ if (isset($_POST["btn_insert"])) {
     $conn = new connec();
     
     // Insert seat_detail record first (to get its id)
-     $sql = "INSERT INTO seat_detail (cust_id, show_id, no_ticket)
+     $sql = "INSERT INTO `seat_detail`
             VALUES ('$cust_id', '$show_id', '$no_ticket')";
     $seat_dt_id = $conn->insert_lastid($sql);
 
     // Then insert booking record
-    $sql = "INSERT INTO booking 
-            (cust_id, show_id, no_ticket, seat_dt_id, booking_date, total_amount, payment_status, payment_method)
+    $sql = "INSERT INTO `booking`
             VALUES 
             ('$cust_id', '$show_id', '$no_ticket', '$seat_dt_id', '$booking_date', '$total_amount', '$payment_status', '$payment_method')";
     $conn->insert($sql, "Booking Inserted Successfully");
