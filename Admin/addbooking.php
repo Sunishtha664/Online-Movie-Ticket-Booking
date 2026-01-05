@@ -8,15 +8,21 @@ if (isset($_POST["btn_insert"])) {
     $no_ticket = $_POST["no_ticket_txt"];
     $booking_date = $_POST["booking_date_txt"];
     $total_amount = $_POST["total_amount_txt"];
+    $payment_status = $_POST["payment_status_txt"] ?? 'completed';
+    $payment_method = $_POST["payment_method_txt"] ?? 'counter';
 
     $conn = new connec();
     
     // Insert seat_detail record first (to get its id)
-    $sql = "INSERT INTO `seat_detail` VALUES(0,'$cust_id','$show_id','$no_ticket')";
+     $sql = "INSERT INTO seat_detail (cust_id, show_id, no_ticket)
+            VALUES ('$cust_id', '$show_id', '$no_ticket')";
     $seat_dt_id = $conn->insert_lastid($sql);
 
     // Then insert booking record
-    $sql = "INSERT INTO `booking` VALUES(0,'$cust_id','$show_id','$no_ticket','$seat_dt_id','$booking_date','$total_amount')";
+    $sql = "INSERT INTO booking 
+            (cust_id, show_id, no_ticket, seat_dt_id, booking_date, total_amount, payment_status, payment_method)
+            VALUES 
+            ('$cust_id', '$show_id', '$no_ticket', '$seat_dt_id', '$booking_date', '$total_amount', '$payment_status', '$payment_method')";
     $conn->insert($sql, "Booking Inserted Successfully");
     header("Location: viewbooking.php");
 }
@@ -82,6 +88,21 @@ if (empty($_SESSION["admin_username"])) {
 
                                 <label for="text"><b>Total Amount</b></label>
                                 <input type="number" min="0" style="border-radius: 30px;" placeholder="Total Amount" name="total_amount_txt" id="total_amount" readonly>
+
+                                <label><b>Payment Status</b></label>
+                                <select name="payment_status_txt" style="border-radius:30px;" required>
+                                <option value="completed">Completed</option>
+                                 <option value="pending">Pending</option>
+                                 <option value="failed">Failed</option>
+                                </select>
+
+                                <label><b>Payment Method</b></label>
+                                <select name="payment_method_txt" style="border-radius:30px;" required>
+                                <option value="counter">Counter</option>
+                                <option value="esewa">eSewa</option>
+                                 
+                                </select><br>
+
 
                                 <label for="text"><b>Booking Date</b></label>
                                 <input type="date" style="border-radius: 30px;" name="booking_date_txt" id="email" required>

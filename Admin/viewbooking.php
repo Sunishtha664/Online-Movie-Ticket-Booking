@@ -7,14 +7,26 @@ if (empty($_SESSION["admin_username"])) {
     include("admin_header.php");
 
     $conn = new connec();
-    $sql = "SELECT b.id, cu.fullname AS customer_name, m.name AS movie_name, ci.name AS cinema_name, s.show_date, st.time AS show_time, b.no_ticket, b.total_amount, b.booking_date
-            FROM `booking` b
-            JOIN customer cu ON b.cust_id = cu.id
-            JOIN `show` s ON b.show_id = s.id
-            LEFT JOIN movie m ON s.movie_id = m.id
-            LEFT JOIN show_time st ON s.show_time_id = st.id
-            LEFT JOIN cinema ci ON s.cinema_id = ci.id
-            ORDER BY b.booking_date DESC";
+
+    $sql = "SELECT 
+    b.id,
+    cu.fullname AS customer_name,
+    m.name AS movie_name,
+    ci.name AS cinema_name,
+    s.show_date,
+    st.time AS show_time,
+    b.no_ticket,
+    b.total_amount,
+    b.payment_status,
+    b.payment_method,
+    b.booking_date
+    FROM `booking` b
+    JOIN customer cu ON b.cust_id = cu.id
+    JOIN `show` s ON b.show_id = s.id
+    LEFT JOIN movie m ON s.movie_id = m.id
+    LEFT JOIN show_time st ON s.show_time_id = st.id
+    LEFT JOIN cinema ci ON s.cinema_id = ci.id
+    ORDER BY b.booking_date DESC";
 
     $result = $conn->select_by_query($sql);
 ?>
@@ -49,6 +61,8 @@ if (empty($_SESSION["admin_username"])) {
                                     <th>Show Time</th>
                                     <th>No. Tickets</th>
                                     <th>Total Amount</th>
+                                    <th>Payment Status</th>
+                                    <th>Payment Method</th>
                                     <th>Booking Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -67,6 +81,23 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><?php echo htmlspecialchars($row['show_time']); ?></td>
                                             <td><?php echo $row['no_ticket']; ?></td>
                                             <td><?php echo $row['total_amount']; ?></td>
+                                            
+                                            <td>
+                                                <?php
+                                                if ($row['payment_status'] == 'completed') {
+                                                echo '<span style="color:green;font-weight:bold;">Completed</span>';
+                                                } elseif ($row['payment_status'] == 'failed') {
+                                                 echo '<span style="color:red;font-weight:bold;">Failed</span>';
+                                                } else {
+                                               echo '<span style="color:orange;font-weight:bold;">Pending</span>';
+                                                     }
+                                                 ?>
+                                                </td>
+
+                                                <td>
+                                                <?php echo ucfirst($row['payment_method'] ?? 'N/A'); ?>
+                                                </td>
+                                                
                                             <td><?php echo $row['booking_date']; ?></td>
                                             <td>
                                                 <a href="editbooking.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
