@@ -12,9 +12,9 @@ if (isset($_POST["btn_insert"])) {
     $payment_method = $_POST["payment_method_txt"] ?? 'counter';
 
     $conn = new connec();
-    
+
     // Insert seat_detail record first (to get its id)
-     $sql = "INSERT INTO `seat_detail`
+    $sql = "INSERT INTO `seat_detail`
             VALUES ('$cust_id', '$show_id', '$no_ticket')";
     $seat_dt_id = $conn->insert_lastid($sql);
 
@@ -35,11 +35,30 @@ if (empty($_SESSION["admin_username"])) {
 ?>
 
     <style>
-        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table.table th, table.table td { font-size: 14px; white-space: nowrap; }
-        table.table tr { height: 10px !important; }
-        table.table th { font-weight: 600; font-size: 15px; }
-        .btn { padding: 3px 8px; font-size: 12px; }
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table th,
+        table.table td {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        table.table tr {
+            height: 10px !important;
+        }
+
+        table.table th {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .btn {
+            padding: 3px 8px;
+            font-size: 12px;
+        }
     </style>
 
     <section>
@@ -74,7 +93,7 @@ if (empty($_SESSION["admin_username"])) {
                                     $conn_select = new connec();
                                     $sql = "SELECT s.id, m.name, s.show_date, st.time, s.ticket_price FROM `show` s LEFT JOIN movie m ON s.movie_id = m.id LEFT JOIN show_time st ON s.show_time_id = st.id";
                                     $result = $conn_select->select_by_query($sql);
-                                    if($result && $result->num_rows > 0) {
+                                    if ($result && $result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<option value='" . $row['id'] . "' data-price='" . $row['ticket_price'] . "'>" . $row['name'] . " - " . $row['show_date'] . " " . $row['time'] . "</option>";
                                         }
@@ -90,16 +109,16 @@ if (empty($_SESSION["admin_username"])) {
 
                                 <label><b>Payment Status</b></label>
                                 <select name="payment_status_txt" style="border-radius:30px;" required>
-                                <option value="completed">Completed</option>
-                                 <option value="pending">Pending</option>
-                                 <option value="failed">Failed</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="failed">Failed</option>
                                 </select>
 
                                 <label><b>Payment Method</b></label>
                                 <select name="payment_method_txt" style="border-radius:30px;" required>
-                                <option value="counter">Counter</option>
-                                <option value="esewa">eSewa</option>
-                                 
+                                    <option value="counter">Counter</option>
+                                    <option value="esewa">eSewa</option>
+
                                 </select><br>
 
 
@@ -122,11 +141,11 @@ if (empty($_SESSION["admin_username"])) {
             var showSelect = document.getElementById('show_id');
             var ticketsInput = document.getElementById('no_ticket');
             var totalInput = document.getElementById('total_amount');
-            
+
             var selectedOption = showSelect.options[showSelect.selectedIndex];
             var price = selectedOption.getAttribute('data-price') || 0;
             var tickets = ticketsInput.value || 0;
-            
+
             totalInput.value = parseInt(price) * parseInt(tickets);
         }
 

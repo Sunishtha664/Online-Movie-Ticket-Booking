@@ -32,11 +32,30 @@ if (empty($_SESSION["admin_username"])) {
 ?>
 
     <style>
-        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table.table th, table.table td { font-size: 14px; white-space: nowrap; }
-        table.table tr { height: 10px !important; }
-        table.table th { font-weight: 600; font-size: 15px; }
-        .btn { padding: 3px 8px; font-size: 12px; }
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table th,
+        table.table td {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        table.table tr {
+            height: 10px !important;
+        }
+
+        table.table th {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .btn {
+            padding: 3px 8px;
+            font-size: 12px;
+        }
     </style>
 
     <section>
@@ -81,23 +100,23 @@ if (empty($_SESSION["admin_username"])) {
                                             <td><?php echo htmlspecialchars($row['show_time']); ?></td>
                                             <td><?php echo $row['no_ticket']; ?></td>
                                             <td><?php echo $row['total_amount']; ?></td>
-                                            
+
                                             <td>
                                                 <?php
                                                 if ($row['payment_status'] == 'completed') {
-                                                echo '<span style="color:green;font-weight:bold;">Completed</span>';
+                                                    echo '<span style="color:green;font-weight:bold;">Completed</span>';
                                                 } elseif ($row['payment_status'] == 'failed') {
-                                                 echo '<span style="color:red;font-weight:bold;">Failed</span>';
+                                                    echo '<span style="color:red;font-weight:bold;">Failed</span>';
                                                 } else {
-                                               echo '<span style="color:orange;font-weight:bold;">Pending</span>';
-                                                     }
-                                                 ?>
-                                                </td>
+                                                    echo '<span style="color:orange;font-weight:bold;">Pending</span>';
+                                                }
+                                                ?>
+                                            </td>
 
-                                                <td>
+                                            <td>
                                                 <?php echo ucfirst($row['payment_method'] ?? 'N/A'); ?>
-                                                </td>
-                                                
+                                            </td>
+
                                             <td><?php echo $row['booking_date']; ?></td>
                                             <td>
                                                 <a href="editbooking.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
