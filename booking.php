@@ -202,7 +202,7 @@ if (isset($_POST["btn_booking"])) {
             </div>
             <div class="modal-body" style="text-align: center; padding: 30px;">
                 <p style="margin-bottom: 30px; color: #333;">Choose how you want to pay for your booking:</p>
-                
+
                 <div style="display: flex; gap: 20px; justify-content: center;">
                     <!-- eSewa Payment Option -->
                     <form method="POST" action="esewa_payment.php" style="flex: 1;">
@@ -210,7 +210,7 @@ if (isset($_POST["btn_booking"])) {
                             <i class="fa fa-mobile"></i> Pay with eSewa
                         </button>
                     </form>
-                    
+
                     <!-- Pay at Counter Option -->
                     <form method="POST" action="payment_counter.php" style="flex: 1;">
                         <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 15px; background-color: #3498db; border: none; border-radius: 8px; color: white; font-weight: bold; font-size: 16px;">

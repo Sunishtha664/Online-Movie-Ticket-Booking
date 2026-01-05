@@ -39,42 +39,42 @@ if (
 ?>
 
 <section class="mt-5">
-<div class="container d-flex justify-content-center align-items-center" style="min-height:500px;">
-<div class="card shadow p-5" style="max-width:500px;width:100%;border-radius:15px;text-align:center;">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height:500px;">
+        <div class="card shadow p-5" style="max-width:500px;width:100%;border-radius:15px;text-align:center;">
 
-<?php if ($payment_successful): ?>
-    <div style="color:#2ecc71">
-        <i class="fa fa-check-circle" style="font-size:80px;"></i>
+            <?php if ($payment_successful): ?>
+                <div style="color:#2ecc71">
+                    <i class="fa fa-check-circle" style="font-size:80px;"></i>
+                </div>
+                <h2 style="color:#2ecc71;">Payment Successful!</h2>
+
+                <div style="background:#f0f0f0;padding:20px;border-radius:8px;margin:20px 0;">
+                    <p><b>Booking ID:</b> #<?php echo $booking_id; ?></p>
+                    <p><b>Transaction:</b> <?php echo substr($transaction_uuid, 0, 18); ?>...</p>
+                    <p><b>Amount:</b> Rs. <?php echo $total_amount; ?></p>
+                </div>
+
+                <a href="index.php" class="btn" style="background:darkcyan;color:#fff;padding:12px 30px;border-radius:25px;">
+                    Home
+                </a>
+                <a href="booking.php" class="btn" style="background:#3498db;color:#fff;padding:12px 30px;border-radius:25px;">
+                    Book Again
+                </a>
+
+            <?php else: ?>
+                <div style="color:#e74c3c">
+                    <i class="fa fa-times-circle" style="font-size:80px;"></i>
+                </div>
+                <h2 style="color:#e74c3c;">Payment Verification Failed</h2>
+                <p>Your transaction could not be verified.</p>
+
+                <a href="booking.php" class="btn" style="background:darkcyan;color:#fff;padding:12px 30px;border-radius:25px;">
+                    Try Again
+                </a>
+            <?php endif; ?>
+
+        </div>
     </div>
-    <h2 style="color:#2ecc71;">Payment Successful!</h2>
-
-    <div style="background:#f0f0f0;padding:20px;border-radius:8px;margin:20px 0;">
-        <p><b>Booking ID:</b> #<?php echo $booking_id; ?></p>
-        <p><b>Transaction:</b> <?php echo substr($transaction_uuid,0,18); ?>...</p>
-        <p><b>Amount:</b> Rs. <?php echo $total_amount; ?></p>
-    </div>
-
-    <a href="index.php" class="btn" style="background:darkcyan;color:#fff;padding:12px 30px;border-radius:25px;">
-        Home
-    </a>
-    <a href="booking.php" class="btn" style="background:#3498db;color:#fff;padding:12px 30px;border-radius:25px;">
-        Book Again
-    </a>
-
-<?php else: ?>
-    <div style="color:#e74c3c">
-        <i class="fa fa-times-circle" style="font-size:80px;"></i>
-    </div>
-    <h2 style="color:#e74c3c;">Payment Verification Failed</h2>
-    <p>Your transaction could not be verified.</p>
-
-    <a href="booking.php" class="btn" style="background:darkcyan;color:#fff;padding:12px 30px;border-radius:25px;">
-        Try Again
-    </a>
-<?php endif; ?>
-
-</div>
-</div>
 </section>
 
 <?php include("footer.php"); ?>

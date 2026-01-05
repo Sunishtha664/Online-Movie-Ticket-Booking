@@ -1,4 +1,5 @@
 <?php
+
 /**
  * eSewa Payment Gateway Configuration
  * 
@@ -88,5 +89,3 @@ define('PRODUCT_DELIVERY_CHARGE', 0); // Delivery charge
  * 5. eSewa redirects back to your success/failure page
  * 6. Payment status is updated in database
  */
-
-?>

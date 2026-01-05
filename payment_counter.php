@@ -37,9 +37,9 @@ if ($booking_id) {
             <div style="text-align: center; margin-bottom: 30px;">
                 <i class="fa fa-check-circle" style="font-size: 80px; color: #3498db;"></i>
             </div>
-            
+
             <h2 style="color: darkcyan; text-align: center; margin-bottom: 25px;">Payment Method: Counter</h2>
-            
+
             <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; border-left: 4px solid #3498db; margin-bottom: 25px;">
                 <p style="color: #2c3e50; margin: 0; font-size: 15px;">
                     <strong>Your booking is confirmed!</strong> Please complete your payment at the cinema counter.
@@ -49,33 +49,33 @@ if ($booking_id) {
             <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
                 <h5 style="color: #2c3e50; margin-top: 0;">Booking Details:</h5>
 
-            <?php if (!empty($booking) && is_array($booking)): ?>
-        <div style="display: flex; justify-content: space-between; margin: 10px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
-        <span style="color: #666;">Booking ID:</span>
-        <strong style="color: #2c3e50;">#<?php echo htmlspecialchars($booking_id ?: ($booking['id'] ?? '')); ?></strong>
-         </div>
+                <?php if (!empty($booking) && is_array($booking)): ?>
+                    <div style="display: flex; justify-content: space-between; margin: 10px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                        <span style="color: #666;">Booking ID:</span>
+                        <strong style="color: #2c3e50;">#<?php echo htmlspecialchars($booking_id ?: ($booking['id'] ?? '')); ?></strong>
+                    </div>
 
-    <div style="display: flex; justify-content: space-between; margin: 10px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
-        <span style="color: #666;">Number of Tickets:</span>
-        <strong style="color: #2c3e50;"><?php echo htmlspecialchars($booking['no_ticket'] ?? ($booking['no_tikt'] ?? 'N/A')); ?></strong>
-    </div>
+                    <div style="display: flex; justify-content: space-between; margin: 10px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                        <span style="color: #666;">Number of Tickets:</span>
+                        <strong style="color: #2c3e50;"><?php echo htmlspecialchars($booking['no_ticket'] ?? ($booking['no_tikt'] ?? 'N/A')); ?></strong>
+                    </div>
 
-    <div style="display: flex; justify-content: space-between; margin: 10px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
-        <span style="color: #666;">Booking Date:</span>
-        <strong style="color: #2c3e50;"><?php echo htmlspecialchars($booking['booking_date'] ?? 'N/A'); ?></strong>
-    </div>
+                    <div style="display: flex; justify-content: space-between; margin: 10px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                        <span style="color: #666;">Booking Date:</span>
+                        <strong style="color: #2c3e50;"><?php echo htmlspecialchars($booking['booking_date'] ?? 'N/A'); ?></strong>
+                    </div>
 
-    <div style="display: flex; justify-content: space-between; margin: 10px 0; padding-top: 10px; padding-bottom: 10px; background-color: #fff; border-radius: 5px; padding: 15px 10px; border: 2px solid #3498db;">
-        <span style="color: #2c3e50; font-size: 16px;"><strong>Total Amount to Pay:</strong></span>
-        <strong style="color: #3498db; font-size: 18px;">Rs. <?php echo htmlspecialchars($booking['total_amount'] ?? $booking['total_amnt'] ?? ($booking['total'] ?? 'N/A')); ?></strong>
-    </div>
+                    <div style="display: flex; justify-content: space-between; margin: 10px 0; padding-top: 10px; padding-bottom: 10px; background-color: #fff; border-radius: 5px; padding: 15px 10px; border: 2px solid #3498db;">
+                        <span style="color: #2c3e50; font-size: 16px;"><strong>Total Amount to Pay:</strong></span>
+                        <strong style="color: #3498db; font-size: 18px;">Rs. <?php echo htmlspecialchars($booking['total_amount'] ?? $booking['total_amnt'] ?? ($booking['total'] ?? 'N/A')); ?></strong>
+                    </div>
 
-    <?php else: ?>
-    <div style="padding:20px; background:#fff; border-radius:6px;">
-        <p style="color:#666; margin:0;">Booking information not available (session expired or invalid booking). Please return to the booking page.</p>
-    </div>
-    <?php endif; ?>
-</div>
+                <?php else: ?>
+                    <div style="padding:20px; background:#fff; border-radius:6px;">
+                        <p style="color:#666; margin:0;">Booking information not available (session expired or invalid booking). Please return to the booking page.</p>
+                    </div>
+                <?php endif; ?>
+            </div>
 
             <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #f39c12;">
                 <h6 style="color: #856404; margin-top: 0;">⚠️ Important Instructions:</h6>

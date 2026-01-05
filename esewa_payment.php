@@ -43,82 +43,92 @@ $_SESSION["esewa_amount"] = $total_amount;
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Processing eSewa Payment</title>
     <style>
-        body{
-            font-family:Arial;
-            background:#f5f5f5;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            min-height:100vh;
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        .box{
-            background:#fff;
-            padding:40px;
-            border-radius:10px;
-            text-align:center;
-            box-shadow:0 2px 10px rgba(0,0,0,.15);
-            width:380px;
+
+        .box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+            width: 380px;
         }
-        .spinner{
-            width:40px;
-            height:40px;
-            border:4px solid #ddd;
-            border-top:4px solid darkcyan;
-            border-radius:50%;
-            animation:spin 1s linear infinite;
-            margin:20px auto;
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #ddd;
+            border-top: 4px solid darkcyan;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
         }
-        @keyframes spin{100%{transform:rotate(360deg)}}
-        .btn{
-            display:inline-block;
-            margin:8px;
-            padding:10px 14px;
-            border-radius:6px;
-            color:#fff;
-            text-decoration:none;
-            font-size:14px;
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 8px;
+            padding: 10px 14px;
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
         }
     </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h3>Processing Payment</h3>
-    <div class="spinner"></div>
-    <p>Redirecting to eSewa…</p>
-    <p style="color:#666">Amount: Rs. <?php echo $total_amount; ?></p>
+    <div class="box">
+        <h3>Processing Payment</h3>
+        <div class="spinner"></div>
+        <p>Redirecting to eSewa…</p>
+        <p style="color:#666">Amount: Rs. <?php echo $total_amount; ?></p>
 
-    <hr>
+        <hr>
 
-    <p style="font-size:13px;color:#777">
-        If eSewa test server doesn’t open, use simulation 👇
-    </p>
+        <p style="font-size:13px;color:#777">
+            If eSewa test server doesn’t open, use simulation 👇
+        </p>
 
-    <a class="btn" style="background:#2ecc71"
-       href="payment_success.php?transaction_uuid=<?php echo $transaction_uuid; ?>&status=COMPLETE&product_code=<?php echo ESEWA_MERCHANT_CODE; ?>&total_amount=<?php echo $total_amount; ?>">
-       ✅ Simulate Success
-    </a>
+        <a class="btn" style="background:#2ecc71"
+            href="payment_success.php?transaction_uuid=<?php echo $transaction_uuid; ?>&status=COMPLETE&product_code=<?php echo ESEWA_MERCHANT_CODE; ?>&total_amount=<?php echo $total_amount; ?>">
+            ✅ Simulate Success
+        </a>
 
-    <a class="btn" style="background:#e74c3c"
-       href="payment_failure.php?status=FAILED">
-       ❌ Simulate Failure
-    </a>
-</div>
+        <a class="btn" style="background:#e74c3c"
+            href="payment_failure.php?status=FAILED">
+            ❌ Simulate Failure
+        </a>
+    </div>
 
-<!-- FORM EXISTS BUT IS NOT AUTO SUBMITTED -->
-<form id="esewa_form" action="<?php echo ESEWA_GATEWAY_URL; ?>" method="POST" target="_blank">
-    <input type="hidden" name="amount" value="<?php echo $total_amount; ?>">
-    <input type="hidden" name="tax_amount" value="0">
-    <input type="hidden" name="total_amount" value="<?php echo $total_amount; ?>">
-    <input type="hidden" name="transaction_uuid" value="<?php echo $transaction_uuid; ?>">
-    <input type="hidden" name="product_code" value="<?php echo ESEWA_MERCHANT_CODE; ?>">
-    <input type="hidden" name="signed_field_names" value="total_amount,transaction_uuid,product_code">
-    <input type="hidden" name="signature" value="<?php echo $signature; ?>">
-</form>
+    <!-- FORM EXISTS BUT IS NOT AUTO SUBMITTED -->
+    <form id="esewa_form" action="<?php echo ESEWA_GATEWAY_URL; ?>" method="POST" target="_blank">
+        <input type="hidden" name="amount" value="<?php echo $total_amount; ?>">
+        <input type="hidden" name="tax_amount" value="0">
+        <input type="hidden" name="total_amount" value="<?php echo $total_amount; ?>">
+        <input type="hidden" name="transaction_uuid" value="<?php echo $transaction_uuid; ?>">
+        <input type="hidden" name="product_code" value="<?php echo ESEWA_MERCHANT_CODE; ?>">
+        <input type="hidden" name="signed_field_names" value="total_amount,transaction_uuid,product_code">
+        <input type="hidden" name="signature" value="<?php echo $signature; ?>">
+    </form>
 
 </body>
+
 </html>
