@@ -1,7 +1,7 @@
 <?php
-session_start();
+
 include("header.php");
-include("conn.php");
+require_once("conn.php");
 
 $conn = new connec();
 
