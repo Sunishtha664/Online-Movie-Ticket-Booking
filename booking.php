@@ -34,7 +34,7 @@ if (isset($_POST["btn_booking"])) {
     $sql = "INSERT INTO `seat_detail` (`cust_id`,`show_id`,`seat_no`) VALUES ($cust_id, $show_id, '$seat_no_escaped')";
     $seat_dt_id = $conn->insert_lastid($sql);
 
-    $sql = "INSERT INTO `booking` (`cust_id`,`show_id`,`no_ticket`,`seat_dt_id`,`booking_date`,`total_amount`) VALUES ($cust_id, $show_id, $no_tikt, $seat_dt_id, '$booking_date', $total_amnt)";
+    $sql = "INSERT INTO `booking` (`cust_id`,`show_id`,`no_ticket`,`seat_dt_id`,`booking_date`,`total_amount`) VALUES ($cust_id, $show_id, $no_tikt, $seat_dt_id, '$bkng_date', $total_amnt)";
     $booking_id = $conn->insert_lastid($sql);
 
     // Store booking info in session for payment processing
