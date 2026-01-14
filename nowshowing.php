@@ -11,41 +11,48 @@ $result = $conn->select_by_query("SELECT * FROM movie
 ?>
 
 <style>
-/* Match the dark theme of Coming Soon */
-body {
-    background-color: #0d0d0d;
-    color: azure;
-}
-.card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: none;
-    transition: 0.3s;
-    border-radius: 10px;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-.card img {
-    height: 350px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.card h6, .card p {
-    color: azure;
-}
-.btn-book {
-    background-color: darkcyan;
-    color: white;
-    width: 100%;
-    border: none;
-    transition: 0.3s;
-}
-.btn-book:hover {
-    background-color: #0097a7;
-    color: #fff;
-}
+    /* Match the dark theme of Coming Soon */
+    body {
+        background-color: #0d0d0d;
+        color: azure;
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: none;
+        transition: 0.3s;
+        border-radius: 10px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card img {
+        height: 350px;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .card h6,
+    .card p {
+        color: azure;
+    }
+
+    .btn-book {
+        background-color: darkcyan;
+        color: white;
+        width: 100%;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .btn-book:hover {
+        background-color: #0097a7;
+        color: #fff;
+    }
 </style>
 
 <section class="mt-5">

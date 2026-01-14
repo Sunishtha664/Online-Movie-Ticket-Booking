@@ -44,51 +44,58 @@ $industry    = htmlspecialchars($row['industry_name'] ?? '—');
 ?>
 
 <style>
-.movie-details {
-    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('<?php echo $banner; ?>');
-    background-size: cover;
-    background-position: center;
-    color: #f1f1f1;
-    padding: 80px 0;
-}
-.movie-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
-.movie-title {
-    font-size: 2.3rem;
-    font-weight: bold;
-    color: #00bcd4;
-    margin-bottom: 15px;
-}
-.movie-info li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.movie-info li strong {
-    color: #00bcd4;
-}
-.description {
-    margin-top: 15px;
-    line-height: 1.6;
-}
-.btn-back {
-    display: inline-block;
-    margin-top: 25px;
-    background-color: #00bcd4;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.btn-back:hover {
-    background-color: #0097a7;
-    color: #fff;
-}
+    .movie-details {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('<?php echo $banner; ?>');
+        background-size: cover;
+        background-position: center;
+        color: #f1f1f1;
+        padding: 80px 0;
+    }
+
+    .movie-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .movie-title {
+        font-size: 2.3rem;
+        font-weight: bold;
+        color: #00bcd4;
+        margin-bottom: 15px;
+    }
+
+    .movie-info li {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .movie-info li strong {
+        color: #00bcd4;
+    }
+
+    .description {
+        margin-top: 15px;
+        line-height: 1.6;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 25px;
+        background-color: #00bcd4;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn-back:hover {
+        background-color: #0097a7;
+        color: #fff;
+    }
 </style>
 
 <section class="movie-details">
@@ -96,9 +103,9 @@ $industry    = htmlspecialchars($row['industry_name'] ?? '—');
         <div class="movie-card">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="<?php echo htmlspecialchars($banner); ?>" 
-                         alt="<?php echo $name; ?>" 
-                         style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.4);">
+                    <img src="<?php echo htmlspecialchars($banner); ?>"
+                        alt="<?php echo $name; ?>"
+                        style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.4);">
                 </div>
                 <div class="col-md-7">
                     <h2 class="movie-title"><?php echo $name; ?></h2>
