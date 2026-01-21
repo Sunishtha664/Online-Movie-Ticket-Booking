@@ -35,8 +35,9 @@ $customer = $result->fetch_assoc();
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             min-height: 100vh;
             color: #fff;
-            margin: 0;
-            padding: 0;
+            margin: 0 !important;
+            padding: 0 !important;
+            padding-top: 0 !important;
         }
 
         .profile-container {
