@@ -288,6 +288,46 @@ if (isset($_POST["btn_reg"])) {
             font-size: 18px;
             margin-right: 5px;
         }
+
+        /* Floating Feedback Button */
+        .feedback-floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 188, 212, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 24px;
+        }
+
+        .feedback-floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 188, 212, 0.6);
+        }
+
+        .feedback-floating-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .feedback-floating-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
     </style>
 
 </head>
@@ -313,7 +353,6 @@ if (isset($_POST["btn_reg"])) {
                 </li>
 
                 <li class="nav-item"><a class="nav-link" href="booking.php">Book Ticket</a></li>
-                <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
             </ul>
@@ -470,6 +509,11 @@ if (isset($_POST["btn_reg"])) {
             });
         });
     </script>
+
+    <!-- Floating Feedback Button -->
+    <a href="feedback.php" class="feedback-floating-btn" title="Send Feedback">
+        <i class="fa fa-comment"></i>
+    </a>
 
 </body>
 
