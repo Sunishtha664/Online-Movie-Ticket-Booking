@@ -21,30 +21,6 @@ if ($result->num_rows == 0) {
 }
 
 $customer = $result->fetch_assoc();
-
-// Handle profile update
-$success_msg = "";
-$error_msg = "";
-
-if (isset($_POST["update_profile"])) {
-    $fullname = mysqli_real_escape_string($conn->conn, $_POST["fullname"]);
-    $email = mysqli_real_escape_string($conn->conn, $_POST["email"]);
-    $cellno = mysqli_real_escape_string($conn->conn, $_POST["cellno"]);
-    $gender = mysqli_real_escape_string($conn->conn, $_POST["gender"]);
-    
-    $update_sql = "UPDATE customer SET fullname='$fullname', email='$email', cellno='$cellno', gender='$gender' WHERE id=$customer_id";
-    
-    if ($conn->conn->query($update_sql)) {
-        $_SESSION["username"] = $fullname;
-        $customer["fullname"] = $fullname;
-        $customer["email"] = $email;
-        $customer["cellno"] = $cellno;
-        $customer["gender"] = $gender;
-        $success_msg = "✅ Profile updated successfully!";
-    } else {
-        $error_msg = "❌ Error updating profile!";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,13 +34,14 @@ if (isset($_POST["update_profile"])) {
         body {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             min-height: 100vh;
-            padding-top: 80px;
             color: #fff;
+            margin: 0;
+            padding: 0;
         }
 
         .profile-container {
             max-width: 600px;
-            margin: 40px auto;
+            margin: 30px auto;
             background: rgba(0, 0, 0, 0.7);
             border: 2px solid darkcyan;
             border-radius: 15px;
@@ -219,6 +196,26 @@ if (isset($_POST["update_profile"])) {
             background-color: darkcyan;
             border-color: darkcyan;
         }
+
+        .info-box {
+            background: rgba(0, 255, 255, 0.1);
+            border-left: 4px solid darkcyan;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .info-box strong {
+            color: #00ffff;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #ccc;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -233,52 +230,20 @@ if (isset($_POST["update_profile"])) {
             <p>Customer ID: #<?php echo $customer["id"]; ?></p>
         </div>
 
-        <?php if (!empty($success_msg)): ?>
-            <div class="alert alert-success" role="alert">
-                <?php echo $success_msg; ?>
-            </div>
-        <?php endif; ?>
+        <div class="info-box">
+            <strong><i class="fa fa-envelope"></i> Email Address</strong>
+            <p style="margin: 5px 0 0 0;"><?php echo htmlspecialchars($customer["email"]); ?></p>
+        </div>
 
-        <?php if (!empty($error_msg)): ?>
-            <div class="alert alert-danger" role="alert">
-                <?php echo $error_msg; ?>
-            </div>
-        <?php endif; ?>
+        <div class="info-box">
+            <strong><i class="fa fa-phone"></i> Phone Number</strong>
+            <p style="margin: 5px 0 0 0;"><?php echo htmlspecialchars($customer["cellno"]); ?></p>
+        </div>
 
-        <form method="POST">
-            <div class="form-group">
-                <label for="fullname"><i class="fa fa-user"></i> Full Name</label>
-                <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo htmlspecialchars($customer["fullname"]); ?>" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email"><i class="fa fa-envelope"></i> Email Address</label>
-                <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($customer["email"]); ?>" required>
-            </div>
-
-            <div class="form-group">
-                <label for="cellno"><i class="fa fa-phone"></i> Phone Number</label>
-                <input type="tel" class="form-control" id="cellno" name="cellno" value="<?php echo htmlspecialchars($customer["cellno"]); ?>" required>
-            </div>
-
-            <div class="form-group">
-                <label><i class="fa fa-transgender"></i> Gender</label>
-                <div class="gender-options">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" <?php echo ($customer["gender"] == "male") ? "checked" : ""; ?>>
-                        <label class="form-check-label" for="male">Male</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="female" value="female" <?php echo ($customer["gender"] == "female") ? "checked" : ""; ?>>
-                        <label class="form-check-label" for="female">Female</label>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" name="update_profile" class="btn-update">
-                <i class="fa fa-save"></i> Update Profile
-            </button>
-        </form>
+        <div class="info-box">
+            <strong><i class="fa fa-transgender"></i> Gender</strong>
+            <p style="margin: 5px 0 0 0;"><?php echo ucfirst(htmlspecialchars($customer["gender"])); ?></p>
+        </div>
 
         <a href="index.php" class="btn-back">
             <i class="fa fa-arrow-left"></i> Back to Home
