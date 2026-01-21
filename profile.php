@@ -1,8 +1,5 @@
 <?php
-session_start();
 include("header.php");
-include("conn.php");
-$conn = new connec();
 
 // Check if user is logged in
 if (empty($_SESSION["cust_id"])) {
