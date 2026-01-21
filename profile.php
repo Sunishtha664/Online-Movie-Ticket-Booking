@@ -42,7 +42,7 @@ $customer = $result->fetch_assoc();
 
         .profile-container {
             max-width: 600px;
-            margin: 30px auto;
+             margin: 0 auto 30px auto;
             background: rgba(0, 0, 0, 0.7);
             border: 2px solid darkcyan;
             border-radius: 15px;
@@ -217,6 +217,11 @@ $customer = $result->fetch_assoc();
             color: #ccc;
             font-size: 16px;
         }
+        header,
+        .navbar {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+}
     </style>
 </head>
 <body>
