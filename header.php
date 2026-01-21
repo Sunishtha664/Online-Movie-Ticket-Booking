@@ -263,6 +263,31 @@ if (isset($_POST["btn_reg"])) {
                 transform: translateY(0);
             }
         }
+
+        /* Profile dropdown styling */
+        .dropdown-menu-right {
+            right: 0 !important;
+            left: auto !important;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+        }
+
+        .dropdown-item i {
+            margin-right: 8px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .dropdown-divider {
+            border-color: rgba(0, 255, 255, 0.3);
+        }
+
+        /* Profile icon styling */
+        .nav-link .fa-user-circle {
+            font-size: 18px;
+            margin-right: 5px;
+        }
     </style>
 
 </head>
@@ -312,11 +337,20 @@ if (isset($_POST["btn_reg"])) {
                         <a class="nav-link" data-toggle="modal" data-target="#modelId1">Login</a>
                     </li>
                 <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link">Hello <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=logout">Logout</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars(substr($_SESSION["username"], 0, 12)); ?>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown" style="right: 0; left: auto;">
+                            <a class="dropdown-item" href="profile.php">
+                                <i class="fa fa-user"></i> My Profile
+                            </a>
+                        
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="index.php?action=logout" style="color: #ff6b6b;">
+                                <i class="fa fa-sign-out"></i> Logout
+                            </a>
+                        </div>
                     </li>
                 <?php endif; ?>
             </ul>
