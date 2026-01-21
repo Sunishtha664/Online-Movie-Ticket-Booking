@@ -60,6 +60,9 @@
     <li class="nav-item">
         <a class="nav-link" href="viewcustomer.php" style="color: white;">Customer</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="viewfeedback.php" style="color: white;">Feedback</a>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link" href="viewgenre.php" style="color: white;">Movie Genre</a>

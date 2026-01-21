@@ -313,6 +313,7 @@ if (isset($_POST["btn_reg"])) {
                 </li>
 
                 <li class="nav-item"><a class="nav-link" href="booking.php">Book Ticket</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
             </ul>
