@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("header.php");
 include("conn.php");
 $conn = new connec();
 
@@ -22,14 +23,7 @@ if ($result->num_rows == 0) {
 
 $customer = $result->fetch_assoc();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - Movie Ticket Booking</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         body {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -217,15 +211,7 @@ $customer = $result->fetch_assoc();
             color: #ccc;
             font-size: 16px;
         }
-        header,
-        .navbar {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-}
     </style>
-</head>
-<body>
-    <?php include("header.php"); ?>
 
     <div class="profile-container">
         <div class="profile-header">
@@ -257,8 +243,3 @@ $customer = $result->fetch_assoc();
     </div>
 
     <?php include("footer.php"); ?>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
