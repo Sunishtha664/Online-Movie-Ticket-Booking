@@ -54,7 +54,7 @@
                  </div>
                  <div class="col-md-10">
                      <h5 class="text-center mt-2" style="color:maroon;">Customer Feedback </h5>
-                     <a href="addcustomer.php" style="color:brown;">Add Feedback</a>
+                     <a href="addfeedback.php" style="color:brown;">Add Feedback</a>
 
                      <div class="table-responsive mt-4">
                          <table class="table table-bordered table-striped" s>
