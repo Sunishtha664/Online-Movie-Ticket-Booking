@@ -7,9 +7,16 @@ if (empty($_SESSION["admin_username"])) {
 
     include("admin_header.php");
     $conn = new connec();
-    $sql = "SELECT seat_reserved.id, seat_reserved.show_id, customer.fullname, seat_reserved.seat_number, seat_reserved.reserved
-    FROM seat_reserved, customer
-    WHERE seat_reserved.cust_id = cust_id;";
+    $cinemaFilter = '';
+    if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+        $cid = intval($_SESSION['admin_cinema_id']);
+        $cinemaFilter = " AND s.cinema_id = $cid";
+    }
+    $sql = "SELECT sr.id, sr.show_id, cu.fullname, sr.seat_number, sr.reserved
+            FROM seat_reserved sr
+            JOIN customer cu ON sr.cust_id = cu.id
+            JOIN `show` s ON sr.show_id = s.id
+            WHERE 1=1" . $cinemaFilter;
 
     $result = $conn->select_by_query($sql);
 ?>

@@ -7,14 +7,18 @@ if (empty($_SESSION["admin_username"])) {
 
     include("admin_header.php");
     $conn = new connec();
-    $sql = "SELECT seat_detail.id, customer.fullname, seat_detail.seat_no, movie.name, movie_ticket_booking.show.id AS 'show_id'
-
-FROM seat_detail, customer, movie_ticket_booking.show
-JOIN movie
-
-WHERE seat_detail.cust_id = customer.id AND
-seat_detail.show_id = movie_ticket_booking.show.id AND
-movie.id = movie_ticket_booking.show.movie_id;";
+    // build filter for cinema-admins
+    $cinemaFilter = '';
+    if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+        $cid = intval($_SESSION['admin_cinema_id']);
+        $cinemaFilter = " AND s.cinema_id = $cid";
+    }
+    $sql = "SELECT sd.id, cu.fullname, sd.seat_no, m.name, s.id AS show_id
+            FROM seat_detail sd
+            JOIN customer cu ON sd.cust_id = cu.id
+            JOIN `show` s ON sd.show_id = s.id
+            JOIN movie m ON s.movie_id = m.id
+            WHERE 1=1" . $cinemaFilter;
 
     $result = $conn->select_by_query($sql);
 ?>
