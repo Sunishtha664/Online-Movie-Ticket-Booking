@@ -12,12 +12,12 @@ $booking_date = "";
 $seat_dt_id = "";
 
 if (isset($_POST["btn_delete"])) {
-    include("../conn.php");
+    require_once("../conn.php");
 
-    $id = $_GET["id"];
+    $id = intval($_GET["id"]);
     $conn = new connec();
 
-    // Get seat_detail_id and show_id
+    // Get seat_detail_id and show_id to validate
     $result = $conn->select('booking', $id);
     $seat_dt_id = "";
     $show_id = "";
@@ -25,6 +25,17 @@ if (isset($_POST["btn_delete"])) {
         $row = $result->fetch_assoc();
         $seat_dt_id = $row['seat_dt_id'];
         $show_id = $row['show_id'];
+        // enforce cinema restriction
+        if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+            $chk = $conn->select('show', $show_id);
+            if ($chk && $chk->num_rows > 0) {
+                $r2 = $chk->fetch_assoc();
+                if ($r2['cinema_id'] != $_SESSION['admin_cinema_id']) {
+                    header("Location:viewbooking.php");
+                    exit();
+                }
+            }
+        }
     }
 
     // Delete booking first (it has FK to seat_detail)
@@ -58,6 +69,18 @@ if (empty($_SESSION["admin_username"])) {
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            // verify cinema restriction
+            if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+                $chk = $conn->select('show', $row['show_id']);
+                if ($chk && $chk->num_rows > 0) {
+                    $r2 = $chk->fetch_assoc();
+                    if ($r2['cinema_id'] != $_SESSION['admin_cinema_id']) {
+                        header("Location:viewbooking.php");
+                        exit();
+                    }
+                }
+            }
+
             $no_ticket = $row["no_ticket"];
             $total_amount = $row["total_amount"];
             $booking_date = $row["booking_date"];

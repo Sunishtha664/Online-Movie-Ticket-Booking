@@ -2,7 +2,7 @@
 session_start();
   if(isset($_POST["btn_insert"])){
 
-         include("../conn.php");
+         require_once("../conn.php");
         $name = $_POST["cinema_name_txt"];
         $location = $_POST["cinema_location_txt"];
         $city = $_POST["city_name_txt"];

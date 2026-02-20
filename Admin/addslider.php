@@ -16,7 +16,7 @@ if (isset($_POST["btn_insert"])) {
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file_01)) {
-        include("../conn.php");
+        require_once("../conn.php");
         $conn = new connec();
         $sql = "insert into slider values(0,'$target_file','$alt')";
 

@@ -48,6 +48,14 @@
         <a class="nav-link" href="viewbooking.php" style="color: white;">Movie Booking</a>
     </li>
 
+    <?php if (isset(
+        
+        
+        $_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] == 0): ?>
+    <li class="nav-item">
+        <a class="nav-link" href="viewadmin.php" style="color: white;">Admins</a>
+    </li>
+    <?php endif; ?>
 
     <li class="nav-item">
         <a class="nav-link" href="viewcinema.php" style="color: white;">Cinema</a>

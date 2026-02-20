@@ -7,7 +7,7 @@ $c = "";
 
   if(isset($_POST["btn_delete"])){
 
-         include("../conn.php");
+         require_once("../conn.php");
        
         $id = $_GET["id"];
         $conn = new connec();

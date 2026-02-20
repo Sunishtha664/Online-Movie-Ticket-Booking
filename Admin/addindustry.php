@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST["btn_insert"])) {
 
-    include("../conn.php");
+    require_once("../conn.php");
     $name = $_POST["industry_name_txt"];
 
     $conn = new connec();

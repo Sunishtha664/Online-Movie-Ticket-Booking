@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST["btn_insert"])) {
 
-    include("../conn.php");
+    require_once("../conn.php");
     $cust_id = $_POST["cust_id_txt"];
     $show_id = $_POST["show_id_txt"];
     $no_ticket = $_POST["no_ticket_txt"];
@@ -91,7 +91,12 @@ if (empty($_SESSION["admin_username"])) {
                                     <option value="">-- Select Show --</option>
                                     <?php
                                     $conn_select = new connec();
-                                    $sql = "SELECT s.id, m.name, s.show_date, st.time, s.ticket_price FROM `show` s LEFT JOIN movie m ON s.movie_id = m.id LEFT JOIN show_time st ON s.show_time_id = st.id";
+                                    $filter = '';
+                                    if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+                                        $id = intval($_SESSION['admin_cinema_id']);
+                                        $filter = "WHERE s.cinema_id = $id";
+                                    }
+                                    $sql = "SELECT s.id, m.name, s.show_date, st.time, s.ticket_price FROM `show` s LEFT JOIN movie m ON s.movie_id = m.id LEFT JOIN show_time st ON s.show_time_id = st.id $filter";
                                     $result = $conn_select->select_by_query($sql);
                                     if ($result && $result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {

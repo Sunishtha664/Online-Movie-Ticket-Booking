@@ -43,3 +43,27 @@ ALTER TABLE booking ADD COLUMN payment_date DATETIME DEFAULT NULL;
 
 -- Update a specific booking's payment status:
 -- UPDATE booking SET payment_status = 'completed', payment_date = NOW() WHERE id = 1 AND payment_method = 'counter';
+
+-- =====================================================
+-- CINEMA‑SPECIFIC ADMIN USERS TABLE
+-- =====================================================
+-- run once to create the administrative accounts table
+-- (super-admin is still hard-coded in index.php)
+
+CREATE TABLE IF NOT EXISTS `admin_users` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(255) NOT NULL UNIQUE,
+    `password` VARCHAR(255) NOT NULL,
+    `cinema_id` INT NOT NULL,
+    FOREIGN KEY (`cinema_id`) REFERENCES `cinema`(`id`) ON DELETE CASCADE
+);
+
+-- example inserts (adjust ids/passwords as needed):
+-- INSERT INTO admin_users (username,password,cinema_id) VALUES
+-- ('cinebliss','pass123', 1),
+-- ('cinema_grand','grandpwd',2),
+-- ('dreamscape','dreampwd',3),
+-- ('cineplus','pluspwd',4),
+-- ('nueplex','nuepwd',5),
+-- ('cinelucky','luckypwd',6);
+

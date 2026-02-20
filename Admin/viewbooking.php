@@ -8,6 +8,13 @@ if (empty($_SESSION["admin_username"])) {
 
     $conn = new connec();
 
+    // determine filter for cinema-specific admins
+    $cinemaFilter = '';
+    if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+        $id = intval($_SESSION['admin_cinema_id']);
+        $cinemaFilter = "WHERE s.cinema_id = $id";
+    }
+
     $sql = "SELECT 
     b.id,
     cu.fullname AS customer_name,
@@ -26,6 +33,7 @@ if (empty($_SESSION["admin_username"])) {
     LEFT JOIN movie m ON s.movie_id = m.id
     LEFT JOIN show_time st ON s.show_time_id = st.id
     LEFT JOIN cinema ci ON s.cinema_id = ci.id
+    $cinemaFilter
     ORDER BY b.booking_date DESC";
 
     $result = $conn->select_by_query($sql);

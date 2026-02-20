@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST["btn_insert"])) {
 
-    include("../conn.php");
+    require_once("../conn.php");
     $name = $_POST["customer_name_txt"];
     $email = $_POST["customer_email_txt"];
     $cell = $_POST["customer_cell_txt"];

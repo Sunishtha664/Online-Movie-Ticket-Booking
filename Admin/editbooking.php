@@ -53,6 +53,18 @@ if (empty($_SESSION["admin_username"])) {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                // if this admin is tied to a cinema, make sure the booking belongs to it
+                if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+                    $check = $conn->select_by_query("SELECT cinema_id FROM `show` WHERE id=" . intval($row['show_id']));
+                    if ($check && $check->num_rows > 0) {
+                        $c = $check->fetch_assoc();
+                        if ($c['cinema_id'] != $_SESSION['admin_cinema_id']) {
+                            header("Location:viewbooking.php");
+                            exit();
+                        }
+                    }
+                }
+
                 $cust_id = $row["cust_id"];
                 $show_id = $row["show_id"];
                 $no_ticket = $row["no_ticket"];
@@ -103,7 +115,12 @@ if (empty($_SESSION["admin_username"])) {
                                     <option value="">-- Select Show --</option>
                                     <?php
                                     $conn_select = new connec();
-                                    $sql = "SELECT s.id, m.name, s.show_date, st.time, s.ticket_price FROM `show` s LEFT JOIN movie m ON s.movie_id = m.id LEFT JOIN show_time st ON s.show_time_id = st.id";
+                                    $filter = '';
+                                    if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+                                        $id = intval($_SESSION['admin_cinema_id']);
+                                        $filter = "WHERE s.cinema_id = $id";
+                                    }
+                                    $sql = "SELECT s.id, m.name, s.show_date, st.time, s.ticket_price FROM `show` s LEFT JOIN movie m ON s.movie_id = m.id LEFT JOIN show_time st ON s.show_time_id = st.id $filter";
                                     $result = $conn_select->select_by_query($sql);
                                     if($result && $result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {

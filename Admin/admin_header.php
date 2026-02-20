@@ -1,5 +1,14 @@
 <?php
-include("../conn.php");
+require_once("../conn.php");
+// determine cinema name for this admin (if any)
+$adminCinemaName = '';
+if (!empty($_SESSION["admin_cinema_id"]) && $_SESSION["admin_cinema_id"] > 0) {
+    $connTemp = new connec();
+    $res = $connTemp->select('cinema', $_SESSION['admin_cinema_id']);
+    if ($res && $row = $res->fetch_assoc()) {
+        $adminCinemaName = $row['name'];
+    }
+}
 ?>
 
 
@@ -215,7 +224,9 @@ include("../conn.php");
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#000;">
         <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
             <img src="../Images/Clapperboard.jpeg" alt="Logo" style="height: 40px; margin-right:10px;">
-            <span style="font-size:20px; font-weight:600;">Admin Panel</span>
+            <span style="font-size:20px; font-weight:600;">Admin Panel<?php if(
+    !empty($adminCinemaName)
+): ?> - <?php echo htmlspecialchars($adminCinemaName); ?><?php endif; ?></span>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">

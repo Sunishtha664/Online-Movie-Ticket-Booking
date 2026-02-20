@@ -26,9 +26,15 @@ if (empty($_SESSION["admin_username"])) {
                         $movies = $conn->select_all("movie");
                         $total_movies = $movies->num_rows;
 
-                        // Total Bookings
-                        $bookings = $conn->select_all("booking");
-                        $total_bookings = $bookings->num_rows;
+                        // Total Bookings (restricted to cinema if logged in as cinema admin)
+                        if (!empty($_SESSION['admin_cinema_id']) && $_SESSION['admin_cinema_id'] > 0) {
+                            $cid = intval($_SESSION['admin_cinema_id']);
+                            $resb = $conn->select_by_query("SELECT b.* FROM `booking` b JOIN `show` s ON b.show_id = s.id WHERE s.cinema_id=$cid");
+                            $total_bookings = $resb ? $resb->num_rows : 0;
+                        } else {
+                            $bookings = $conn->select_all("booking");
+                            $total_bookings = $bookings->num_rows;
+                        }
 
                         // Total Customers
                         $customers = $conn->select_all("customer");

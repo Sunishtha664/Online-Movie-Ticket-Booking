@@ -9,24 +9,31 @@ if (!empty($_SESSION["admin_username"])) {
 }
 
 if (isset($_POST["btn_login"])) {
-
+    require_once("../conn.php");
     $email_id = $_POST["log_email"];
     $paswrd_log = $_POST["log_psw"];
 
-    if ($email_id === "admin@gmail.com") {
+    $conn = new connec();
 
-        if ($paswrd_log === "admin1234") {
+    // super‑user hardcoded account (global access)
+    if ($email_id === "admin@gmail.com" && $paswrd_log === "admin1234") {
+        $_SESSION["admin_username"] = $email_id;
+        $_SESSION["admin_cinema_id"] = 0; // 0 means no restriction
+        header("Location: dashboard.php");
+        exit();
+    }
 
-            // THIS WAS MISSING — set session
-            $_SESSION["admin_username"] = $email_id;
-
-            header("Location: dashboard.php");
-            exit();
-        } else {
-            $error = "Invalid Password";
-        }
+    // look up cinema‑specific admins
+    $query = "SELECT * FROM admin_users WHERE username='" . $conn->conn->real_escape_string($email_id) . "' AND password='" . $conn->conn->real_escape_string($paswrd_log) . "'";
+    $result = $conn->select_by_query($query);
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION["admin_username"] = $row['username'];
+        $_SESSION["admin_cinema_id"] = $row['cinema_id'];
+        header("Location: dashboard.php");
+        exit();
     } else {
-        $error = "Invalid Email";
+        $error = "Invalid Email or Password";
     }
 }
 ?>

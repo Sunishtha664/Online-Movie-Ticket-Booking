@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST["btn_insert"])) {
 
-    include("../conn.php");
+    require_once("../conn.php");
     $movie_id = $_POST["movie_id_txt"];
     $show_date = $_POST["show_date_txt"];
     $show_time_id = $_POST["show_time_id_txt"];
