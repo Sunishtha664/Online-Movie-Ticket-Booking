@@ -14,7 +14,7 @@ if (!isset($_SESSION['admin_cinema_id']) || $_SESSION['admin_cinema_id'] != 0) {
 include("admin_header.php");
 $conn = new connec();
 
-$sql = "SELECT a.id, a.username, a.password, c.name AS cinema_name, a.cinema_id FROM admin_users a LEFT JOIN cinema c ON a.cinema_id = c.id";
+$sql = "SELECT a.id, a.username, a.email, a.password, c.name AS cinema_name, a.cinema_id FROM admin_users a LEFT JOIN cinema c ON a.cinema_id = c.id";
 $result = $conn->select_by_query($sql);
 ?>
 
@@ -49,6 +49,7 @@ $result = $conn->select_by_query($sql);
                             <tr>
                                 <th>ID</th>
                                 <th>Username</th>
+                                <th>Email</th>
                                 <th>Password</th>
                                 <th>Cinema</th>
                                 <th>Action</th>
@@ -62,6 +63,7 @@ $result = $conn->select_by_query($sql);
                                 <tr>
                                     <td><?php echo $row['id']; ?></td>
                                     <td><?php echo htmlspecialchars($row['username']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['email']); ?></td>
                                     <td><?php echo htmlspecialchars($row['password']); ?></td>
                                     <td><?php echo htmlspecialchars($row['cinema_name'] ?? '-'); ?></td>
                                     <td>

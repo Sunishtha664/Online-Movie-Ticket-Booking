@@ -146,9 +146,9 @@ All files are created and configured. You just need to:
 ---
 
 ### 🎛️ New Admin Functionality
-• **Database:** create `admin_users` table (see README).  
+• **Database:** create `admin_users` table (see README).  Added an `email` column used for login; keep `username` as a display name.  
 • **Super‑admin:** existing `admin@gmail.com/admin1234` retains full access.  
-• **Cinema admins:** create records (or use the new **Admins** pages) and assign to cinemas such as Cinebliss, Cinema Grand, etc.  
-• **Interface changes:** login checks the table, bookings and show lists are filtered to the assigned cinema.  
+• **Cinema admins:** create records (or use the new **Admins** pages) and assign to cinemas such as Cinebliss, Cinema Grand, etc.; each record now includes an email address.  
+• **Interface changes:** login now uses email/password, admin listing shows email column, add/edit forms collect email.  Bookings and show lists remain filtered to the assigned cinema.  
 • **New pages:** `viewadmin.php`, `addadmin.php`, `editadmin.php`, `deleteadmin.php` with sidebar link.
 

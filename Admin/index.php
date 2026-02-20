@@ -23,12 +23,13 @@ if (isset($_POST["btn_login"])) {
         exit();
     }
 
-    // look up cinema‑specific admins
-    $query = "SELECT * FROM admin_users WHERE username='" . $conn->conn->real_escape_string($email_id) . "' AND password='" . $conn->conn->real_escape_string($paswrd_log) . "'";
+    // look up cinema‑specific admins by email
+    $query = "SELECT * FROM admin_users WHERE email='" . $conn->conn->real_escape_string($email_id) . "' AND password='" . $conn->conn->real_escape_string($paswrd_log) . "'";
     $result = $conn->select_by_query($query);
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $_SESSION["admin_username"] = $row['username'];
+        $_SESSION["admin_email"] = $row['email'];
         $_SESSION["admin_cinema_id"] = $row['cinema_id'];
         header("Location: dashboard.php");
         exit();

@@ -24,12 +24,13 @@ $admin = $result->fetch_assoc();
 
 if (isset($_POST['btn_update'])) {
     $username = trim($_POST['username_txt']);
+    $email = trim($_POST['email_txt']);
     $password = trim($_POST['password_txt']);
     $cinema_id = intval($_POST['cinema_id_txt']);
-    if ($username === '' || $cinema_id <= 0) {
-        $error = "Username and cinema are required.";
+    if ($username === '' || $email === '' || $cinema_id <= 0) {
+        $error = "Username, email and cinema are required.";
     } else {
-        $updateSQL = "UPDATE admin_users SET username='" . $conn->conn->real_escape_string($username) . "', " .
+        $updateSQL = "UPDATE admin_users SET username='" . $conn->conn->real_escape_string($username) . "', email='" . $conn->conn->real_escape_string($email) . "', " .
             ($password !== '' ? "password='" . $conn->conn->real_escape_string($password) . "', " : "") .
             "cinema_id=$cinema_id WHERE id=$id";
         $conn->update($updateSQL, "Admin updated.");
@@ -54,6 +55,9 @@ include("admin_header.php");
                     <div class="container" style="color:#343a40; max-width:500px;">
                         <label><b>Username</b></label>
                         <input type="text" name="username_txt" value="<?php echo htmlspecialchars($admin['username']); ?>" required>
+
+                        <label><b>Email</b></label>
+                        <input type="email" name="email_txt" value="<?php echo htmlspecialchars($admin['email']); ?>" required>
 
                         <label><b>Password</b></label>
                         <input type="text" name="password_txt" value="<?php echo htmlspecialchars($admin['password']); ?>" required>

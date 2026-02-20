@@ -53,17 +53,21 @@ ALTER TABLE booking ADD COLUMN payment_date DATETIME DEFAULT NULL;
 CREATE TABLE IF NOT EXISTS `admin_users` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(255) NOT NULL UNIQUE,
+    `email` VARCHAR(255) NOT NULL UNIQUE,
     `password` VARCHAR(255) NOT NULL,
     `cinema_id` INT NOT NULL,
     FOREIGN KEY (`cinema_id`) REFERENCES `cinema`(`id`) ON DELETE CASCADE
 );
 
--- example inserts (adjust ids/passwords as needed):
--- INSERT INTO admin_users (username,password,cinema_id) VALUES
--- ('cinebliss','pass123', 1),
--- ('cinema_grand','grandpwd',2),
--- ('dreamscape','dreampwd',3),
--- ('cineplus','pluspwd',4),
--- ('nueplex','nuepwd',5),
--- ('cinelucky','luckypwd',6);
+-- if the table already exists but lacks an email column, run:
+-- ALTER TABLE admin_users ADD COLUMN email VARCHAR(255) NOT NULL UNIQUE AFTER username;
+
+-- example inserts (adjust ids/emails/passwords as needed):
+-- INSERT INTO admin_users (username,email,password,cinema_id) VALUES
+-- ('cinebliss','cinebliss@example.com','pass123', 1),
+-- ('cinema_grand','grand@example.com','grandpwd',2),
+-- ('dreamscape','dream@example.com','dreampwd',3),
+-- ('cineplus','plus@example.com','pluspwd',4),
+-- ('nueplex','nueplex@example.com','nuepwd',5),
+-- ('cinelucky','lucky@example.com','luckypwd',7);
 

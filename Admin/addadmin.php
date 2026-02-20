@@ -10,14 +10,15 @@ $conn = new connec();
 $error = '';
 if (isset($_POST['btn_insert'])) {
     $username = trim($_POST['username_txt']);
+    $email = trim($_POST['email_txt']);
     $password = trim($_POST['password_txt']);
     $cinema_id = intval($_POST['cinema_id_txt']);
 
-    if ($username === '' || $password === '' || $cinema_id <= 0) {
+    if ($username === '' || $email === '' || $password === '' || $cinema_id <= 0) {
         $error = "All fields are required.";
     } else {
         // insert new admin
-        $sql = "INSERT INTO admin_users (username,password,cinema_id) VALUES ('" . $conn->conn->real_escape_string($username) . "', '" . $conn->conn->real_escape_string($password) . "', $cinema_id)";
+        $sql = "INSERT INTO admin_users (username,email,password,cinema_id) VALUES ('" . $conn->conn->real_escape_string($username) . "', '" . $conn->conn->real_escape_string($email) . "', '" . $conn->conn->real_escape_string($password) . "', $cinema_id)";
         $conn->insert($sql, "Admin account created.");
         header("Location: viewadmin.php");
         exit();
@@ -51,6 +52,9 @@ textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=e
                     <div class="container" style="color:#343a40; max-width:500px;">
                         <label><b>Username</b></label>
                         <input type="text" name="username_txt" required>
+
+                        <label><b>Email</b></label>
+                        <input type="email" name="email_txt" required>
 
                         <label><b>Password</b></label>
                         <input type="password" name="password_txt" required>
